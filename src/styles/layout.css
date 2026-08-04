@@ -1,0 +1,118 @@
+/**
+ * Layout utilities — section rhythm + grids.
+ * Compose via class names; prefer Section/Container components in JSX.
+ */
+
+.page {
+  width: 100%;
+}
+
+.stack-xs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.stack-sm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.stack-md {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.stack-lg {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+.section {
+  padding-block: var(--space-16);
+}
+
+.section-tight {
+  padding-block: var(--space-10);
+}
+
+.section-lux {
+  padding-block: var(--space-24);
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--gutter-mobile);
+}
+
+.grid-product {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: var(--space-4);
+  row-gap: var(--space-12);
+}
+
+@media (min-width: 380px) {
+  .grid-product {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: var(--space-20);
+  }
+
+  .section-tight {
+    padding-block: var(--space-12);
+  }
+
+  .section-lux {
+    padding-block: var(--space-30);
+  }
+
+  .grid-12 {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: var(--gutter-tablet);
+  }
+
+  .grid-product {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: var(--space-6);
+    row-gap: var(--space-16);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--gutter-laptop);
+  }
+
+  .grid-product {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: var(--space-8);
+  }
+}
+
+@media (min-width: 1280px) {
+  .section {
+    padding-block: var(--space-24);
+  }
+
+  .section-lux {
+    padding-block: var(--space-40);
+  }
+
+  .grid-12 {
+    gap: var(--gutter-desktop);
+  }
+}
+
+.safe-bottom {
+  padding-bottom: max(var(--space-4), env(safe-area-inset-bottom));
+}

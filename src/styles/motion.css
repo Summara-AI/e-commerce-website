@@ -1,0 +1,326 @@
+/**
+ * Premium interaction utilities — transform + opacity only.
+ * Calm timings. Honors prefers-reduced-motion.
+ */
+
+.ease-premium {
+  transition-timing-function: var(--ease-out);
+}
+
+/* Soft once-only scroll entrance — driven by Reveal */
+.reveal-ready {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition:
+    opacity 640ms var(--ease-out),
+    transform 640ms var(--ease-out);
+}
+
+.reveal-in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+
+.reveal-ready.reveal-from-left {
+  transform: translate3d(-16px, 0, 0);
+}
+
+.reveal-ready.reveal-from-right {
+  transform: translate3d(16px, 0, 0);
+}
+
+.reveal-ready.reveal-scale {
+  transform: translate3d(0, 12px, 0) scale(0.985);
+}
+
+.reveal-in.reveal-from-left,
+.reveal-in.reveal-from-right,
+.reveal-in.reveal-scale {
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* Staggered children — parent adds .reveal-stagger */
+.reveal-stagger > *:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger > *:nth-child(2) { transition-delay: 70ms; }
+.reveal-stagger > *:nth-child(3) { transition-delay: 140ms; }
+.reveal-stagger > *:nth-child(4) { transition-delay: 210ms; }
+.reveal-stagger > *:nth-child(5) { transition-delay: 280ms; }
+.reveal-stagger > *:nth-child(6) { transition-delay: 350ms; }
+
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  transition:
+    opacity 560ms var(--ease-out),
+    transform 560ms var(--ease-out);
+}
+
+.reveal-in.reveal-stagger > *,
+.reveal-stagger.reveal-in > * {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Media / image plane fade-in */
+.media-fade-in {
+  animation: ksl-media-fade 320ms var(--ease-out) both;
+}
+
+@keyframes ksl-media-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Soft skeleton shimmer (Brand Kit blush → mist) */
+.skeleton-shimmer {
+  background: linear-gradient(
+    105deg,
+    var(--color-blush) 0%,
+    var(--color-blush) 35%,
+    var(--color-pink-mist) 50%,
+    var(--color-blush) 65%,
+    var(--color-blush) 100%
+  );
+  background-size: 220% 100%;
+  animation: ksl-shimmer 1.8s var(--ease-soft) infinite;
+}
+
+@keyframes ksl-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+/* Soft UGC placeholder drift */
+@keyframes ksl-ugc-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(4%, -3%, 0) scale(1.06);
+  }
+}
+
+@keyframes ksl-ugc-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes ksl-ugc-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.88;
+  }
+}
+
+@keyframes ksl-ugc-shimmer {
+  0% {
+    background-position: 120% 0;
+  }
+  100% {
+    background-position: -120% 0;
+  }
+}
+
+/* Discrete float cycle every 6s — not a constant bounce */
+.ugc-float-cycle {
+  animation: ksl-ugc-float 2.4s var(--ease-soft) 1;
+}
+
+.ugc-play-pulse {
+  animation: ksl-ugc-pulse 5s var(--ease-soft) infinite;
+}
+
+.ugc-badge-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.ugc-badge-shimmer::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 65%
+  );
+  background-size: 220% 100%;
+  animation: ksl-ugc-shimmer 1.2s var(--ease-soft) 1;
+}
+
+.ugc-cta-ripple::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--ripple-x, 50%) var(--ripple-y, 50%),
+    rgba(255, 255, 255, 0.28),
+    transparent 55%
+  );
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity 0.45s var(--ease-soft),
+    transform 0.55s var(--ease-soft);
+}
+
+.ugc-cta-ripple:hover::before {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ugc-float-cycle,
+  .ugc-play-pulse,
+  .ugc-badge-shimmer::after {
+    animation: none;
+  }
+}
+
+/* Luxury surface atmosphere — decorative, never heavy */
+.lux-atmosphere {
+  position: relative;
+  isolation: isolate;
+}
+
+.lux-atmosphere::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 55% 45% at 12% 18%, rgba(255, 224, 239, 0.55), transparent 70%),
+    radial-gradient(ellipse 45% 40% at 88% 78%, rgba(242, 236, 228, 0.65), transparent 72%);
+}
+
+.lux-glass {
+  background: color-mix(in srgb, var(--color-canvas) 72%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.lux-frame {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  box-shadow: var(--elev-1);
+  overflow: hidden;
+  transition:
+    transform 320ms var(--ease-out),
+    box-shadow 320ms var(--ease-out),
+    border-color 280ms var(--ease-out);
+}
+
+.lux-frame:hover {
+  transform: translate3d(0, -6px, 0);
+  box-shadow: var(--elev-3);
+  border-color: color-mix(in srgb, var(--color-soft-pink) 45%, var(--border-subtle));
+}
+
+.lux-media-zoom {
+  overflow: hidden;
+}
+
+.lux-media-zoom img,
+.lux-media-zoom [data-placeholder="true"] {
+  transition: transform 640ms var(--ease-out);
+}
+
+.lux-media-zoom:hover img,
+.lux-media-zoom:hover [data-placeholder="true"],
+.group:hover .lux-media-zoom img,
+.group:hover .lux-media-zoom [data-placeholder="true"] {
+  transform: scale(1.04);
+}
+
+/* Mini-cart scroll rail — thin, warm, never loud */
+.cart-drawer-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(42, 26, 34, 0.18) transparent;
+}
+
+.cart-drawer-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cart-drawer-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  margin-block: 8px;
+}
+
+.cart-drawer-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(42, 26, 34, 0.16);
+  border-radius: 999px;
+}
+
+.cart-drawer-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(232, 0, 111, 0.35);
+}
+
+/* Text-link underline draw — secondary CTAs */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition:
+    background-size 280ms var(--ease-out),
+    color 200ms var(--ease-out);
+}
+
+.link-underline:hover,
+.link-underline:focus-visible {
+  background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready,
+  .reveal-in,
+  .reveal-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+
+  .media-fade-in,
+  .skeleton-shimmer {
+    animation: none !important;
+  }
+
+  .link-underline {
+    transition: none !important;
+    background-size: 100% 1px;
+  }
+
+  .lux-frame:hover,
+  .lux-media-zoom:hover img,
+  .lux-media-zoom:hover [data-placeholder="true"],
+  .group:hover .lux-media-zoom img,
+  .group:hover .lux-media-zoom [data-placeholder="true"] {
+    transform: none !important;
+  }
+}

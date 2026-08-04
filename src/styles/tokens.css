@@ -1,0 +1,236 @@
+/**
+ * Korean Skin Lab — Official Brand Kit Design Tokens
+ * Exact palette only. Do not invent off-kit colors.
+ */
+
+:root {
+  /* ——— Breakpoints (reference for JS / media) ——— */
+  --bp-mobile-max: 767px;
+  --bp-tablet-min: 768px;
+  --bp-tablet-max: 1023px;
+  --bp-laptop-min: 1024px;
+  --bp-laptop-max: 1279px;
+  --bp-desktop-min: 1280px;
+  --bp-wide-min: 1440px;
+
+  /* ——— Containers ——— */
+  --container-max: 1440px;
+  --container-content: 1200px;
+  --container-narrow: 720px;
+  --container-form: 480px;
+
+  /* ——— Grid ——— */
+  --grid-columns-desktop: 12;
+  --grid-columns-tablet: 8;
+  --grid-columns-mobile: 4;
+  --gutter-desktop: 24px;
+  --gutter-laptop: 20px;
+  --gutter-tablet: 20px;
+  --gutter-mobile: 16px;
+  --margin-desktop: 48px;
+  --margin-laptop: 32px;
+  --margin-tablet: 24px;
+  --margin-mobile: 16px;
+
+  /* ——— Spacing scale ——— */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-30: 120px;
+  --space-40: 160px;
+
+  /* ——— Brand Kit colors (exact) ——— */
+  --color-power-pink: #e8006f;
+  /* Primary button hover — slightly darker Power Pink only */
+  --color-power-pink-hover: #cf0063;
+  --color-canvas: #ffffff;
+  --color-blush: #fff5f9;
+  --color-pearl: #f2ece4;
+  --color-pink-mist: #ffe0ef;
+  --color-soft-pink: #ffb0d0;
+  --color-soft-pink-text: #8b0040;
+  --color-ink: #2a1a22;
+  --color-ink-hover: #2a1a22;
+  --color-nav: #6f5a64;
+  --color-announcement-text: #a0305a;
+  --border-kit-subtle: #f5ecf0;
+  --border-kit-soft: #f5e0ea;
+  --border-outline: #e8d8e0;
+
+  /* Legacy aliases → Brand Kit (keeps existing class pipelines) */
+  --color-celadon: var(--color-power-pink);
+  --color-celadon-soft: var(--color-soft-pink);
+  --color-accent: var(--color-soft-pink);
+  --color-accent-muted: var(--color-pink-mist);
+
+  /* ——— Surfaces (light only) ——— */
+  --bg-page: var(--color-canvas);
+  --bg-page-subtle: var(--color-blush);
+  --bg-surface: var(--color-canvas);
+  --bg-surface-soft: var(--color-pearl);
+  --bg-blush: var(--color-blush);
+  --bg-pearl: var(--color-pearl);
+  --bg-pink-mist: var(--color-pink-mist);
+  --bg-inverse: var(--color-pink-mist);
+  --bg-hero-overlay: rgba(42, 26, 34, 0.12);
+  --bg-announcement: var(--color-pink-mist);
+
+  /* ——— Neutrals (Brand Kit whites / pinks only) ——— */
+  --neutral-0: #ffffff;
+  --neutral-50: #fff5f9;
+  --neutral-100: #ffe0ef;
+  --neutral-200: #f5ecf0;
+  --neutral-300: #f5e0ea;
+  --neutral-400: #e8d8e0;
+  --neutral-500: #6f5a64;
+  --neutral-600: #a0305a;
+  --neutral-700: #8b0040;
+  --neutral-800: #2a1a22;
+  --neutral-900: #2a1a22;
+
+  /* ——— Text ——— */
+  --text-primary: var(--color-ink);
+  /* Body secondary stays Ink for WCAG; Navigation Text reserved for nav/captions */
+  --text-secondary: var(--color-ink);
+  --text-muted: var(--color-nav);
+  --text-nav: var(--color-nav);
+  --text-inverse: var(--color-announcement-text);
+  --text-link: var(--color-power-pink);
+  --text-sale: var(--color-soft-pink-text);
+  --text-announcement: var(--color-announcement-text);
+  --text-on-primary: var(--color-canvas);
+
+  /* ——— Borders ——— */
+  --border-subtle: var(--border-kit-subtle);
+  --border-default: var(--border-kit-soft);
+  --border-strong: var(--border-outline);
+  --border-focus: var(--color-power-pink);
+
+  /* ——— Semantic (Brand Kit only — no blue / green) ——— */
+  --state-success-bg: var(--color-pink-mist);
+  --state-success-text: var(--color-announcement-text);
+  --state-warning-bg: var(--color-pearl);
+  --state-warning-text: var(--color-ink);
+  --state-error-bg: var(--color-pink-mist);
+  --state-error-text: var(--color-soft-pink-text);
+  --state-info-bg: var(--color-blush);
+  --state-info-text: var(--color-announcement-text);
+
+  /* ——— Radius ——— */
+  --radius-none: 0;
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 24px;
+  --radius-pill: 20px;
+  --radius-button: 24px;
+  --radius-card: 24px;
+  --radius-input: 24px;
+  --radius-badge: 20px;
+
+  /* ——— Elevation (soft only; ink tint — luxury depth, never heavy) ——— */
+  --elev-0: none;
+  --elev-1: 0 2px 10px rgba(42, 26, 34, 0.045);
+  --elev-2: 0 14px 36px rgba(42, 26, 34, 0.075);
+  --elev-3: 0 22px 56px rgba(42, 26, 34, 0.1);
+  --elev-sticky: 0 1px 0 var(--border-kit-subtle);
+  --elev-float: 0 28px 64px rgba(42, 26, 34, 0.11);
+
+  /* ——— Typography ——— */
+  /* --font-cormorant / --font-poppins injected by next/font on <html> */
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-poppins), Poppins, "Segoe UI", sans-serif;
+  --font-mono: Poppins, "Segoe UI", sans-serif;
+
+  --text-display-size: 4rem;
+  --text-hero-size: 3rem;
+  --text-h1-size: 2.5rem;
+  --text-h2-size: 2rem;
+  --text-h3-size: 1.5rem;
+  --text-h4-size: 1.25rem;
+  --text-h5-size: 1.125rem;
+  --text-h6-size: 1rem;
+  --text-body-lg-size: 1.125rem;
+  --text-body-size: 1rem;
+  --text-body-sm-size: 0.875rem;
+  --text-caption-size: 0.75rem;
+  --text-overline-size: 0.6875rem;
+  --text-button-size: 0.875rem;
+  --text-nav-size: 0.8125rem;
+  --text-label-size: 0.8125rem;
+
+  /* ——— Motion (micro 150–280ms · reveals 640ms) ——— */
+  --motion-1: 150ms;
+  --motion-2: 200ms;
+  --motion-3: 280ms;
+  --motion-4: 320ms;
+  --motion-reveal: 640ms;
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-emphasis: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ——— Opacity ——— */
+  --opacity-disabled: 0.4;
+  --opacity-overlay: 0.12;
+
+  /* ——— Z-index ——— */
+  --z-header: 1020;
+  --z-float: 1015;
+  --z-drawer-backdrop: 1035;
+  --z-drawer: 1040;
+  --z-modal: 1050;
+  --z-toast: 1080;
+
+  /* ——— Chrome heights ——— */
+  --announcement-height: 36px;
+  --header-height-desktop: 72px;
+  --header-height-mobile: 56px;
+  --header-height-sticky: 64px;
+  --touch-min: 44px;
+
+  /* ——— Icons ——— */
+  --icon-16: 16px;
+  --icon-20: 20px;
+  --icon-24: 24px;
+  --icon-32: 32px;
+}
+
+@media (max-width: 1279px) {
+  :root {
+    --text-display-size: 3rem;
+    --text-hero-size: 2.5rem;
+    --text-h1-size: 2.25rem;
+    --text-h2-size: 1.75rem;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --text-display-size: 2.5rem;
+    --text-hero-size: 2rem;
+    --text-h1-size: 1.75rem;
+    --text-h2-size: 1.5rem;
+    --text-h3-size: 1.25rem;
+    --text-body-lg-size: 1rem;
+    --announcement-height: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-1: 0ms;
+    --motion-2: 0ms;
+    --motion-3: 0ms;
+    --motion-4: 0ms;
+  }
+}
