@@ -8,7 +8,6 @@ export const HOME_HERO_LUXURY = {
   support:
     "Verified formulas from Korea — curated for Pakistan with the calm confidence of a luxury ritual.",
   primaryCta: { label: "Shop bestsellers", href: "/collections/best-sellers" },
-  secondaryCta: { label: "Build your routine", href: "/pages/routine-builder" },
 } as const;
 
 export const HOME_TRUST_BADGES = [

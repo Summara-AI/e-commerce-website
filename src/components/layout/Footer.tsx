@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Logo } from "@/components/header/Logo";
-import { NewsletterForm } from "@/components/common/NewsletterForm";
 import { Container } from "@/components/layout/Container";
 import { Divider } from "@/components/ui/divider";
 import {
@@ -93,22 +92,10 @@ export function Footer({ className }: { className?: string }) {
             </ul>
           </div>
 
-          <div className="grid gap-12 tablet:grid-cols-2 laptop:grid-cols-3 desktop:grid-cols-4 desktop:gap-10">
+          <div className="grid gap-12 tablet:grid-cols-2 laptop:grid-cols-3 desktop:gap-10">
             <FooterLinkList title="Shop" links={FOOTER_SHOP_LINKS} />
             <FooterLinkList title="Support" links={FOOTER_SUPPORT_LINKS} />
             <FooterLinkList title="Brand" links={FOOTER_BRAND_LINKS} />
-            <div className="tablet:col-span-2 laptop:col-span-3 desktop:col-span-1">
-              <p className="text-overline font-medium uppercase tracking-[0.16em] text-power-pink">
-                Stay close
-              </p>
-              <div className="mt-7">
-                <NewsletterForm
-                  variant="footer"
-                  heading=""
-                  description="New arrivals and authenticity notes — calm and infrequent."
-                />
-              </div>
-            </div>
           </div>
         </div>
 
