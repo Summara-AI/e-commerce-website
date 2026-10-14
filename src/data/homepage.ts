@@ -39,7 +39,7 @@ export function getHomepageSectionSettings(): HomepageSectionSettings {
     featuredCollectionsHandles: FEATURED_COLLECTIONS.map((c) => c.handle),
     featuredBundlesHandles: FEATURED_BUNDLES.map((b) => b.handle),
     journalBlogHandle: "journal",
-    showRoutinePath: true,
+    showRoutinePath: false,
     showTestimonials: true,
     showCommunity: true,
     showNewsletter: true,

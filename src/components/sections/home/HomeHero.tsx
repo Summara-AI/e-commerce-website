@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ButtonGroup } from "@/components/common/ButtonGroup";
 import { MediaImage } from "@/components/common/MediaImage";
 import { Container } from "@/components/layout/Container";
 import { HOME_HERO_LUXURY } from "@/content/home-story";
@@ -65,14 +64,11 @@ export function HomeHero({ className }: { className?: string }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: reduceMotion ? 0 : 0.24, ease }}
             >
-              <ButtonGroup className="mt-10 tablet:mt-12" stackedOnMobile>
-                <Button asChild size="lg">
-                  <Link href={copy.primaryCta.href}>{copy.primaryCta.label}</Link>
-                </Button>
-                <Button asChild variant="outline" size="lg">
-                  <Link href={copy.secondaryCta.href}>{copy.secondaryCta.label}</Link>
-                </Button>
-              </ButtonGroup>
+              <div className="mt-10 tablet:mt-12">
+              <Button asChild size="lg">
+                <Link href={copy.primaryCta.href}>{copy.primaryCta.label}</Link>
+              </Button>
+            </div>
             </motion.div>
           </div>
 

@@ -29,7 +29,6 @@ export const FOOTER_BRAND_LINKS: FooterLink[] = [
   { id: "ingredients", label: "Ingredients", href: "/pages/ingredients" },
   { id: "guides", label: "Guides", href: "/pages/guides" },
   { id: "concerns", label: "Skin Concerns", href: "/pages/skin-concerns" },
-  { id: "routine", label: "Routine Builder", href: "/pages/routine-builder" },
 ];
 
 export const FOOTER_LEGAL_LINKS: FooterLink[] = [
