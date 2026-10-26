@@ -53,7 +53,7 @@ export function HomeNewsletter({ className, onSubscribe }: HomeNewsletterProps) 
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-[8%] right-[8%] h-[16rem] w-[16rem] rounded-full bg-[radial-gradient(circle,rgba(242,236,228,0.7)_0%,transparent_70%)] blur-3xl"
+          className="absolute bottom-[8%] right-[8%] h-[16rem] w-[16rem] rounded-full bg-[radial-gradient(circle,rgba(239,232,224,0.7)_0%,transparent_70%)] blur-3xl"
           animate={reduceMotion ? undefined : { y: [0, -14, 0] }}
           transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
         />
@@ -159,7 +159,7 @@ export function HomeNewsletter({ className, onSubscribe }: HomeNewsletterProps) 
                       form.error
                         ? "border-destructive"
                         : form.focused
-                          ? "border-power-pink bg-canvas shadow-[0_0_0_4px_rgba(232,0,111,0.12)]"
+                          ? "border-power-pink bg-canvas shadow-[0_0_0_4px_rgba(228,19,111,0.12)]"
                           : "border-border-subtle hover:border-border-default hover:bg-canvas/80 hover:shadow-elev1",
                     )}
                   />

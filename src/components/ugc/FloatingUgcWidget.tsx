@@ -256,7 +256,7 @@ export function FloatingUgcWidget({
             className={cn(
               "fixed z-float flex h-[60px] w-[60px] items-center justify-center rounded-full",
               "border-2 border-power-pink bg-canvas/90 text-power-pink backdrop-blur-md",
-              "shadow-[0_16px_36px_-16px_rgba(232,0,111,0.45)]",
+              "shadow-[0_16px_36px_-16px_rgba(228,19,111,0.45)]",
               "right-4 bottom-4 tablet:right-5 tablet:bottom-5 laptop:right-6 laptop:bottom-6",
               cookieLift && "bottom-[min(42vh,18rem)] tablet:bottom-5",
               hidden && "pointer-events-none",
@@ -355,7 +355,7 @@ export function FloatingUgcWidget({
                     "w-[138px] tablet:w-[168px]",
                   "shadow-[0_22px_52px_-24px_rgba(17,17,17,0.4),0_0_0_1px_rgba(255,255,255,0.25)]",
                   "hover:border-power-pink/35",
-                  "hover:shadow-[0_30px_60px_-20px_rgba(232,0,111,0.36)]",
+                  "hover:shadow-[0_30px_60px_-20px_rgba(228,19,111,0.36)]",
                   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-border-focus",
                   (hovered || mobilePrimed) && "z-[1]",
                 )}
@@ -529,7 +529,7 @@ function UgcPlaceholder({ posterSrc }: { posterSrc?: string }) {
       ) : (
         <>
           <div className="absolute inset-0 bg-[linear-gradient(155deg,var(--color-blush),var(--color-pink-mist)_50%,var(--color-pearl))]" />
-          <div className="absolute inset-[-15%] animate-[ksl-ugc-drift_16s_ease-in-out_infinite] bg-[radial-gradient(circle_at_35%_40%,rgba(232,0,111,0.2),transparent_55%)] motion-reduce:animate-none" />
+          <div className="absolute inset-[-15%] animate-[ksl-ugc-drift_16s_ease-in-out_infinite] bg-[radial-gradient(circle_at_35%_40%,rgba(228,19,111,0.2),transparent_55%)] motion-reduce:animate-none" />
         </>
       )}
     </div>

@@ -224,7 +224,7 @@ export function ThankYouView() {
 function SuccessMark({ reduceMotion }: { reduceMotion: boolean }) {
   return (
     <motion.div
-      className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-power-pink text-foreground-on-primary shadow-[0_20px_40px_-16px_rgba(232,0,111,0.55)]"
+      className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-power-pink text-foreground-on-primary shadow-[0_20px_40px_-16px_rgba(228,19,111,0.55)]"
       initial={reduceMotion ? false : { scale: 0.6, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 0.55, ease }}

@@ -25,7 +25,7 @@ export const REAL_VS_FAKE_PAGE = {
       {
         id: "trust",
         title: "Eroded trust",
-        description: "Fakes flood markets and confuse shoppers — which is why Korean Skin Lab focuses on verified authenticity.",
+        description: "Fakes flood markets and confuse shoppers — which is why SCYN focuses on verified authenticity.",
       },
     ],
   },
@@ -70,7 +70,7 @@ export const REAL_VS_FAKE_PAGE = {
   qr: {
     eyebrow: "Codes",
     title: "QR & barcode explanation",
-    body: "Some brands print QR or barcode authenticity checks. Scan only from packaging you purchased, follow brand-owned portals, and never share payment details on unofficial pages. When in doubt, ask Korean Skin Lab support to help verify what you received.",
+    body: "Some brands print QR or barcode authenticity checks. Scan only from packaging you purchased, follow brand-owned portals, and never share payment details on unofficial pages. When in doubt, ask SCYN support to help verify what you received.",
   },
   myths: {
     eyebrow: "Clarity",

@@ -14,7 +14,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           "placeholder:text-foreground-nav placeholder:font-light",
           "transition-[border-color,box-shadow,background-color] duration-200 ease-out",
           "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-border-focus",
-          "focus-visible:shadow-[0_0_0_4px_rgba(232,0,111,0.12)]",
+          "focus-visible:shadow-[0_0_0_4px_rgba(228,19,111,0.12)]",
           "disabled:cursor-not-allowed disabled:opacity-40",
           "resize-y",
           error

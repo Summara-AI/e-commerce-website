@@ -1,12 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Korean Skin Lab">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="45%" stop-color="#FFF5F9"/>
-      <stop offset="100%" stop-color="#FFE0EF"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#g)"/>
-  <text x="600" y="300" text-anchor="middle" font-family="Georgia, serif" font-size="56" font-style="italic" fill="#2A1A22">Korean Skin Lab</text>
-  <text x="600" y="360" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" letter-spacing="4" fill="#E8006F">AUTHENTIC KOREAN SKINCARE</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="SCYN — Skincare You Need">
+  <rect width="1200" height="630" fill="#E4136F"/>
+  <image href="/media/brand/scyn-complete.png" x="330" y="134" width="540" height="363" preserveAspectRatio="xMidYMid meet"/>
 </svg>

@@ -21,7 +21,7 @@ export const CONTACT_PAGE = {
   },
   business: {
     eyebrow: "Business information",
-    title: "Korean Skin Lab",
+    title: "SCYN",
     email: FOOTER_CONTACT.email,
     phone: FOOTER_CONTACT.phone,
     phoneHref: FOOTER_CONTACT.phoneHref,

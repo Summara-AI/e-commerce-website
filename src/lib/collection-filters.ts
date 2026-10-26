@@ -2,7 +2,7 @@
  * Collection browse — filters, sort, pagination.
  * Shopify: map to Storefront filters / collection products query later.
  *
- * UX recommendation (Korean Skin Lab catalogue size ~10–30 SKUs per view):
+ * UX recommendation (SCYN catalogue size ~10–30 SKUs per view):
  * Prefer numbered pagination over infinite scroll. Boutique catalogues stay
  * scannable with clear pages; infinite scroll suits 100+ result sets and
  * hurts “back” memory + footer reach. InfiniteScrollTrigger is prepared for growth.

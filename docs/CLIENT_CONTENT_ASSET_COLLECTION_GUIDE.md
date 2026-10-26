@@ -568,7 +568,7 @@ Shopify and your ESP will send most transactional mail. Provide brand-ready copy
 Also provide:
 
 - [ ] From name (e.g. Korean Skin Lab)  
-- [ ] From email (e.g. support@koreanskinlab.pk)  
+- [ ] From email (e.g. syncpk@gmail.com)  
 - [ ] Reply-to address  
 - [ ] Email header logo (PNG, ~240×64)  
 - [ ] Footer address + unsubscribe compliant line  

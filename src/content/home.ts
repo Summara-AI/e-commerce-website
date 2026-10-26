@@ -4,7 +4,7 @@
  */
 
 export const HOME_HERO = {
-  brand: "Korean Skin Lab",
+  brand: "SCYN",
   headline: "Authentic Korean skincare, thoughtfully curated.",
   support:
     "Verified products sourced from trusted Korean brands — for calmer routines and results you can trust in Pakistan.",

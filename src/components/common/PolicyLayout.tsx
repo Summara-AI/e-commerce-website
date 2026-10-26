@@ -6,6 +6,7 @@ import { Section } from "@/components/layout/Section";
 import { Button } from "@/components/ui/button";
 import { JsonLd, breadcrumbJsonLd } from "@/components/seo";
 import type { PolicyDocument } from "@/content/policies";
+import { mailtoHref } from "@/lib/email";
 import { FOOTER_CONTACT } from "@/lib/site-content";
 import { cn } from "@/lib/utils";
 
@@ -80,7 +81,13 @@ export function PolicyLayout({
             {document.contactPrompt}
           </p>
           <p className="mt-2 text-sm text-foreground-secondary">
-            {FOOTER_CONTACT.email} · {FOOTER_CONTACT.phone}
+            <a
+              href={mailtoHref(FOOTER_CONTACT.email)}
+              className="transition-colors hover:text-power-pink"
+            >
+              {FOOTER_CONTACT.email}
+            </a>{" "}
+            · {FOOTER_CONTACT.phone}
           </p>
           <div className="mt-5 flex flex-col gap-3 tablet:flex-row">
             <Button asChild>

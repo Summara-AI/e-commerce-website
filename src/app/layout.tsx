@@ -30,8 +30,8 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_SETTINGS.url),
   title: {
-    default: SITE_SETTINGS.name,
-    template: `%s · ${SITE_SETTINGS.name}`,
+    default: `${SITE_SETTINGS.name} | Skincare You Need`,
+    template: `%s | ${SITE_SETTINGS.name}`,
   },
   description: SITE_SETTINGS.description,
   applicationName: SITE_SETTINGS.name,
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: SITE_SETTINGS.locale,
     siteName: SITE_SETTINGS.name,
-    title: SITE_SETTINGS.name,
+    title: `${SITE_SETTINGS.name} | Skincare You Need`,
     description: SITE_SETTINGS.description,
     url: SITE_SETTINGS.url,
     images: [
@@ -50,13 +50,13 @@ export const metadata: Metadata = {
         url: SITE_SETTINGS.defaultOgImage,
         width: 1200,
         height: 630,
-        alt: SITE_SETTINGS.name,
+        alt: "SCYN — Skincare You Need. Official brand lockup",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: SITE_SETTINGS.name,
+    title: `${SITE_SETTINGS.name} | Skincare You Need`,
     description: SITE_SETTINGS.description,
     images: [SITE_SETTINGS.defaultOgImage],
   },
@@ -69,20 +69,13 @@ export const metadata: Metadata = {
     telephone: true,
     email: true,
   },
-  icons: {
-    icon: [
-      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/icon.png", sizes: "32x32", type: "image/png" },
-    ],
-    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
-  },
   alternates: {
     canonical: SITE_SETTINGS.url,
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FFFFFF",
+  themeColor: "#E4136F",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",

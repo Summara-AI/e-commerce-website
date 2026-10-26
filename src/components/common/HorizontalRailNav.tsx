@@ -79,7 +79,7 @@ function RailArrow({
         "backdrop-blur-md backdrop-saturate-150",
         "transition-[transform,background-color,color,box-shadow,opacity,border-color] duration-280 ease-out",
         "hover:scale-105 hover:border-power-pink/50 hover:bg-power-pink hover:text-foreground-on-primary",
-        "hover:shadow-[0_12px_28px_-10px_rgba(232,0,111,0.4)]",
+        "hover:shadow-[0_12px_28px_-10px_rgba(228,19,111,0.4)]",
         "active:scale-95",
         "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-border-focus",
         inactive && "cursor-default opacity-45 hover:scale-100 hover:border-border-subtle hover:bg-surface hover:text-ink hover:shadow-[0_8px_24px_-10px_rgba(17,17,17,0.45)]",

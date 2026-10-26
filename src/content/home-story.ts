@@ -3,7 +3,7 @@
  */
 
 export const HOME_HERO_LUXURY = {
-  eyebrow: "Korean Skin Lab",
+  eyebrow: "SCYN · Skincare You Need",
   headline: "Authentic Korean skincare, quietly perfected.",
   support:
     "Verified formulas from Korea — curated for Pakistan with the calm confidence of a luxury ritual.",
@@ -79,7 +79,7 @@ export const HOME_EDITORIAL_BANNER = {
 export const HOME_STORY_PREVIEW = {
   eyebrow: "Our story",
   title: "Born to bring real Korean skincare to Pakistan",
-  body: "We founded Korean Skin Lab to replace counterfeit noise with verified care — honest sourcing, careful curation, and guidance you can trust.",
+  body: "We founded SCYN to replace counterfeit noise with verified care — honest sourcing, careful curation, and guidance you can trust.",
   cta: { label: "Read our story", href: "/pages/our-story" },
   media: { id: "home-story-preview", alt: "Our story editorial — asset pending" },
 } as const;
@@ -93,5 +93,5 @@ export const HOME_TESTIMONIALS_COPY = {
 export const HOME_COMMUNITY_COPY = {
   eyebrow: "Community",
   title: "A softer kind of glow",
-  description: "Lifestyle moments from the Korean Skin Lab world.",
+  description: "Lifestyle moments from the SCYN world.",
 } as const;

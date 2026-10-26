@@ -70,7 +70,7 @@ export const CART_PAGE_IMAGE_SPECS = [
 export const CART_PAGE_COPY = {
   metaTitle: "Your bag",
   metaDescription:
-    "Review your Korean Skin Lab bag — adjust quantities, apply a code at checkout, and continue when you’re ready.",
+    "Review your SCYN bag — adjust quantities, apply a code at checkout, and continue when you’re ready.",
   eyebrow: "Bag",
   title: "Your bag",
   itemSingular: "item",

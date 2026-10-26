@@ -10,6 +10,7 @@ import {
   FOOTER_SOCIAL,
   FOOTER_SUPPORT_LINKS,
 } from "@/lib/site-content";
+import { mailtoHref } from "@/lib/email";
 import { cn } from "@/lib/utils";
 
 function FooterLinkList({
@@ -55,14 +56,14 @@ export function Footer({ className }: { className?: string }) {
       <Container width="max" className="py-20 tablet:py-24 desktop:py-28">
         <div className="grid gap-16 laptop:grid-cols-[1.2fr_2fr] laptop:gap-24">
           <div className="max-w-sm space-y-8">
-            <Logo />
+            <Logo variant="complete" />
             <p className="text-base font-light leading-[1.75] text-foreground-secondary">
               100% authentic Korean skincare for Pakistan — verified products,
               thoughtfully curated routines, and calm guidance you can trust.
             </p>
             <div className="space-y-2 text-sm font-light text-foreground-secondary">
               <a
-                href={`mailto:${FOOTER_CONTACT.email}`}
+                href={mailtoHref(FOOTER_CONTACT.email)}
                 className="block transition-colors hover:text-power-pink"
               >
                 {FOOTER_CONTACT.email}
@@ -103,7 +104,7 @@ export function Footer({ className }: { className?: string }) {
 
         <div className="flex flex-col gap-6 tablet:flex-row tablet:items-center tablet:justify-between">
           <p className="text-caption text-foreground-muted">
-            © {year} Korean Skin Lab. All rights reserved.
+            © {year} SCYN. All rights reserved.
           </p>
 
           <ul className="flex flex-wrap gap-x-6 gap-y-2">

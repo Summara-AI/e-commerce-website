@@ -92,7 +92,7 @@ export function getScaffoldOrders(): CustomerOrder[] {
   const orders: CustomerOrder[] = [
     {
       id: "scaffold-1001",
-      number: "#KSL1001",
+      number: "#SCYN1001",
       processedAt: "2026-06-02T10:30:00.000Z",
       status: "delivered",
       financialStatus: "Paid",
@@ -171,7 +171,7 @@ export function getScaffoldOrders(): CustomerOrder[] {
 
     orders.unshift({
       id: "scaffold-1002",
-      number: "#KSL1002",
+      number: "#SCYN1002",
       processedAt: "2026-07-10T14:15:00.000Z",
       status: "shipped",
       financialStatus: "Paid",

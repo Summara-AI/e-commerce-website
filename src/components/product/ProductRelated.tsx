@@ -34,7 +34,7 @@ export function ProductRelated({ products, className }: ProductRelatedProps) {
           id="pdp-related-heading"
           eyebrow="Related"
           title="Related products"
-          description="Curated peers from the same Korean Skin Lab edit — not a noisy catalogue dump."
+          description="Curated peers from the same SCYN edit — not a noisy catalogue dump."
         />
       </Container>
 

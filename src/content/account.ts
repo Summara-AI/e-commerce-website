@@ -77,7 +77,7 @@ export const ACCOUNT_COPY = {
   supportTitle: "Need help?",
   ordersTitle: "My Orders",
   ordersDescription:
-    "Track every skincare purchase you've made with Korean Skin Lab.",
+    "Track every skincare purchase you've made with SCYN.",
   ordersPreviewTitle: "Recent orders",
   ordersEmptyTitle: "No orders yet.",
   ordersEmptyDescription: "Your skincare journey starts here.",

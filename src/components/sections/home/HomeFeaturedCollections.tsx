@@ -25,7 +25,7 @@ const SHOP_ALL: CatalogCollection = {
   handle: "all",
   title: "Shop All",
   href: "/collections/all",
-  description: "The full verified Korean Skin Lab catalogue.",
+  description: "The full verified SCYN catalogue.",
   imageAlt: "Shop all collection editorial — asset pending",
   featured: true,
 };

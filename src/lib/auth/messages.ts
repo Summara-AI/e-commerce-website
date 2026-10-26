@@ -19,7 +19,7 @@ export const LOGIN_COPY = {
 } as const;
 
 export const REGISTER_COPY = {
-  eyebrow: "Join Korean Skin Lab",
+  eyebrow: "Join SCYN",
   title: "Create your account",
   description:
     "Save your favourites, track your orders, enjoy faster checkout, and receive exclusive skincare updates.",
@@ -38,7 +38,7 @@ export const REGISTER_COPY = {
   guest: "Continue as Guest",
   hasAccount: "Already have an account?",
   signIn: "Sign In",
-  successTitle: "Welcome to Korean Skin Lab.",
+  successTitle: "Welcome to SCYN.",
   successBody: "Your skincare journey begins here.",
   mediaAlt:
     "Premium Korean skincare ritual — soft daylight editorial for account registration",

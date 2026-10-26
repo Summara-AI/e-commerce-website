@@ -35,7 +35,7 @@ export const SHIPPING_POLICY: PolicyDocument = {
       id: "overview",
       title: "Overview",
       paragraphs: [
-        "Korean Skin Lab ships authentic Korean skincare from Lahore, Pakistan.",
+        "SCYN ships authentic Korean skincare from Lahore, Pakistan.",
         "Shipping coverage, methods, and any fees are determined by the rates configured in Shopify at checkout. This page outlines the framework — not unpublished promises.",
       ],
     },
@@ -79,7 +79,7 @@ export const RETURNS_POLICY: PolicyDocument = {
   eyebrow: "Policies",
   title: "Returns & Refund Policy",
   description:
-    "Guidance for returns and refunds grounded in Korean Skin Lab’s published support posture. Specific windows and eligibility rules live in Shopify Policies when published.",
+    "Guidance for returns and refunds grounded in SCYN’s published support posture. Specific windows and eligibility rules live in Shopify Policies when published.",
   lastUpdatedNote:
     "We do not invent return windows or restocking fees here. When Shopify Returns / refund policies are connected, those published terms take precedence.",
   sections: [
@@ -136,7 +136,7 @@ export const PRIVACY_POLICY: PolicyDocument = {
   eyebrow: "Legal",
   title: "Privacy Policy",
   description:
-    "How Korean Skin Lab approaches personal information collected through this storefront. Detailed processor lists and cookie tables expand when Shopify privacy tools are connected.",
+    "How SCYN approaches personal information collected through this storefront. Detailed processor lists and cookie tables expand when Shopify privacy tools are connected.",
   lastUpdatedNote:
     "Aligned with standard Shopify storefront practices. Replace or extend with your published Shopify Privacy Policy when live.",
   sections: [
@@ -144,7 +144,7 @@ export const PRIVACY_POLICY: PolicyDocument = {
       id: "who",
       title: "Who we are",
       paragraphs: [
-        "Korean Skin Lab (“we”, “us”) operates this storefront to offer authentic Korean skincare in Pakistan.",
+        "SCYN (“we”, “us”) operates this storefront to offer authentic Korean skincare in Pakistan.",
         `Contact for privacy requests: ${FOOTER_CONTACT.email}. Address: ${FOOTER_CONTACT.address}.`,
       ],
     },
@@ -203,7 +203,7 @@ export const TERMS_OF_SERVICE: PolicyDocument = {
   eyebrow: "Legal",
   title: "Terms of Service",
   description:
-    "Terms that govern use of the Korean Skin Lab storefront and purchases made through it.",
+    "Terms that govern use of the SCYN storefront and purchases made through it.",
   lastUpdatedNote:
     "Storefront framework terms. Sync with the published Shopify Terms of Service document when your legal copy is finalised.",
   sections: [
@@ -211,7 +211,7 @@ export const TERMS_OF_SERVICE: PolicyDocument = {
       id: "agreement",
       title: "Agreement",
       paragraphs: [
-        "By accessing koreanskinlab.pk (or the Shopify domain connected to Korean Skin Lab) and placing orders, you agree to these Terms and our Privacy Policy.",
+        "By accessing koreanskinlab.pk (or the Shopify domain connected to SCYN) and placing orders, you agree to these Terms and our Privacy Policy.",
         "If you do not agree, please do not use the storefront.",
       ],
     },
@@ -250,7 +250,7 @@ export const TERMS_OF_SERVICE: PolicyDocument = {
       id: "liability",
       title: "Limitation of liability",
       paragraphs: [
-        "To the fullest extent permitted by applicable law, Korean Skin Lab is not liable for indirect or consequential damages arising from use of the storefront or products, except where liability cannot be excluded.",
+        "To the fullest extent permitted by applicable law, SCYN is not liable for indirect or consequential damages arising from use of the storefront or products, except where liability cannot be excluded.",
         "Nothing in these Terms limits rights you may have under mandatory consumer protection laws in Pakistan.",
       ],
     },

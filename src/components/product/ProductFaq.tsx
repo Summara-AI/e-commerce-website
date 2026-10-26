@@ -32,7 +32,7 @@ export function ProductFaq({ className }: ProductFaqProps) {
           id="pdp-faq-heading"
           eyebrow="FAQ"
           title="Questions before you buy"
-          description="Answers grounded in Korean Skin Lab’s published brand and support information."
+          description="Answers grounded in SCYN’s published brand and support information."
         />
 
         <Accordion type="multiple" className="mt-10 tablet:mt-12" defaultValue={["authentic"]}>

@@ -127,8 +127,8 @@ export function HomeEditorialBanner({ className }: { className?: string }) {
                   size="lg"
                   className={cn(
                     "rounded-full px-9",
-                    "shadow-[0_14px_32px_-14px_rgba(232,0,111,0.55)]",
-                    "hover:shadow-[0_18px_40px_-12px_rgba(232,0,111,0.6)]",
+                    "shadow-[0_14px_32px_-14px_rgba(228,19,111,0.55)]",
+                    "hover:shadow-[0_18px_40px_-12px_rgba(228,19,111,0.6)]",
                     "hover:brightness-100",
                   )}
                 >

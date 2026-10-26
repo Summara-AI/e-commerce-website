@@ -4,7 +4,7 @@ import { CheckoutFlow } from "@/components/checkout/CheckoutFlow";
 export const metadata: Metadata = {
   title: "Checkout",
   description:
-    "Secure Korean Skin Lab checkout — shipping preferences before Shopify encrypted payment.",
+    "Secure SCYN checkout — shipping preferences before Shopify encrypted payment.",
   robots: { index: false, follow: false },
 };
 

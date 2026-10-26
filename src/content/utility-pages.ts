@@ -16,7 +16,7 @@ export const NOT_FOUND_PAGE = {
 } as const;
 
 export const MAINTENANCE_PAGE = {
-  eyebrow: "Korean Skin Lab",
+  eyebrow: "SCYN",
   title: "We’ll be right back",
   description:
     "We’re refreshing the storefront to serve you better. Authentic Korean skincare will return shortly.",
@@ -27,7 +27,7 @@ export const MAINTENANCE_PAGE = {
 } as const;
 
 export const COMING_SOON_PAGE = {
-  eyebrow: "Korean Skin Lab",
+  eyebrow: "SCYN",
   title: "Coming soon",
   description:
     "A calmer way to shop 100% authentic Korean skincare in Pakistan. Be first to know when we open the doors.",

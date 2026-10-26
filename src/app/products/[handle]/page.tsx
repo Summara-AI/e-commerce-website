@@ -25,7 +25,7 @@ export function generateMetadata({ params }: ProductPageProps): Metadata {
   if (!product) {
     return createPageMetadata({
       title: "Product",
-      description: "Product details from Korean Skin Lab.",
+      description: "Product details from SCYN.",
       path: `/products/${params.handle}`,
       noIndex: true,
     });

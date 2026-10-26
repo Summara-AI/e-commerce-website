@@ -8,7 +8,7 @@ import { FOOTER_CONTACT } from "@/lib/site-content";
 
 export const ABOUT_PAGE = {
   eyebrow: "About us",
-  title: "Korean Skin Lab",
+  title: "SCYN",
   description:
     "A calmer path to authentic Korean skincare in Pakistan — verified, curated, and guided with care.",
   brandStory: {
@@ -67,7 +67,7 @@ export const ABOUT_PAGE = {
   },
   team: {
     eyebrow: "Team",
-    title: "The people behind the Lab",
+    title: "The people behind SCYN",
     description:
       "Founders and advisors portraits will appear here. Until then, know we’re a small team obsessed with authentic Korean skincare for Pakistan.",
   },
@@ -117,8 +117,8 @@ export const ABOUT_PAGE = {
       {
         id: "found",
         year: "Founding",
-        title: "Korean Skin Lab begins",
-        body: "As passionate users and frequent travelers to Korea, we founded Korean Skin Lab to bring original, verified skincare home.",
+        title: "SCYN begins",
+        body: "As passionate users and frequent travelers to Korea, we founded SCYN to bring original, verified skincare home.",
       },
       {
         id: "today",

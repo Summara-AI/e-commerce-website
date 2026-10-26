@@ -10,7 +10,7 @@ import { FEATURED_COLLECTIONS } from "@/lib/catalog";
 export const metadata = createPageMetadata({
   title: "Skin Concerns",
   description:
-    "Explore Korean Skin Lab collections by skin concern — dryness, sensitivity, sun protection, and more.",
+    "Explore SCYN collections by skin concern — dryness, sensitivity, sun protection, and more.",
   path: "/pages/skin-concerns",
 });
 

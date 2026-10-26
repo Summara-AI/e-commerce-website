@@ -4,7 +4,7 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "Forgot Password",
   description:
-    "Reset your Korean Skin Lab password securely — we’ll email a recovery link to your account.",
+    "Reset your SCYN password securely — we’ll email a recovery link to your account.",
   path: "/account/recover",
   noIndex: true,
 });

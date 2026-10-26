@@ -92,7 +92,7 @@ export function Header({
               controlsId="mobile-nav"
               className="laptop:hidden"
             />
-            <Logo inverse={isTransparent} />
+            <Logo inverse={isTransparent} priority />
           </div>
 
           <TabletNav className="justify-self-center" />

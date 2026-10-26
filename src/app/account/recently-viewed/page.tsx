@@ -3,7 +3,7 @@ import { RecentlyViewedPageView } from "@/components/account/RecentlyViewedPageV
 
 export const metadata: Metadata = {
   title: "Recently viewed",
-  description: "Products you’ve recently explored at Korean Skin Lab.",
+  description: "Products you’ve recently explored at SCYN.",
 };
 
 export default function AccountRecentlyViewedPage() {

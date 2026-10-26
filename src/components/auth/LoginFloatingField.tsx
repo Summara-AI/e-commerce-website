@@ -63,7 +63,7 @@ export function LoginFloatingField({
           error
             ? "border-destructive shadow-[0_0_0_4px_rgba(139,0,64,0.1)]"
             : focused
-              ? "border-power-pink bg-canvas shadow-[0_0_0_4px_rgba(232,0,111,0.12)]"
+              ? "border-power-pink bg-canvas shadow-[0_0_0_4px_rgba(228,19,111,0.12)]"
               : success
                 ? "border-border-subtle bg-canvas"
                 : "border-border-subtle hover:border-border-default hover:bg-canvas/70",

@@ -145,7 +145,7 @@ export function RecoverPageView({ className }: RecoverPageViewProps) {
     >
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute left-[8%] top-[18%] h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(255,224,239,0.45)_0%,transparent_70%)] blur-3xl" />
-        <div className="absolute bottom-[12%] right-[10%] h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(242,236,228,0.65)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute bottom-[12%] right-[10%] h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(239,232,224,0.65)_0%,transparent_70%)] blur-3xl" />
       </div>
 
       <div className="relative mx-auto grid w-full max-w-site items-center gap-10 px-4 py-12 tablet:px-6 tablet:py-16 laptop:grid-cols-[0.55fr_0.45fr] laptop:gap-12 laptop:px-8 laptop:py-20 desktop:gap-16 desktop:px-12 desktop:py-24">
@@ -357,7 +357,7 @@ export function RecoverPageView({ className }: RecoverPageViewProps) {
                         disabled={loading}
                         className={cn(
                           "w-full rounded-full",
-                          "hover:scale-[1.02] hover:shadow-[0_14px_36px_-14px_rgba(232,0,111,0.5)]",
+                          "hover:scale-[1.02] hover:shadow-[0_14px_36px_-14px_rgba(228,19,111,0.5)]",
                           "active:scale-[0.99]",
                         )}
                       >

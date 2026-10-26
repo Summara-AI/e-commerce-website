@@ -1,11 +1,11 @@
-# Korean Skin Lab — Storefront Foundation
+# SCYN — Storefront Foundation
 
 Premium ecommerce storefront (Next.js App Router) prepared for eventual Shopify integration.
 
 ## Stack
 
 - Next.js 14 (App Router) + TypeScript
-- Tailwind CSS 3 + Design tokens (Porcelain Lab)
+- Tailwind CSS 3 + SCYN brand design tokens
 - CSS Modules for existing chrome (Header, Nav, Announcement)
 - shadcn/ui ready (`components.json`)
 - Framer Motion, Embla, Sonner, RHF + Zod

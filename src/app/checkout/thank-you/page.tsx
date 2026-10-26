@@ -3,7 +3,7 @@ import { ThankYouView } from "@/components/checkout/ThankYouView";
 
 export const metadata: Metadata = {
   title: "Thank you",
-  description: "Your Korean Skin Lab order confirmation.",
+  description: "Your SCYN order confirmation.",
   robots: { index: false, follow: false },
 };
 

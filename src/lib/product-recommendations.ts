@@ -1,5 +1,5 @@
 /**
- * PDP recommendations — curated from Korean Skin Lab catalogue.
+ * PDP recommendations — curated from SCYN catalogue.
  * Shopify Recommendations API / metafields can replace static maps later.
  */
 
@@ -203,7 +203,7 @@ export function getYouMayAlsoLike(handle: string): YouMayAlsoLikeGroup[] {
       id: "edit",
       eyebrow: "Our edit",
       title: "You may also like",
-      description: "Other verified essentials from Korean Skin Lab.",
+      description: "Other verified essentials from SCYN.",
       products: exclude(ALL_PRODUCTS, handle).slice(0, 4),
     });
   }

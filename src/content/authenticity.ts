@@ -9,7 +9,7 @@ export const AUTHENTICITY_PAGE = {
   eyebrow: "Trust",
   title: "Our authenticity promise",
   description:
-    "Korean Skin Lab exists to bring 100% authentic Korean skincare to Pakistan — verified, curated, and free from counterfeit noise.",
+    "SCYN exists to bring 100% authentic Korean skincare to Pakistan — verified, curated, and free from counterfeit noise.",
   heroLead:
     "Real formulas. Honest sourcing. A calmer way to shop K-beauty with confidence.",
   pillars: [
@@ -21,7 +21,7 @@ export const AUTHENTICITY_PAGE = {
     {
       id: "genuine",
       title: "Genuine products only",
-      body: "Every piece we offer is positioned as original and verified. We founded Korean Skin Lab to fight counterfeit K-beauty flooding the market.",
+      body: "Every piece we offer is positioned as original and verified. We founded SCYN to fight counterfeit K-beauty flooding the market.",
     },
     {
       id: "direct",

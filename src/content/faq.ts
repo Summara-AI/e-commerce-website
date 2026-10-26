@@ -38,7 +38,7 @@ export const FAQ_PAGE = {
   eyebrow: "Help centre",
   title: "Frequently asked questions",
   description:
-    "Search by topic or keyword. Answers stay within Korean Skin Lab’s published brand and support information.",
+    "Search by topic or keyword. Answers stay within SCYN’s published brand and support information.",
   searchPlaceholder: "Search questions…",
   emptyTitle: "No matching questions",
   emptyDescription:
@@ -53,9 +53,9 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     id: "authentic",
     category: "authenticity",
-    question: "Are Korean Skin Lab products authentic?",
+    question: "Are SCYN products authentic?",
     answer:
-      "Yes. At Korean Skin Lab we bring you 100% authentic Korean skincare from trusted brands — verified and original, founded to fight counterfeit K-beauty in Pakistan.",
+      "Yes. At SCYN we bring you 100% authentic Korean skincare from trusted brands — verified and original, founded to fight counterfeit K-beauty in Pakistan.",
   },
   {
     id: "sourcing",
@@ -118,7 +118,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     id: "location",
     category: "account",
-    question: "Where does Korean Skin Lab operate from?",
+    question: "Where does SCYN operate from?",
     answer: FOOTER_CONTACT.address,
   },
   {

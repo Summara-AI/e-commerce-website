@@ -7,7 +7,7 @@ type PageProps = {
 
 export const metadata: Metadata = {
   title: "Order details",
-  description: "Order details for your Korean Skin Lab purchase.",
+  description: "Order details for your SCYN purchase.",
 };
 
 export default function AccountOrderDetailPage({ params }: PageProps) {

@@ -21,7 +21,7 @@ export function ComingSoonPageView() {
         />
         <div className="relative z-10 mx-auto flex w-full max-w-form flex-1 flex-col justify-center px-4 py-16 tablet:px-6">
           <div className="text-center">
-            <Logo className="justify-center" />
+            <Logo variant="complete" priority className="justify-center" />
             <p className="mt-10 text-overline font-medium uppercase tracking-[0.14em] text-power-pink">
               {COMING_SOON_PAGE.eyebrow}
             </p>

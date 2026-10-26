@@ -8,7 +8,7 @@ type GlobalErrorProps = {
 };
 
 /**
- * Root layout error boundary — Brand Kit inline colors only (no CSS vars if chrome failed).
+ * Root layout error boundary â€” Brand Kit inline colors only (no CSS vars if chrome failed).
  */
 export default function GlobalError({ error, reset }: GlobalErrorProps) {
   if (process.env.NODE_ENV === "development") {
@@ -37,7 +37,7 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
               fontSize: 12,
               letterSpacing: "0.14em",
               textTransform: "uppercase",
-              color: "#E8006F",
+              color: "#E4136F",
               fontWeight: 500,
             }}
           >
@@ -73,7 +73,7 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
               padding: "14px 28px",
               border: "none",
               borderRadius: 24,
-              background: "#E8006F",
+              background: "#E4136F",
               color: "#FFFFFF",
               fontSize: 14,
               fontWeight: 500,

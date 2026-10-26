@@ -34,7 +34,7 @@ export function ProductPurchaseConfidence({ className }: ProductPurchaseConfiden
           className="mx-auto"
           eyebrow="Confidence"
           title="Shop with a quieter mind"
-          description="Trust cues drawn from how Korean Skin Lab actually operates — authenticity, support, and careful curation."
+          description="Trust cues drawn from how SCYN actually operates — authenticity, support, and careful curation."
         />
 
         <ul className="mt-12 grid gap-10 tablet:grid-cols-2 laptop:mt-14 laptop:grid-cols-4 laptop:gap-8">

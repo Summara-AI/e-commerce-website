@@ -30,7 +30,7 @@ export function HomeTrustBadges({ className }: { className?: string }) {
     >
       <Container width="max">
         <h2 id="home-trust-heading" className="visually-hidden">
-          Why shop with Korean Skin Lab
+          Why shop with SCYN
         </h2>
         <ul className="grid grid-cols-1 gap-4 tablet:grid-cols-2 tablet:gap-5 laptop:grid-cols-5">
           {HOME_TRUST_BADGES.map((badge, index) => {

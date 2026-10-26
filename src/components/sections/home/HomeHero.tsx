@@ -28,7 +28,7 @@ export function HomeHero({ className }: { className?: string }) {
     >
       <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
         <div className="absolute -left-24 top-24 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(255,224,239,0.55)_0%,transparent_70%)] blur-2xl" />
-        <div className="absolute bottom-0 right-[40%] h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(242,236,228,0.7)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute bottom-0 right-[40%] h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(239,232,224,0.7)_0%,transparent_70%)] blur-3xl" />
       </div>
 
       <Container width="max" className="relative py-16 tablet:py-24 laptop:py-28 desktop:py-32">

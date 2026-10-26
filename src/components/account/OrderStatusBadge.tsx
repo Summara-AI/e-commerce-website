@@ -6,7 +6,7 @@ const TONE_CLASS = {
   pending: "bg-pearl text-foreground-secondary",
   processing: "bg-pink-mist text-power-pink",
   packed: "bg-blush text-foreground",
-  shipped: "bg-[rgba(232,0,111,0.12)] text-power-pink",
+  shipped: "bg-[rgba(228,19,111,0.12)] text-power-pink",
   out_for_delivery: "bg-soft-pink/70 text-soft-pink-text",
   delivered: "bg-emerald-50 text-emerald-800",
   cancelled: "bg-soft-pink/60 text-destructive",

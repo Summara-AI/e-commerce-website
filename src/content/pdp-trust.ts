@@ -44,7 +44,7 @@ export type ProductReviewSummary = {
   average: number | null;
   total: number;
   breakdown: RatingBreakdown[];
-  /** No live Korean Skin Lab product reviews connected yet */
+  /** No live SCYN product reviews connected yet */
   connected: boolean;
 };
 
@@ -125,9 +125,9 @@ export type PdpFaqItem = {
 export const PDP_PRODUCT_FAQS: PdpFaqItem[] = [
   {
     id: "authentic",
-    question: "Are Korean Skin Lab products authentic?",
+    question: "Are SCYN products authentic?",
     answer:
-      "Yes. At Korean Skin Lab we bring you 100% authentic Korean skincare from trusted brands — verified and original, founded to fight counterfeit K-beauty in Pakistan.",
+      "Yes. At SCYN we bring you 100% authentic Korean skincare from trusted brands — verified and original, founded to fight counterfeit K-beauty in Pakistan.",
   },
   {
     id: "support",
@@ -146,7 +146,7 @@ export const PDP_PRODUCT_FAQS: PdpFaqItem[] = [
   },
   {
     id: "location",
-    question: "Where does Korean Skin Lab operate from?",
+    question: "Where does SCYN operate from?",
     answer: `${FOOTER_CONTACT.address}.`,
   },
 ];

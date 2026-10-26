@@ -3,17 +3,18 @@
  */
 
 export const SITE_SETTINGS = {
-  name: "Korean Skin Lab",
-  legalName: "Korean Skin Lab",
+  name: "SCYN",
+  legalName: "SCYN",
+  tagline: "Skincare You Need.",
   url: "https://koreanskinlab.pk",
   locale: "en_PK",
   currency: "PKR" as const,
   country: "PK",
   description:
-    "100% authentic Korean skincare for Pakistan. Verified products, thoughtfully curated routines, and a calmer way to shop K-beauty.",
-  /** Prefer raster 1200×630 for social crawlers — replace with brand OG art when ready */
+    "SCYN — 100% authentic Korean skincare for Pakistan. Verified products, thoughtfully curated routines, and a calmer way to shop K-beauty.",
+  /** Raster 1200×630 social card built from the official SCYN complete lockup */
   defaultOgImage: "/og-default.png",
-  email: "Support@koreanskinlab.pk",
+  email: "syncpk@gmail.com",
   phone: "+92 327 7560880",
   phoneHref: "tel:+923277560880",
   whatsappHref: "https://wa.me/923277560880",

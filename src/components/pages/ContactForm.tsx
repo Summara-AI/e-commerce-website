@@ -198,7 +198,7 @@ export function ContactForm({ className }: { className?: string }) {
             "flex h-12 w-full rounded-input border border-border-subtle bg-canvas px-5 text-base font-light text-foreground",
             "transition-[border-color,box-shadow] duration-200 ease-out",
             "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-border-focus",
-            "focus-visible:border-border-focus focus-visible:shadow-[0_0_0_4px_rgba(232,0,111,0.12)]",
+            "focus-visible:border-border-focus focus-visible:shadow-[0_0_0_4px_rgba(228,19,111,0.12)]",
             "disabled:cursor-not-allowed disabled:opacity-40",
           )}
         >

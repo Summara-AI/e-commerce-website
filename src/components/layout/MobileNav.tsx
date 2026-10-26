@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Heart, Search, User, ShoppingBag } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
+import { Logo } from "@/components/header/Logo";
 import { useBodyLock } from "@/hooks/use-body-lock";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
 import {
@@ -88,13 +89,11 @@ export function MobileNav({
         )}
         {...(!open ? { inert: true } : {})}
       >
-        <div className="flex items-center justify-between border-b border-border-subtle px-4 py-4">
-          <p
-            id={titleId}
-            className="text-overline font-medium uppercase tracking-[0.14em] text-foreground-muted"
-          >
+        <div className="flex items-center justify-between gap-3 border-b border-border-subtle px-4 py-3">
+          <p id={titleId} className="visually-hidden">
             Menu
           </p>
+          <Logo compact />
           <button
             type="button"
             onClick={() => {

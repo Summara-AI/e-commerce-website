@@ -226,7 +226,7 @@ const EDITORIAL: Record<string, CollectionEditorial> = {
       {
         id: "value",
         title: "Thoughtful value",
-        description: "Kits priced as published on Korean Skin Lab.",
+        description: "Kits priced as published on SCYN.",
       },
     ],
   },

@@ -9,7 +9,7 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "Guides",
   description:
-    "Educational guides from Korean Skin Lab — authenticity, real vs fake, and calm routine building.",
+    "Educational guides from SCYN — authenticity, real vs fake, and calm routine building.",
   path: "/pages/guides",
 });
 
@@ -35,7 +35,7 @@ const GUIDES = [
   {
     id: "story",
     title: "Our story",
-    description: "Why Korean Skin Lab exists — and what we stand for.",
+    description: "Why SCYN exists — and what we stand for.",
     href: "/pages/our-story",
   },
 ] as const;

@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import { mailtoHref } from "@/lib/email";
 import { FOOTER_CONTACT } from "@/lib/site-content";
 import { PDP_SHIPPING_RETURNS } from "@/content/pdp-trust";
 import { cn } from "@/lib/utils";
@@ -58,7 +59,14 @@ export function ProductShippingReturns({ className }: ProductShippingReturnsProp
         </ul>
 
         <p className="mt-10 text-caption text-foreground-muted">
-          Based in {FOOTER_CONTACT.address} · {FOOTER_CONTACT.email} · {FOOTER_CONTACT.phone}
+          Based in {FOOTER_CONTACT.address} ·{" "}
+          <a
+            href={mailtoHref(FOOTER_CONTACT.email)}
+            className="transition-colors hover:text-power-pink"
+          >
+            {FOOTER_CONTACT.email}
+          </a>{" "}
+          · {FOOTER_CONTACT.phone}
         </p>
       </Container>
     </Section>

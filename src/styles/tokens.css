@@ -1,6 +1,7 @@
 /**
- * Korean Skin Lab — Official Brand Kit Design Tokens
- * Exact palette only. Do not invent off-kit colors.
+ * SCYN — Official Brand Kit Design Tokens
+ * Exact palette sampled from the supplied SCYN logo artwork.
+ * Do not invent off-kit colors.
  */
 
 :root {
@@ -48,13 +49,18 @@
   --space-30: 120px;
   --space-40: 160px;
 
+  /* ——— SCYN brand colors (exact, sampled from logo artwork) ——— */
+  --color-scyn-magenta: #e4136f;
+  --color-scyn-magenta-hover: #c91060;
+  --color-scyn-ivory: #efe8e0;
+
   /* ——— Brand Kit colors (exact) ——— */
-  --color-power-pink: #e8006f;
-  /* Primary button hover — slightly darker Power Pink only */
-  --color-power-pink-hover: #cf0063;
+  --color-power-pink: var(--color-scyn-magenta);
+  /* Primary button hover — slightly darker magenta only */
+  --color-power-pink-hover: var(--color-scyn-magenta-hover);
   --color-canvas: #ffffff;
   --color-blush: #fff5f9;
-  --color-pearl: #f2ece4;
+  --color-pearl: var(--color-scyn-ivory);
   --color-pink-mist: #ffe0ef;
   --color-soft-pink: #ffb0d0;
   --color-soft-pink-text: #8b0040;

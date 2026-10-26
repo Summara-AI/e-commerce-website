@@ -29,7 +29,7 @@ export function ProductCompleteRoutine({ steps, className }: ProductCompleteRout
           id="pdp-routine-heading"
           eyebrow="Routine"
           title="Complete your routine"
-          description="A calm path in order of use — products from the Korean Skin Lab catalogue."
+          description="A calm path in order of use — products from the SCYN catalogue."
         />
 
         <ol className="mt-10 space-y-0 tablet:mt-12">

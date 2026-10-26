@@ -7,9 +7,9 @@ export const BRAND_STORY = {
   eyebrow: "Our story",
   title: "Born to bring real Korean skincare to Pakistan",
   paragraphs: [
-    "At Korean Skin Lab, our mission began with one simple belief: everyone deserves access to 100% authentic Korean skincare.",
+    "At SCYN, our mission began with one simple belief: everyone deserves access to 100% authentic Korean skincare.",
     "Over the years, we noticed a growing problem in Pakistan — fake and counterfeit “K-beauty” products flooding the market, misleading customers, and damaging trust.",
-    "As passionate users and frequent travelers to Korea, we experienced first-hand how genuine Korean skincare delivers visible, lasting results. That’s why we founded Korean Skin Lab — to bring original, verified, and effective Korean skincare directly to Pakistan.",
+    "As passionate users and frequent travelers to Korea, we experienced first-hand how genuine Korean skincare delivers visible, lasting results. That’s why we founded SCYN — to bring original, verified, and effective Korean skincare directly to Pakistan.",
   ],
   mission:
     "We’re here to make your skincare journey honest, safe, and truly transformative — because your skin deserves nothing less than the real Korean glow.",
@@ -20,7 +20,7 @@ export const BRAND_STORY = {
 } as const;
 
 export const WHY_CHOOSE = {
-  eyebrow: "Why Korean Skin Lab",
+  eyebrow: "Why SCYN",
   title: "A calmer way to shop K-beauty",
   description:
     "Built for trust first — so discovery feels guided, not overwhelming.",
@@ -60,7 +60,7 @@ export const SCIENCE_AUTHENTICITY = {
   eyebrow: "Authenticity",
   title: "Transparency over imitation",
   lead:
-    "Real Korean skincare is precise, ingredient-led, and built for results. Imitations can’t match what genuine formulas deliver — which is why authenticity sits at the center of Korean Skin Lab.",
+    "Real Korean skincare is precise, ingredient-led, and built for results. Imitations can’t match what genuine formulas deliver — which is why authenticity sits at the center of SCYN.",
   points: [
     {
       id: "verify",

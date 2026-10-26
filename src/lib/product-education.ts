@@ -228,7 +228,7 @@ const PRODUCT_CONCERNS: Record<string, string[]> = {
 };
 
 function brandFromTitle(title: string, kind: ProductPageData["kind"]): string {
-  if (kind === "bundle") return "Korean Skin Lab";
+  if (kind === "bundle") return "SCYN";
   if (/^HARUHARU|^Haruharu/i.test(title)) return "Haruharu Wonder";
   if (/^DERMAL|^Dermal/i.test(title)) return "DERMAL";
   if (/^Lacto Cica/i.test(title)) return "Lacto Cica";
@@ -239,7 +239,7 @@ function brandFromTitle(title: string, kind: ProductPageData["kind"]): string {
   if (/^LADAMER/i.test(title)) return "LADAMER";
   if (/^ELENSILIA|^Elensilia/i.test(title)) return "ELENSILIA";
   if (/^Escargot/i.test(title)) return "Escargot";
-  return "Korean Skin Lab edit";
+  return "SCYN edit";
 }
 
 function purposeFor(product: ProductPageData): string {
@@ -247,7 +247,7 @@ function purposeFor(product: ProductPageData): string {
     return product.description;
   }
   const type = product.productType ?? "Skincare";
-  return `${type} in the Korean Skin Lab edit — ${product.description}`;
+  return `${type} in the SCYN edit — ${product.description}`;
 }
 
 function highlightsFromDescription(description: string): EducationHighlight[] {
@@ -268,7 +268,7 @@ function benefitsFromProduct(product: ProductPageData): EducationBenefit[] {
     return product.includes.slice(0, 3).map((item, i) => ({
       id: item.id,
       title: item.title,
-      description: "Included in this verified Korean Skin Lab kit.",
+      description: "Included in this verified SCYN kit.",
       mark: (["drop", "spark", "sun"] as const)[i] ?? "spark",
     }));
   }
@@ -605,7 +605,7 @@ export function getProductEducation(product: ProductPageData): ProductEducation 
   const ingredients = ingredientIds.map((id, index) => {
     const copy = INGREDIENT_COPY[id] ?? {
       name: id,
-      benefit: "Featured in this formula’s Korean Skin Lab listing.",
+      benefit: "Featured in this formula’s SCYN listing.",
     };
     return {
       id,
@@ -672,11 +672,11 @@ export function getProductEducation(product: ProductPageData): ProductEducation 
       items: [
         {
           title: "Is this authentic?",
-          body: "Korean Skin Lab brings 100% authentic Korean skincare — verified and original, sourced to fight counterfeit K-beauty in Pakistan.",
+          body: "SCYN brings 100% authentic Korean skincare — verified and original, sourced to fight counterfeit K-beauty in Pakistan.",
         },
         {
           title: "Need help choosing?",
-          body: "Reach Support@koreanskinlab.pk or WhatsApp +92 327 7560880 during published support hours.",
+          body: "Reach syncpk@gmail.com or WhatsApp +92 327 7560880 during published support hours.",
         },
       ],
     },
@@ -689,7 +689,7 @@ export function getProductEducation(product: ProductPageData): ProductEducation 
       highlights,
       suitableFor: concerns.length
         ? `Often chosen along our ${concerns.map((c) => c.title).join(", ")} paths.`
-        : "Part of the verified Korean Skin Lab catalogue.",
+        : "Part of the verified SCYN catalogue.",
       skinTypes: skinTypesFor(concernIds),
       concerns,
       size,

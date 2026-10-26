@@ -6,7 +6,7 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "Sign In",
   description:
-    "Sign in to Korean Skin Lab — view orders, wishlist, saved addresses, and enjoy faster checkout.",
+    "Sign in to SCYN — view orders, wishlist, saved addresses, and enjoy faster checkout.",
   path: "/account/login",
   noIndex: true,
 });

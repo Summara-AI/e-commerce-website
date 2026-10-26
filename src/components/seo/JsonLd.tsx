@@ -18,6 +18,7 @@ export function organizationJsonLd() {
     "@type": "Organization",
     name: SITE_SETTINGS.name,
     legalName: SITE_SETTINGS.legalName,
+    slogan: SITE_SETTINGS.tagline,
     url: SITE_SETTINGS.url,
     email: SITE_SETTINGS.email,
     telephone: SITE_SETTINGS.phone,
@@ -29,7 +30,8 @@ export function organizationJsonLd() {
       addressCountry: SITE_SETTINGS.address.country,
     },
     sameAs: SITE_SETTINGS.sameAs,
-    logo: absoluteUrl(SITE_SETTINGS.defaultOgImage),
+    logo: absoluteUrl("/media/brand/scyn-icon-bg.png"),
+    image: absoluteUrl(SITE_SETTINGS.defaultOgImage),
   };
 }
 

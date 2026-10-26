@@ -25,7 +25,7 @@ export type MetafieldDefinitionPlan = {
 };
 
 /**
- * Planned custom metafields (namespace `ksl` = Korean Skin Lab).
+ * Planned custom metafields (namespace `ksl` = SCYN).
  * Do not create in Shopify until Phase 11B+.
  */
 export const PLANNED_METAFIELDS: MetafieldDefinitionPlan[] = [

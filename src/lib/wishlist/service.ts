@@ -65,7 +65,7 @@ export function getProductBrand(product: CatalogProduct): string {
     }
   }
   const first = title.split(/\s+/)[0];
-  return first || "Korean Skin Lab";
+  return first || "SCYN";
 }
 
 /**

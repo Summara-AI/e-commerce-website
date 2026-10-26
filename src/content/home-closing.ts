@@ -95,10 +95,7 @@ export const HOME_COMMUNITY = {
   eyebrow: "Community",
   title: "Real routines. Real light.",
   description:
-    "A glimpse of the Korean Skin Lab world — lifestyle moments and brand rituals. Connect with us on Instagram for updates.",
-  /** Placeholder until verified brand Instagram URL is confirmed */
-  instagramHref: "https://instagram.com/",
-  instagramHandle: "@koreanskinlab",
+    "A glimpse of the SCYN world — lifestyle moments and brand rituals.",
 } as const;
 
 export const HOME_NEWSLETTER = {

@@ -78,7 +78,7 @@ export const metadata = createPageMetadata({
   keywords: [
     "Korean skincare Pakistan",
     "authentic K-beauty",
-    "Korean Skin Lab",
+    "SCYN",
     "verified Korean skincare",
   ],
 });

@@ -4,6 +4,7 @@ import { MinimalChrome } from "@/components/pages/MinimalChrome";
 import { Button } from "@/components/ui/button";
 import { MAINTENANCE_PAGE } from "@/content/utility-pages";
 import { Logo } from "@/components/header/Logo";
+import { mailtoHref } from "@/lib/email";
 
 /**
  * Premium branded maintenance experience — Shopify password / maintenance ready.
@@ -21,7 +22,7 @@ export function MaintenancePageView() {
         />
         <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 py-16 text-center tablet:px-6">
           <div className="mb-10">
-            <Logo />
+            <Logo variant="complete" priority />
           </div>
           <p className="text-overline font-medium uppercase tracking-[0.14em] text-power-pink">
             {MAINTENANCE_PAGE.eyebrow}
@@ -35,7 +36,9 @@ export function MaintenancePageView() {
           <p className="mt-6 text-sm text-foreground-muted">{MAINTENANCE_PAGE.hoursNote}</p>
           <div className="mt-8 flex flex-col items-center gap-3 tablet:flex-row">
             <Button asChild>
-              <a href={`mailto:${MAINTENANCE_PAGE.email}`}>{MAINTENANCE_PAGE.email}</a>
+              <a href={mailtoHref(MAINTENANCE_PAGE.email)}>
+                {MAINTENANCE_PAGE.email}
+              </a>
             </Button>
             <Button asChild variant="secondary">
               <a

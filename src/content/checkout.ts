@@ -15,7 +15,7 @@ export const CHECKOUT_COPY = {
   placeOrderShopify: "Continue to Secure Checkout",
   handoffLoading: "Opening Shopify secure checkout…",
   handoffNote:
-    "You’ll complete payment on Shopify’s encrypted checkout. Korean Skin Lab never sees your card details.",
+    "You’ll complete payment on Shopify’s encrypted checkout. SCYN never sees your card details.",
   emptyTitle: "Your bag is empty",
   emptyDescription: "Add a few pieces before checkout.",
   emptyCta: "Explore products",

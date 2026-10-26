@@ -35,9 +35,12 @@ export function createPageMetadata({
 }: PageSeoInput): Metadata {
   const url = absoluteUrl(path);
   const ogImage = image ?? SITE_SETTINGS.defaultOgImage;
+  const fullTitle = title.includes(SITE_SETTINGS.name)
+    ? title
+    : `${title} | ${SITE_SETTINGS.name}`;
 
   return {
-    title,
+    title: { absolute: fullTitle },
     description,
     keywords,
     alternates: {
@@ -48,7 +51,7 @@ export function createPageMetadata({
       locale: SITE_SETTINGS.locale,
       url,
       siteName: SITE_SETTINGS.name,
-      title: `${title} · ${SITE_SETTINGS.name}`,
+      title: fullTitle,
       description,
       images: [
         {
@@ -61,7 +64,7 @@ export function createPageMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} · ${SITE_SETTINGS.name}`,
+      title: fullTitle,
       description,
       images: [ogImage],
     },

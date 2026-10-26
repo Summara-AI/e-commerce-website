@@ -46,6 +46,11 @@ module.exports = {
           DEFAULT: "var(--color-power-pink)",
           hover: "var(--color-power-pink-hover)",
         },
+        scyn: {
+          magenta: "var(--color-scyn-magenta)",
+          "magenta-hover": "var(--color-scyn-magenta-hover)",
+          ivory: "var(--color-scyn-ivory)",
+        },
         blush: "var(--color-blush)",
         pearl: "var(--color-pearl)",
         "pink-mist": "var(--color-pink-mist)",

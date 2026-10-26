@@ -6,6 +6,7 @@ import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { Button } from "@/components/ui/button";
 import { CONTACT_PAGE } from "@/content/contact";
+import { mailtoHref } from "@/lib/email";
 
 /**
  * Contact page — form + verified business information.
@@ -48,7 +49,7 @@ export function ContactPageView() {
                   <dt className="font-medium text-foreground">Email</dt>
                   <dd className="mt-1">
                     <a
-                      href={`mailto:${business.email}`}
+                      href={mailtoHref(business.email)}
                       className="text-foreground-secondary transition-colors hover:text-power-pink"
                     >
                       {business.email}
@@ -97,21 +98,6 @@ export function ContactPageView() {
               <Button asChild variant="text" className="mt-3 px-0">
                 <Link href={faqShortcut.href}>{faqShortcut.label}</Link>
               </Button>
-            </div>
-
-            <div>
-              <h3 className="font-display text-lg font-light text-foreground">Find us</h3>
-              <p className="mt-2 text-sm text-foreground-secondary">{business.address}</p>
-              <div
-                className="mt-4 aspect-[16/10] overflow-hidden rounded-card border border-border-subtle bg-[linear-gradient(160deg,var(--color-blush),var(--color-pearl),var(--color-pink-mist))]"
-                role="img"
-                aria-label="Google Maps embed placeholder — DHA Phase 6 Lahore"
-                data-image-spec="contact-map-placeholder"
-                data-placeholder="true"
-              />
-              <p className="mt-2 text-caption text-foreground-nav">
-                Interactive map embeds when Google Maps is connected.
-              </p>
             </div>
           </aside>
         </div>

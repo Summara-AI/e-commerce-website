@@ -123,7 +123,7 @@ export function CheckoutFlow() {
         checkoutUrl: null,
         draft,
         preview: {
-          orderNumber: `#KSL${Date.now().toString().slice(-6)}`,
+          orderNumber: `#SCYN${Date.now().toString().slice(-6)}`,
           createdAt: new Date().toISOString(),
           shipping,
           delivery: {
@@ -581,7 +581,7 @@ function DeliveryStep({
                   "flex w-full flex-col gap-2 rounded-card border p-5 text-left transition-[border-color,box-shadow,transform,background-color] duration-280",
                   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-border-focus",
                   selected
-                    ? "border-power-pink bg-pink-mist/40 shadow-[0_12px_32px_-24px_rgba(232,0,111,0.45)]"
+                    ? "border-power-pink bg-pink-mist/40 shadow-[0_12px_32px_-24px_rgba(228,19,111,0.45)]"
                     : "border-border-subtle bg-canvas/80 hover:-translate-y-0.5 hover:border-border-default",
                   freeLocked && "cursor-not-allowed opacity-50 hover:translate-y-0",
                 )}

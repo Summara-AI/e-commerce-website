@@ -1,10 +1,7 @@
-import Link from "next/link";
 import { MediaImage } from "@/components/common/MediaImage";
 import { SectionHeading } from "@/components/common/SectionHeading";
-import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
-import { HOME_COMMUNITY } from "@/content/home-closing";
 import { HOME_COMMUNITY_COPY } from "@/content/home-story";
 import { cn } from "@/lib/utils";
 
@@ -31,23 +28,12 @@ export function HomeCommunity({ className }: { className?: string }) {
       )}
     >
       <Container width="content">
-        <div className="flex flex-col gap-8 tablet:flex-row tablet:items-end tablet:justify-between">
-          <SectionHeading
-            id="home-community-heading"
-            eyebrow={copy.eyebrow}
-            title={copy.title}
-            description={copy.description}
-          />
-          <Button asChild variant="text" className="self-start shrink-0 tablet:self-auto">
-            <Link
-              href={HOME_COMMUNITY.instagramHref}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Follow {HOME_COMMUNITY.instagramHandle}
-            </Link>
-          </Button>
-        </div>
+        <SectionHeading
+          id="home-community-heading"
+          eyebrow={copy.eyebrow}
+          title={copy.title}
+          description={copy.description}
+        />
 
         <ul className="mt-14 grid grid-cols-2 gap-3 tablet:mt-16 tablet:grid-cols-4 tablet:gap-4">
           {TILES.map((tile) => (

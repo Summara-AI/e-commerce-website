@@ -13,7 +13,7 @@ type ProductRecommendedBundlesProps = {
 };
 
 /**
- * Recommended kits from the live Korean Skin Lab bundle catalogue.
+ * Recommended kits from the live SCYN bundle catalogue.
  */
 export function ProductRecommendedBundles({
   bundles,
@@ -34,7 +34,7 @@ export function ProductRecommendedBundles({
             id="pdp-bundles-heading"
             eyebrow="Kits"
             title="Recommended bundles"
-            description="Complete paths already curated — starter and morning kits from Korean Skin Lab."
+            description="Complete paths already curated — starter and morning kits from SCYN."
           />
           <Button asChild variant="text" className="self-start tablet:self-auto">
             <Link href="/collections/bundles">View all kits</Link>

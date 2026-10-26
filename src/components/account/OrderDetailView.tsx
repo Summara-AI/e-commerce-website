@@ -19,6 +19,7 @@ import {
   type OrderLineItem,
   type TimelineStep,
 } from "@/lib/account-types";
+import { mailtoHref } from "@/lib/email";
 import { FOOTER_CONTACT } from "@/lib/site-content";
 import { cn } from "@/lib/utils";
 
@@ -526,9 +527,7 @@ function SupportBlock({ orderNumber }: { orderNumber: string }) {
           </a>
         </Button>
         <Button asChild variant="text" className="min-h-11">
-          <a
-            href={`mailto:${FOOTER_CONTACT.email}?subject=${encodeURIComponent(orderNumber)}`}
-          >
+          <a href={mailtoHref(FOOTER_CONTACT.email, orderNumber)}>
             Email support
           </a>
         </Button>
