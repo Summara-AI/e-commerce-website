@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import {
-  CollectionHero,
-  CollectionInfo,
-  CollectionNav,
   CollectionProductSection,
 } from "@/components/sections/collection";
 import {
@@ -61,12 +58,6 @@ export default function CollectionPage({ params }: CollectionPageProps) {
           { name: data.collection.title, path: data.collection.href },
         ])}
       />
-      <CollectionHero data={data} />
-      <CollectionNav
-        currentHandle={data.handle}
-        switcherHandles={data.switcherHandles}
-      />
-      <CollectionInfo data={data} />
       <CollectionProductSection data={data} />
     </>
   );

@@ -3,6 +3,8 @@
  * Product names, prices, and concerns sourced from koreanskinlab.pk.
  */
 
+import { applyClientProductContent } from "@/data/client-products";
+
 export type Money = {
   amount: number;
   currencyCode: "PKR";
@@ -69,7 +71,9 @@ export const PRODUCT_CATEGORIES: CatalogCollection[] = [
     title: "Cleansers",
     href: "/collections/cleansers",
     description: "Oils and gels that prepare skin without over-stripping.",
-    imageAlt: "Cleansers category editorial — asset pending",
+    imageSrc:
+      "/media/products/HARUHARU Wonder Black Rice Moisture Cleansing Oil.png",
+    imageAlt: "HARUHARU Wonder Black Rice Moisture Cleansing Oil packshot",
   },
   {
     id: "toners",
@@ -77,7 +81,9 @@ export const PRODUCT_CATEGORIES: CatalogCollection[] = [
     title: "Toners",
     href: "/collections/toners",
     description: "Hydrating layers that balance and soften.",
-    imageAlt: "Toners category editorial — asset pending",
+    imageSrc:
+      "/media/products/Haruharu Wonder Black Rice Hyaluronic Toner.png",
+    imageAlt: "Haruharu Wonder Black Rice Hyaluronic Toner packshot",
   },
   {
     id: "moisturizers",
@@ -85,7 +91,9 @@ export const PRODUCT_CATEGORIES: CatalogCollection[] = [
     title: "Moisturizers",
     href: "/collections/moisturizers",
     description: "Creams and balms for lasting comfort.",
-    imageAlt: "Moisturizers category editorial — asset pending",
+    imageSrc:
+      "/media/products/Escargot Original Facial Repair Cream.png",
+    imageAlt: "Escargot Original Facial Repair Cream packshot",
   },
   {
     id: "masks",
@@ -93,7 +101,9 @@ export const PRODUCT_CATEGORIES: CatalogCollection[] = [
     title: "Masks",
     href: "/collections/masks",
     description: "Sheet and treatment masks for a quiet reset.",
-    imageAlt: "Masks category editorial — asset pending",
+    imageSrc:
+      "/media/products/DERMAL Rice Collagen Essence Mask.png",
+    imageAlt: "DERMAL Rice Collagen Essence Mask packshot",
   },
   {
     id: "sunscreen",
@@ -101,7 +111,10 @@ export const PRODUCT_CATEGORIES: CatalogCollection[] = [
     title: "Sunscreen",
     href: "/collections/sunscreen",
     description: "Daily SPF with a Korean feel on skin.",
-    imageAlt: "Sunscreen category editorial — asset pending",
+    imageSrc:
+      "/media/products/Haruharu Wonder Black Rice Pure Mineral Relief Daily Sunscreen SPF50.png",
+    imageAlt:
+      "Haruharu Wonder Black Rice Pure Mineral Relief Daily Sunscreen SPF50 packshot",
   },
   {
     id: "bb-cream",
@@ -109,7 +122,9 @@ export const PRODUCT_CATEGORIES: CatalogCollection[] = [
     title: "BB Cream",
     href: "/collections/bb-cream",
     description: "Light coverage with skincare-minded formulas.",
-    imageAlt: "BB cream category editorial — asset pending",
+    imageSrc:
+      "/media/products/Anjo Professional Snail BB Cream.png",
+    imageAlt: "Anjo Professional Snail BB Cream packshot",
   },
   {
     id: "eye-care",
@@ -117,7 +132,9 @@ export const PRODUCT_CATEGORIES: CatalogCollection[] = [
     title: "Eye Care",
     href: "/collections/eye-care",
     description: "Targeted care for the delicate eye area.",
-    imageAlt: "Eye care category editorial — asset pending",
+    imageSrc:
+      "/media/products/Elensilia CPP+ Collagen Peptide Eye Cream.png",
+    imageAlt: "Elensilia CPP+ Collagen Peptide Eye Cream packshot",
   },
 ];
 
@@ -319,7 +336,7 @@ export const BEST_SELLERS: CatalogProduct[] = [
     imageAlt: "Lacto Cica Barrier Cream packshot",
     ratingPlaceholder: true,
   },
-];
+].map((product) => applyClientProductContent(product as CatalogProduct));
 
 export type BundleInclusion = {
   id: string;

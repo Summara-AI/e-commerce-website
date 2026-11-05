@@ -1,8 +1,7 @@
 "use client";
 
 import { CollectionFilterDrawer } from "@/components/commerce/filters/CollectionFilterDrawer";
-import { CollectionSortSelect } from "@/components/commerce/filters/CollectionSortSelect";
-import type { BrowseFacets, FilterState, SortValue } from "@/lib/collection-filters";
+import type { BrowseFacets, FilterState } from "@/lib/collection-filters";
 import { cn } from "@/lib/utils";
 
 type CollectionToolbarProps = {
@@ -10,21 +9,19 @@ type CollectionToolbarProps = {
   facets: BrowseFacets;
   resultCount: number;
   totalWithoutFilters: number;
-  onSortChange: (sort: SortValue) => void;
   onApplyDraft: (next: FilterState) => void;
   onReset: () => void;
   className?: string;
 };
 
 /**
- * Result count + sort + mobile filter entry.
+ * Result count + mobile filter entry.
  */
 export function CollectionToolbar({
   state,
   facets,
   resultCount,
   totalWithoutFilters,
-  onSortChange,
   onApplyDraft,
   onReset,
   className,
@@ -34,7 +31,7 @@ export function CollectionToolbar({
   return (
     <div
       className={cn(
-        "flex flex-col gap-4 border-b border-border-subtle pb-5 tablet:flex-row tablet:items-center tablet:justify-between",
+        "border-b border-border-subtle pb-5",
         className,
       )}
     >
@@ -60,8 +57,6 @@ export function CollectionToolbar({
           )}
         </p>
       </div>
-
-      <CollectionSortSelect value={state.sort} onChange={onSortChange} />
     </div>
   );
 }

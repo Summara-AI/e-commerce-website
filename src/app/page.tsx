@@ -20,13 +20,6 @@ const HomeBestSellers = dynamic(
     ),
   { loading: () => <SectionFallback minHeight="36rem" /> },
 );
-const HomeFeaturedCollections = dynamic(
-  () =>
-    import("@/components/sections/home/HomeFeaturedCollections").then(
-      (m) => m.HomeFeaturedCollections,
-    ),
-  { loading: () => <SectionFallback minHeight="32rem" /> },
-);
 const HomeEditorialBanner = dynamic(
   () =>
     import("@/components/sections/home/HomeEditorialBanner").then(
@@ -34,26 +27,12 @@ const HomeEditorialBanner = dynamic(
     ),
   { loading: () => <SectionFallback minHeight="24rem" /> },
 );
-const HomeStoryPreview = dynamic(
-  () =>
-    import("@/components/sections/home/HomeStoryPreview").then(
-      (m) => m.HomeStoryPreview,
-    ),
-  { loading: () => <SectionFallback minHeight="28rem" /> },
-);
 const HomeTestimonials = dynamic(
   () =>
     import("@/components/sections/home/HomeTestimonials").then(
       (m) => m.HomeTestimonials,
     ),
   { loading: () => <SectionFallback minHeight="20rem" /> },
-);
-const HomeCommunity = dynamic(
-  () =>
-    import("@/components/sections/home/HomeCommunity").then(
-      (m) => m.HomeCommunity,
-    ),
-  { loading: () => <SectionFallback minHeight="22rem" /> },
 );
 const HomeNewsletter = dynamic(
   () =>
@@ -91,11 +70,8 @@ export default function HomePage() {
     <>
       <HomeHero />
       <HomeBestSellers />
-      <HomeFeaturedCollections />
       <HomeEditorialBanner />
-      <HomeStoryPreview />
       <HomeTestimonials />
-      <HomeCommunity />
       <HomeNewsletter />
       <HomeTrustBadges />
     </>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 import type { CatalogProduct } from "@/lib/catalog";
+import { MediaImage } from "@/components/common/MediaImage";
 import { cn } from "@/lib/utils";
 
 type ProductMobileCrossSellProps = {
@@ -73,12 +74,20 @@ export function ProductMobileCrossSell({
         <Link
           href={complement.href}
           className={cn(
-            "relative h-12 w-12 shrink-0 overflow-hidden rounded-badge bg-surface-soft",
-            "bg-[linear-gradient(160deg,var(--bg-page),var(--color-accent-muted))]",
+            "relative h-12 w-12 shrink-0 overflow-hidden rounded-badge bg-canvas",
             "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-border-focus",
           )}
           aria-label={complement.title}
-        />
+        >
+          <MediaImage
+            src={complement.imageSrc}
+            alt={complement.imageAlt}
+            fill
+            sizes="48px"
+            className="object-contain p-1"
+            spec="pdp-mobile-cross-sell-thumb"
+          />
+        </Link>
         <div className="min-w-0 flex-1">
           <p className="text-[10px] font-medium uppercase tracking-[0.12em] text-foreground-muted">
             Pairs well

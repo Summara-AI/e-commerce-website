@@ -65,18 +65,29 @@ function BundleCardMedia({
   }
 
   const tiles = previewTilesFor(bundle);
+  const count = tiles.length;
+
+  const layoutClass =
+    count <= 1
+      ? "grid-cols-1 grid-rows-1"
+      : count === 2
+        ? "grid-cols-2 grid-rows-1"
+        : "grid-cols-2 grid-rows-2";
 
   return (
     <div
-      className={cn("grid h-full w-full grid-cols-2 grid-rows-2 gap-px bg-border-subtle", className)}
+      className={cn("grid h-full w-full gap-px bg-border-subtle", layoutClass, className)}
       role="img"
       aria-label={bundle.imageAlt}
       data-image-spec="bundle-card-collage"
     >
-      {tiles.map((tile) => (
+      {tiles.map((tile, index) => (
         <div
           key={tile.id}
-          className="relative overflow-hidden bg-[linear-gradient(155deg,var(--color-canvas)_0%,var(--color-pink-mist)_55%,var(--color-pearl)_100%)]"
+          className={cn(
+            "relative overflow-hidden bg-[linear-gradient(155deg,var(--color-canvas)_0%,var(--color-pink-mist)_55%,var(--color-pearl)_100%)]",
+            count === 3 && index === 0 && "row-span-2",
+          )}
         >
           {tile.imageSrc ? (
             <Image

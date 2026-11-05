@@ -15,6 +15,7 @@ import {
   type CatalogProduct,
 } from "@/lib/catalog";
 import { EXTENDED_CATALOG_PRODUCTS } from "@/lib/extended-catalog-products";
+import { applyClientProductContent } from "@/data/client-products";
 
 export type CollectionStatus = "active" | "empty" | "coming-soon" | "unavailable";
 
@@ -74,11 +75,35 @@ const ADDITIONAL_PRODUCTS: CatalogProduct[] = [
   },
 ];
 
+/**
+ * Newly supplied by the client and not previously in the catalogue.
+ * Price/compare-at taken from the live SCYN listing (koreanskinlab.pk);
+ * copy and packshot come from `client-products.ts`.
+ */
+const CLIENT_ADDITIONS: CatalogProduct[] = [
+  {
+    id: "elensilia-prestige",
+    handle: "elensilia-prestige-gold-energy-deer-cream",
+    title: "Elensilia Prestige Gold Energy Deer Cream",
+    href: "/products/elensilia-prestige-gold-energy-deer-cream",
+    description:
+      "Contains ingredients for total anti-aging care. LED device cream for special home care. The gold-colored formulation restores the skin's natural radiance.",
+    productType: "LED (Red light) Therapy",
+    price: formatPkr(18000),
+    compareAtPrice: formatPkr(20000),
+    availableForSale: true,
+    badges: ["new"],
+    imageAlt: "Elensilia Prestige Gold Energy Deer Cream packshot",
+    ratingPlaceholder: true,
+  },
+];
+
 export const ALL_PRODUCTS: CatalogProduct[] = [
   ...BEST_SELLERS,
   ...ADDITIONAL_PRODUCTS,
   ...EXTENDED_CATALOG_PRODUCTS,
-];
+  ...CLIENT_ADDITIONS,
+].map(applyClientProductContent);
 
 const byHandle = (handles: string[]) =>
   ALL_PRODUCTS.filter((p) => handles.includes(p.handle));
@@ -90,6 +115,7 @@ const PRODUCT_HANDLES_BY_COLLECTION: Record<string, string[]> = {
     "dermal-rice-collagen-essence-mask",
     "dermal-kafir-facial-sheet-masks",
     "dermal-blueberry-facial-sheet-mask",
+    "elensilia-prestige-gold-energy-deer-cream",
   ],
   masks: [
     "dermal-rice-collagen-essence-mask",
@@ -134,6 +160,7 @@ const PRODUCT_HANDLES_BY_COLLECTION: Record<string, string[]> = {
     "elensilia-escargot-anti-wrinkle-multi-balm",
     "elensilia-cpp-collagen-peptide-eye-cream",
     "ladamer-oligoforce-caviar-ampoule",
+    "elensilia-prestige-gold-energy-deer-cream",
   ],
   "sensitive-skin": [
     "lacto-cica-barrier-cream-moisturizer",

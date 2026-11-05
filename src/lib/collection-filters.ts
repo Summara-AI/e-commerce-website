@@ -361,7 +361,6 @@ export function parseFilterParams(params: URLSearchParams): FilterState {
       .map((v) => v.trim())
       .filter(Boolean);
 
-  const sort = (params.get("sort") as SortValue) || "featured";
   const page = Math.max(1, Number(params.get("page") || "1") || 1);
 
   return {
@@ -373,7 +372,7 @@ export function parseFilterParams(params: URLSearchParams): FilterState {
     availability: multi("availability") as FilterState["availability"],
     featured: params.get("featured") === "1" || params.get("featured") === "true",
     kind: multi("kind") as FilterState["kind"],
-    sort: SORT_OPTIONS.some((o) => o.value === sort) ? sort : "featured",
+    sort: "featured",
     page,
     q: params.get("q")?.trim() ?? "",
   };

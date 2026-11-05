@@ -85,7 +85,7 @@ export function productJsonLd(product: ProductPageData) {
       name: SITE_SETTINGS.name,
     },
     image: product.media[0]?.src
-      ? [product.media[0].src]
+      ? [absoluteUrl(product.media[0].src)]
       : [absoluteUrl(SITE_SETTINGS.defaultOgImage)],
     offers: {
       "@type": "Offer",

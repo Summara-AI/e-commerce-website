@@ -28,7 +28,6 @@ import {
   toggleFilter,
   type FilterChip,
   type FilterState,
-  type SortValue,
 } from "@/lib/collection-filters";
 import { cn } from "@/lib/utils";
 
@@ -108,13 +107,6 @@ export function CollectionBrowse({ products, bundles = [], className }: Collecti
     [pushState, state],
   );
 
-  const onSortChange = useCallback(
-    (sort: SortValue) => {
-      pushState({ ...state, sort, page: 1 });
-    },
-    [pushState, state],
-  );
-
   const onReset = useCallback(() => {
     pushState(defaultFilterState({ sort: state.sort }));
   }, [pushState, state.sort]);
@@ -147,7 +139,6 @@ export function CollectionBrowse({ products, bundles = [], className }: Collecti
           facets={facets}
           resultCount={pageData.total}
           totalWithoutFilters={catalog.length}
-          onSortChange={onSortChange}
           onApplyDraft={pushState}
           onReset={onReset}
         />

@@ -3,6 +3,7 @@ import { SectionHeading } from "@/components/common/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import { MediaImage } from "@/components/common/MediaImage";
 import type { RoutineStep } from "@/lib/product-recommendations";
 import { cn } from "@/lib/utils";
 
@@ -47,13 +48,18 @@ export function ProductCompleteRoutine({ steps, className }: ProductCompleteRout
 
               <div
                 className={cn(
-                  "aspect-[4/5] w-24 overflow-hidden rounded-card bg-blush laptop:w-full",
-                  "bg-[linear-gradient(160deg,var(--bg-page),var(--color-accent-muted))]",
+                  "relative aspect-[4/5] w-24 overflow-hidden rounded-card bg-canvas laptop:w-full",
                 )}
-                role="img"
-                aria-label={step.product.imageAlt}
-                data-image-spec="pdp-routine-step-thumb"
-              />
+              >
+                <MediaImage
+                  src={step.product.imageSrc}
+                  alt={step.product.imageAlt}
+                  fill
+                  sizes="(max-width: 1024px) 6rem, 8rem"
+                  className="object-contain p-2 transition-transform duration-280 ease-out group-hover:scale-105 motion-reduce:transform-none"
+                  spec="pdp-routine-step-thumb"
+                />
+              </div>
 
               <div className="min-w-0">
                 <p className="text-caption font-medium uppercase tracking-[0.12em] text-power-pink">

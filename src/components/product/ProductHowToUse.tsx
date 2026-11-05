@@ -28,7 +28,7 @@ export function ProductHowToUse({ education, className }: ProductHowToUseProps) 
             id="pdp-howto-heading"
             eyebrow="How to use"
             title="A calm application path"
-            description="General guidance for this product type — always follow the authentic packaging."
+            description="Directions for this product — always follow the authentic packaging."
           />
           {howTo.eyebrow || howTo.routine ? (
             <p className="text-caption font-medium uppercase tracking-[0.12em] text-power-pink">
@@ -69,40 +69,42 @@ export function ProductHowToUse({ education, className }: ProductHowToUseProps) 
           ))}
         </ol>
 
-        <div className="mt-10 grid gap-8 border-t border-border-subtle pt-10 tablet:grid-cols-3 tablet:gap-10">
-          {howTo.frequency ? (
-            <div>
-              <p className="text-caption font-medium uppercase tracking-[0.12em] text-foreground-muted">
-                Frequency
-              </p>
-              <p className="mt-2 text-sm leading-relaxed text-foreground-secondary">
-                {howTo.frequency}
-              </p>
-            </div>
-          ) : null}
-          {howTo.layering ? (
-            <div>
-              <p className="text-caption font-medium uppercase tracking-[0.12em] text-foreground-muted">
-                Layering
-              </p>
-              <p className="mt-2 text-sm leading-relaxed text-foreground-secondary">
-                {howTo.layering}
-              </p>
-            </div>
-          ) : null}
-          {howTo.tips?.length ? (
-            <div>
-              <p className="text-caption font-medium uppercase tracking-[0.12em] text-foreground-muted">
-                Tips
-              </p>
-              <ul className="mt-2 space-y-2 text-sm leading-relaxed text-foreground-secondary">
-                {howTo.tips.map((tip) => (
-                  <li key={tip}>{tip}</li>
-                ))}
-              </ul>
-            </div>
-          ) : null}
-        </div>
+        {howTo.frequency || howTo.layering || howTo.tips?.length ? (
+          <div className="mt-10 grid gap-8 border-t border-border-subtle pt-10 tablet:grid-cols-3 tablet:gap-10">
+            {howTo.frequency ? (
+              <div>
+                <p className="text-caption font-medium uppercase tracking-[0.12em] text-foreground-muted">
+                  Frequency
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-foreground-secondary">
+                  {howTo.frequency}
+                </p>
+              </div>
+            ) : null}
+            {howTo.layering ? (
+              <div>
+                <p className="text-caption font-medium uppercase tracking-[0.12em] text-foreground-muted">
+                  Layering
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-foreground-secondary">
+                  {howTo.layering}
+                </p>
+              </div>
+            ) : null}
+            {howTo.tips?.length ? (
+              <div>
+                <p className="text-caption font-medium uppercase tracking-[0.12em] text-foreground-muted">
+                  Tips
+                </p>
+                <ul className="mt-2 space-y-2 text-sm leading-relaxed text-foreground-secondary">
+                  {howTo.tips.map((tip) => (
+                    <li key={tip}>{tip}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
+        ) : null}
       </Container>
     </Section>
   );

@@ -1,7 +1,5 @@
 import { ProductBenefits } from "@/components/product/ProductBenefits";
 import { ProductDetailsAccordion } from "@/components/product/ProductDetailsAccordion";
-import { ProductHowToUse } from "@/components/product/ProductHowToUse";
-import { ProductIngredients } from "@/components/product/ProductIngredients";
 import { ProductOverview } from "@/components/product/ProductOverview";
 import { ProductSpecifications } from "@/components/product/ProductSpecifications";
 import {
@@ -29,8 +27,6 @@ export function ProductEducationSections({
     <div data-shopify-section-group="product-education">
       <ProductOverview education={education} productTitle={product.title} />
       <ProductBenefits education={education} />
-      <ProductIngredients education={education} />
-      <ProductHowToUse education={education} />
       <ProductSpecifications education={education} />
       <ProductDetailsAccordion education={education} />
     </div>

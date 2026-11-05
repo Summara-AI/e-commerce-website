@@ -6,6 +6,10 @@
 
 import { FEATURED_COLLECTIONS } from "@/lib/catalog";
 import type { ProductPageData } from "@/lib/products";
+import {
+  getClientProductContent,
+  type ClientProductContent,
+} from "@/data/client-products";
 import { PDP_PURCHASE } from "@/content/pdp";
 
 export type EducationHighlight = { id: string; label: string };
@@ -584,11 +588,52 @@ function sizeHint(product: ProductPageData): string | undefined {
   return undefined;
 }
 
+function marksForType(
+  productType: string | undefined,
+): EducationBenefit["mark"][] {
+  if (productType === "Sunscreen") return ["sun", "shield", "drop"];
+  if (productType === "Cleanser") return ["drop", "leaf", "spark"];
+  if (productType === "Facial Mask") return ["moon", "drop", "spark"];
+  return ["drop", "spark", "shield"];
+}
+
+/**
+ * Split a client-supplied key-ingredient list into display cards.
+ * Full INCI lists (many entries) stay as text via the section lead instead.
+ */
+function clientIngredientItems(keyIngredients: string): EducationIngredient[] {
+  const raw = keyIngredients
+    .split(/,\s*/)
+    .map((name) => name.replace(/\s+and more\.?$/i, "").trim())
+    .filter(Boolean);
+
+  if (raw.length > 8) return [];
+
+  return raw.slice(0, 6).map((name, index) => ({
+    id: `ingredient-${index + 1}`,
+    name: name.charAt(0).toUpperCase() + name.slice(1),
+    benefit: "Named in the brand's key ingredient list.",
+    hero: index === 0,
+    imageAlt: `${name} ingredient visual — photography pending`,
+  }));
+}
+
+function clientHowTo(content: ClientProductContent): HowToBlock {
+  return {
+    steps: content.howToUse.map((instruction, index) => ({
+      id: `step-${index + 1}`,
+      title: `Step ${index + 1}`,
+      description: instruction,
+    })),
+  };
+}
+
 /**
  * Build education payload for a PDP — ready for Shopify metafield replacement.
  */
 export function getProductEducation(product: ProductPageData): ProductEducation {
-  const concernIds = PRODUCT_CONCERNS[product.handle] ?? [];
+  const content = getClientProductContent(product.handle);
+  const concernIds = content?.concerns ?? PRODUCT_CONCERNS[product.handle] ?? [];
   const ingredientIds = PRODUCT_INGREDIENTS[product.handle] ?? [];
   const concerns = concernIds
     .map((id) => {
@@ -601,23 +646,32 @@ export function getProductEducation(product: ProductPageData): ProductEducation 
     })
     .filter(Boolean);
 
-  const highlights = highlightsFromDescription(product.description);
-  const ingredients = ingredientIds.map((id, index) => {
-    const copy = INGREDIENT_COPY[id] ?? {
-      name: id,
-      benefit: "Featured in this formula’s SCYN listing.",
-    };
-    return {
-      id,
-      name: copy.name,
-      benefit: copy.benefit,
-      hero: index === 0,
-      imageAlt: `${copy.name} ingredient visual — photography pending`,
-    };
-  });
+  const highlights: EducationHighlight[] = content
+    ? content.highlights.map((label, i) => ({ id: `h${i + 1}`, label }))
+    : highlightsFromDescription(product.description);
+  const ingredients: EducationIngredient[] = content
+    ? clientIngredientItems(content.keyIngredients)
+    : ingredientIds.map((id, index) => {
+        const copy = INGREDIENT_COPY[id] ?? {
+          name: id,
+          benefit: "Featured in this formula’s SCYN listing.",
+        };
+        return {
+          id,
+          name: copy.name,
+          benefit: copy.benefit,
+          hero: index === 0,
+          imageAlt: `${copy.name} ingredient visual — photography pending`,
+        };
+      });
 
   const brand = brandFromTitle(product.title, product.kind);
-  const size = sizeHint(product);
+  const size = content ? content.size : sizeHint(product);
+  const skinTypes =
+    content && content.skinTypes.length
+      ? content.skinTypes
+      : skinTypesFor(concernIds);
+  const marks = marksForType(product.productType);
 
   const specs: ProductSpec[] = [
     { id: "type", label: "Product type", value: product.productType ?? product.kind },
@@ -630,10 +684,20 @@ export function getProductEducation(product: ProductPageData): ProductEducation 
     {
       id: "skin",
       label: "Skin focus",
-      value: skinTypesFor(concernIds).join(" · "),
+      value: skinTypes.join(" · "),
     },
   ];
   if (size) specs.unshift({ id: "size", label: "Format", value: size });
+  if (content?.skinConcern) {
+    specs.push({ id: "concern", label: "Skin concern", value: content.skinConcern });
+  }
+  if (content?.keyIngredients) {
+    specs.push({
+      id: "ingredients",
+      label: "Key ingredients",
+      value: content.keyIngredients,
+    });
+  }
   if (concerns.length) {
     specs.push({
       id: "concerns",
@@ -642,12 +706,22 @@ export function getProductEducation(product: ProductPageData): ProductEducation 
     });
   }
 
+  const benefits: EducationBenefit[] = content
+    ? content.benefits.map((benefit, index) => ({
+        id: `benefit-${index + 1}`,
+        title: benefit.title,
+        description: benefit.description,
+        mark: marks[index] ?? "spark",
+      }))
+    : benefitsFromProduct(product);
+
   const accordion: AccordionBlock[] = [
     {
       id: "directions",
       title: "Directions",
-      content:
-        "Follow the step-by-step guidance above and the directions printed on the authentic product packaging.",
+      content: content
+        ? content.howToUse.join(" ")
+        : "Follow the step-by-step guidance above and the directions printed on the authentic product packaging.",
     },
     {
       id: "warnings",
@@ -684,27 +758,32 @@ export function getProductEducation(product: ProductPageData): ProductEducation 
 
   return {
     overview: {
-      fullDescription: product.description,
+      fullDescription: content ? content.details.join(" ") : product.description,
       purpose: purposeFor(product),
       highlights,
-      suitableFor: concerns.length
-        ? `Often chosen along our ${concerns.map((c) => c.title).join(", ")} paths.`
-        : "Part of the verified SCYN catalogue.",
-      skinTypes: skinTypesFor(concernIds),
+      suitableFor:
+        content?.suitableFor ??
+        (concerns.length
+          ? `Often chosen along our ${concerns.map((c) => c.title).join(", ")} paths.`
+          : "Part of the verified SCYN catalogue."),
+      skinTypes,
       concerns,
       size,
       texture: undefined,
       finish: product.productType === "Sunscreen" ? "Everyday wearable finish" : undefined,
     },
-    benefits: benefitsFromProduct(product),
+    benefits,
     ingredients: {
-      lead:
-        ingredients.length > 0
+      lead: content
+        ? ingredients.length > 0
+          ? "Key ingredients as supplied by the brand."
+          : `Key ingredients: ${content.keyIngredients}`
+        : ingredients.length > 0
           ? "Key ingredients called out from this product’s listing — fuller INCI via metafields next."
           : "Ingredient education will deepen when packaging metafields are connected.",
       items: ingredients,
     },
-    howTo: howToFor(product),
+    howTo: content ? clientHowTo(content) : howToFor(product),
     specs,
     accordion,
   };

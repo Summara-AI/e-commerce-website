@@ -22,11 +22,6 @@ const ProductRecommendedBundles = dynamic(() =>
     (m) => m.ProductRecommendedBundles,
   ),
 );
-const ProductRecentlyViewed = dynamic(() =>
-  import("@/components/product/ProductRecentlyViewed").then(
-    (m) => m.ProductRecentlyViewed,
-  ),
-);
 const ProductYouMayAlsoLike = dynamic(() =>
   import("@/components/product/ProductYouMayAlsoLike").then(
     (m) => m.ProductYouMayAlsoLike,
@@ -65,7 +60,6 @@ export function ProductRecommendSections({ product }: ProductRecommendSectionsPr
       <ProductRelated products={related} />
       {fbt ? <ProductFrequentlyBoughtTogether fbt={fbt} /> : null}
       <ProductRecommendedBundles bundles={bundles} />
-      <ProductRecentlyViewed currentHandle={product.handle} />
       {ymal ? <ProductYouMayAlsoLike group={ymal} /> : null}
       {routine ? <ProductCompleteRoutine steps={routine} /> : null}
       <ProductMobileCrossSell products={mobileCross} />

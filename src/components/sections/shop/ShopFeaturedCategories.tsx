@@ -72,7 +72,7 @@ export function ShopFeaturedCategories({ className }: { className?: string }) {
               data-rail-item
               className={cn(
                 "min-w-0 shrink-0 grow-0 snap-start",
-                "w-[min(78vw,18rem)] tablet:w-[22rem] laptop:w-[24rem] desktop:w-[26rem]",
+                "w-[min(78vw,15rem)] tablet:w-[15.5rem] laptop:w-[16rem] desktop:w-[16.5rem]",
               )}
               initial={
                 reduceMotion ? false : { opacity: 0, y: 20, scale: 0.98 }

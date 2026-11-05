@@ -6,8 +6,14 @@ import { searchCatalog, POPULAR_SEARCHES } from "@/lib/search";
 import type { SearchDiscoveryModel, SearchResponse } from "@/types";
 import { FEATURED_COLLECTIONS } from "@/lib/catalog";
 import { ALL_PRODUCTS } from "@/lib/collections";
+import { CLIENT_PRODUCTS } from "@/data/client-products";
 
 export type { SearchResponse, SearchResultModel, SearchDiscoveryModel } from "@/types";
+
+function imageForHref(href: string): string | undefined {
+  const handle = href.match(/^\/products\/([^/?#]+)/)?.[1];
+  return handle ? CLIENT_PRODUCTS[handle]?.image : undefined;
+}
 
 export function searchStore(query: string, limit = 40): SearchResponse {
   const q = query.trim();
@@ -19,7 +25,7 @@ export function searchStore(query: string, limit = 40): SearchResponse {
     subtitle: r.subtitle,
     priceLabel: r.priceLabel,
     imageAlt: r.imageAlt,
-    imageSrc: undefined as string | undefined,
+    imageSrc: imageForHref(r.href) as string | undefined,
   }));
 
   return {

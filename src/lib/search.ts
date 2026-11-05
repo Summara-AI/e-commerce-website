@@ -82,6 +82,15 @@ export const SEARCH_INDEX: SearchResult[] = [
     imageAlt: "DERMAL tea tree mask packshot",
   },
   {
+    id: "elensilia-prestige",
+    type: "product",
+    title: "Elensilia Prestige Gold Energy Deer Cream",
+    subtitle: "LED (Red light) Therapy · Anti Aging",
+    href: "/products/elensilia-prestige-gold-energy-deer-cream",
+    priceLabel: "Rs.18,000",
+    imageAlt: "Elensilia Prestige Gold Energy Deer Cream packshot",
+  },
+  {
     id: "lacto-cica",
     type: "product",
     title: "Lacto Cica Barrier Cream Moisturizer",

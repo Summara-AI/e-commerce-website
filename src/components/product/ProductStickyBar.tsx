@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PDP_PURCHASE } from "@/content/pdp";
+import { MediaImage } from "@/components/common/MediaImage";
 import type { ProductPageData, ProductVariant } from "@/lib/products";
 import { useCart } from "@/components/cart/cart-context";
 import { toast } from "@/lib/toast";
@@ -92,13 +93,18 @@ export function ProductStickyBar({
       <div className="mx-auto flex max-w-content items-center gap-3 px-4 py-3 tablet:gap-4 tablet:px-6 laptop:px-8 desktop:px-12">
         <div
           className={cn(
-            "hidden h-12 w-12 shrink-0 rounded-badge bg-surface-soft tablet:block",
-            "bg-[linear-gradient(160deg,var(--bg-page)_0%,var(--color-accent-muted)_100%)]",
+            "relative hidden h-12 w-12 shrink-0 overflow-hidden rounded-badge bg-canvas tablet:block",
           )}
-          role="img"
-          aria-label={product.media[0]?.alt ?? product.title}
-          data-image-spec="pdp-sticky-thumb"
-        />
+        >
+          <MediaImage
+            src={product.media[0]?.src}
+            alt={product.media[0]?.alt ?? product.title}
+            fill
+            sizes="48px"
+            className="object-contain p-1"
+            spec="pdp-sticky-thumb"
+          />
+        </div>
 
         <div className="min-w-0 flex-1">
           <p className="truncate text-sm font-medium text-foreground">{product.title}</p>

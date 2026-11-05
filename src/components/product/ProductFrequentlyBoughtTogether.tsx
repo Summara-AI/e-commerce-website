@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
+import { MediaImage } from "@/components/common/MediaImage";
 import type { FrequentlyBoughtTogether } from "@/lib/product-recommendations";
 import { useCart } from "@/components/cart/cart-context";
 import { toast } from "@/lib/toast";
@@ -78,12 +79,20 @@ export function ProductFrequentlyBoughtTogether({ fbt, className }: ProductFbtPr
                   <Link
                     href={item.product.href}
                     className={cn(
-                      "relative aspect-[4/5] w-20 shrink-0 overflow-hidden rounded-card bg-blush tablet:w-24",
-                      "bg-[linear-gradient(160deg,var(--bg-page),var(--color-accent-muted))]",
+                      "relative aspect-[4/5] w-20 shrink-0 overflow-hidden rounded-card bg-canvas tablet:w-24",
                       "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-border-focus",
                     )}
                     aria-label={item.product.title}
-                  />
+                  >
+                    <MediaImage
+                      src={item.product.imageSrc}
+                      alt={item.product.imageAlt}
+                      fill
+                      sizes="(max-width: 768px) 5rem, 6rem"
+                      className="object-contain p-2 transition-transform duration-280 ease-out group-hover/fbt:scale-105 motion-reduce:transform-none"
+                      spec="pdp-fbt-thumb"
+                    />
+                  </Link>
                   <div className="min-w-0 flex-1">
                     <p className="text-caption font-medium uppercase tracking-[0.1em] text-foreground-muted">
                       {item.role === "main" ? "This product" : "Pairs with"}
@@ -129,9 +138,6 @@ export function ProductFrequentlyBoughtTogether({ fbt, className }: ProductFbtPr
               <ShoppingBag aria-hidden="true" />
               Add all to bag
             </Button>
-            <p className="mt-3 text-caption text-foreground-muted">
-              Shopify cart / dynamic bundles connect next.
-            </p>
           </div>
         </div>
       </Container>

@@ -34,18 +34,12 @@ export function CollectionProductSection({
       className={cn("bg-page", className)}
     >
       <Container width="content">
-        <div className="mb-8 flex items-end justify-between gap-4 tablet:mb-10">
-          <h2
-            id="collection-products-heading"
-            className="font-display text-h2 font-light tracking-[-0.01em] text-foreground"
-          >
-            {status === "coming-soon"
-              ? "Products"
-              : data.handle === "bundles"
-                ? "Browse kits"
-                : "Browse products"}
-          </h2>
-        </div>
+        <h1
+          id="collection-products-heading"
+          className="mb-8 font-display text-h1 font-light italic tracking-[-0.02em] text-foreground tablet:mb-10"
+        >
+          {data.collection.title}
+        </h1>
 
         {status === "coming-soon" ? (
           <EmptyComingSoon collectionTitle={data.collection.title} />
