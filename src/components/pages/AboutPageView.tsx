@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
 import { CtaBlock } from "@/components/common/CtaBlock";
-import { EditorialMedia } from "@/components/common/EditorialMedia";
 import { SectionHeading } from "@/components/common/SectionHeading";
+import { Logo } from "@/components/header/Logo";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
@@ -20,7 +20,6 @@ export function AboutPageView() {
     philosophy,
     values,
     authenticityPromise,
-    team,
     koreanApproach,
     scientificBacking,
     timeline,
@@ -31,38 +30,39 @@ export function AboutPageView() {
     <div data-shopify-section="about-page">
       <Section spacing="default" className="bg-page" aria-labelledby="about-heading">
         <Container width="content">
-          <Breadcrumb items={[{ label: "Our Story" }]} className="mb-8" />
-          <SectionHeading
-            id="about-heading"
-            as="h1"
-            eyebrow={ABOUT_PAGE.eyebrow}
-            title={ABOUT_PAGE.title}
-            description={ABOUT_PAGE.description}
-          />
+          <div className="flex justify-center">
+            <Breadcrumb items={[{ label: "Our Story" }]} className="mb-8" />
+          </div>
+          <div className="flex max-w-3xl mx-auto flex-col items-center text-center">
+            <p className="font-sans text-overline font-medium uppercase tracking-[0.16em] text-power-pink">
+              {ABOUT_PAGE.eyebrow}
+            </p>
+            <h1 id="about-heading" className="sr-only">
+              {ABOUT_PAGE.title} — Skincare You Need
+            </h1>
+            <Logo variant="complete" priority className="mt-6 justify-center" />
+            <p className="mt-6 max-w-[36rem] text-sm font-light leading-[1.75] text-foreground-secondary tablet:mt-7 tablet:text-base">
+              {ABOUT_PAGE.description}
+            </p>
+          </div>
         </Container>
       </Section>
 
       <Section spacing="lux" className="bg-page" aria-labelledby="about-story-heading">
         <Container width="content">
-          <div className="grid items-center gap-10 laptop:grid-cols-2 laptop:gap-16">
-            <div>
-              <SectionHeading
-                id="about-story-heading"
-                eyebrow={brandStory.eyebrow}
-                title={brandStory.title}
-              />
-              <div className="mt-6 space-y-4 text-base leading-relaxed text-foreground-secondary">
-                {brandStory.paragraphs.map((p) => (
-                  <p key={p.slice(0, 28)}>{p}</p>
-                ))}
-              </div>
-            </div>
-            <EditorialMedia
-              spec="about-story-editorial"
-              label="Brand story editorial imagery — founding journey, asset pending"
-              aspect="3/4"
-              className="tablet:aspect-[4/5] laptop:aspect-[3/4]"
+          <div className="mx-auto max-w-3xl text-center">
+            <SectionHeading
+              id="about-story-heading"
+              align="center"
+              eyebrow={brandStory.eyebrow}
+              title={brandStory.title}
+              className="mx-auto"
             />
+            <div className="mt-6 space-y-4 text-base leading-relaxed text-foreground-secondary">
+              {brandStory.paragraphs.map((p) => (
+                <p key={p.slice(0, 28)}>{p}</p>
+              ))}
+            </div>
           </div>
         </Container>
       </Section>
@@ -92,33 +92,27 @@ export function AboutPageView() {
 
       <Section spacing="lux" className="bg-page" aria-labelledby="about-philosophy-heading">
         <Container width="content">
-          <div className="grid items-start gap-10 laptop:grid-cols-2 laptop:gap-16">
-            <div>
-              <SectionHeading
-                id="about-philosophy-heading"
-                eyebrow={philosophy.eyebrow}
-                title={philosophy.title}
-                description={philosophy.body}
-              />
-              <ul className="mt-10 space-y-8">
-                {philosophy.pillars.map((item) => (
-                  <li key={item.id}>
-                    <h3 className="font-display text-lg font-light text-foreground">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-foreground-secondary">
-                      {item.description}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <EditorialMedia
-              spec="about-philosophy-plane"
-              label="Philosophy editorial imagery — calm curated still life, asset pending"
-              aspect="4/5"
-              className="laptop:sticky laptop:top-28"
+          <div className="mx-auto max-w-3xl text-center">
+            <SectionHeading
+              id="about-philosophy-heading"
+              align="center"
+              eyebrow={philosophy.eyebrow}
+              title={philosophy.title}
+              description={philosophy.body}
+              className="mx-auto"
             />
+            <ul className="mt-10 space-y-8">
+              {philosophy.pillars.map((item) => (
+                <li key={item.id}>
+                  <h3 className="font-display text-lg font-light text-foreground">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-foreground-secondary">
+                    {item.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
         </Container>
       </Section>
@@ -143,23 +137,18 @@ export function AboutPageView() {
 
       <Section spacing="lux" className="bg-page" aria-labelledby="about-auth-promise-heading">
         <Container width="content">
-          <div className="grid items-center gap-10 laptop:grid-cols-2 laptop:gap-16">
-            <div>
-              <SectionHeading
-                id="about-auth-promise-heading"
-                eyebrow={authenticityPromise.eyebrow}
-                title={authenticityPromise.title}
-                description={authenticityPromise.body}
-              />
-              <Button asChild className="mt-8">
-                <Link href={authenticityPromise.ctaHref}>{authenticityPromise.ctaLabel}</Link>
-              </Button>
-            </div>
-            <EditorialMedia
-              spec="about-authenticity-plane"
-              label="Authenticity promise editorial — asset pending"
-              aspect="4/5"
+          <div className="mx-auto max-w-2xl text-center">
+            <SectionHeading
+              id="about-auth-promise-heading"
+              align="center"
+              eyebrow={authenticityPromise.eyebrow}
+              title={authenticityPromise.title}
+              description={authenticityPromise.body}
+              className="mx-auto"
             />
+            <Button asChild className="mt-8">
+              <Link href={authenticityPromise.ctaHref}>{authenticityPromise.ctaLabel}</Link>
+            </Button>
           </div>
         </Container>
       </Section>
@@ -187,28 +176,28 @@ export function AboutPageView() {
 
       <Section spacing="lux" className="bg-page" aria-labelledby="about-science-heading">
         <Container width="content">
-          <EditorialMedia
-            spec="about-science-plane"
-            label="Scientific backing atmosphere — soft ingredient study, asset pending"
-            aspect="16/9"
-            className="mb-10 tablet:mb-12"
-          />
-          <SectionHeading
-            id="about-science-heading"
-            eyebrow={scientificBacking.eyebrow}
-            title={scientificBacking.title}
-            description={scientificBacking.lead}
-          />
-          <ul className="mt-10 grid gap-8 tablet:grid-cols-3">
-            {scientificBacking.points.map((point) => (
-              <li key={point.id} className="border-t border-border-subtle pt-6">
-                <h3 className="font-display text-lg font-light text-foreground">{point.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-foreground-secondary">
-                  {point.description}
-                </p>
-              </li>
-            ))}
-          </ul>
+          <div className="mx-auto max-w-5xl text-center">
+            <SectionHeading
+              id="about-science-heading"
+              align="center"
+              eyebrow={scientificBacking.eyebrow}
+              title={scientificBacking.title}
+              description={scientificBacking.lead}
+              className="mx-auto"
+            />
+            <ul className="mt-10 grid gap-8 tablet:grid-cols-3">
+              {scientificBacking.points.map((point) => (
+                <li key={point.id} className="border-t border-border-subtle pt-6">
+                  <h3 className="font-display text-lg font-light text-foreground">
+                    {point.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-foreground-secondary">
+                    {point.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </Container>
       </Section>
 
@@ -237,21 +226,6 @@ export function AboutPageView() {
               </li>
             ))}
           </ol>
-        </Container>
-      </Section>
-
-      <Section spacing="lux" className="bg-page" aria-labelledby="about-team-heading">
-        <Container width="narrow">
-          <SectionHeading
-            id="about-team-heading"
-            eyebrow={team.eyebrow}
-            title={team.title}
-            description={team.description}
-          />
-          <p className="mt-8 text-center text-sm font-light leading-relaxed text-foreground-secondary">
-            Founder and team portraits will appear here once photography is complete —
-            quiet, natural, and true to the brand.
-          </p>
         </Container>
       </Section>
 
