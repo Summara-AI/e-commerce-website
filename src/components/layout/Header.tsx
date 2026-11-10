@@ -42,7 +42,7 @@ export function Header({
     account?.isHydrated
       ? account.wishlistCount
       : (wishlistCount ?? 0);
-  const { scrolled, hidden } = useHeaderScroll({
+  const { scrolled } = useHeaderScroll({
     locked: navOpen || searchOpen || cartOpen,
   });
 
@@ -69,7 +69,6 @@ export function Header({
           "relative sticky top-0 z-header border-b border-border-subtle",
           "bg-canvas transition-[transform,background-color,border-color,box-shadow,color] duration-280 ease-out will-change-transform",
           scrolled && "shadow-sticky",
-          hidden && "-translate-y-full motion-reduce:translate-y-0",
           isTransparent &&
             "border-transparent bg-transparent shadow-none",
           "motion-reduce:transition-none",
@@ -90,7 +89,7 @@ export function Header({
               open={navOpen}
               onToggle={() => setNavOpen((v) => !v)}
               controlsId="mobile-nav"
-              className="laptop:hidden"
+              className=""
             />
             <Logo inverse={isTransparent} priority />
           </div>

@@ -4,19 +4,13 @@ import { cn } from "@/lib/utils";
 
 type LogoProps = {
   className?: string;
-  /** Kept for API compatibility — the SCYN plate stays legible on imagery */
+  /** Kept for API compatibility. */
   inverse?: boolean;
   compact?: boolean;
-  /** Wordmark for chrome, complete lockup for splash / footer moments */
+  /** Chrome lockup: SCYN wordmark. Complete lockup for splash / footer moments. */
   variant?: "wordmark" | "complete";
   priority?: boolean;
 };
-
-const WORDMARK = {
-  src: "/media/brand/scyn-wordmark.png",
-  width: 336,
-  height: 93,
-} as const;
 
 const COMPLETE = {
   src: "/media/brand/scyn-complete.png",
@@ -26,8 +20,7 @@ const COMPLETE = {
 
 /**
  * Official SCYN logo lockup.
- * The supplied transparent artwork is ivory, so it sits on an exact-magenta
- * brand plate to guarantee contrast on light, dark, and image-backed surfaces.
+ * Chrome usage: transparent, magenta, slightly oversized for readability.
  */
 export function Logo({
   className,
@@ -36,6 +29,31 @@ export function Logo({
   priority = false,
 }: LogoProps) {
   const isComplete = variant === "complete";
+
+  if (isComplete) {
+    return (
+      <Link
+        href="/"
+        className={cn(
+          "inline-flex min-h-[44px] min-w-0 items-center",
+          className,
+        )}
+        aria-label="SCYN — Skincare You Need, home"
+      >
+        <span className="inline-flex items-center justify-center rounded-sm bg-scyn-magenta p-4 shadow-elev1">
+          <Image
+            src={COMPLETE.src}
+            alt=""
+            width={COMPLETE.width}
+            height={COMPLETE.height}
+            priority={priority}
+            sizes="200px"
+            className="block h-auto w-[11.5rem] select-none tablet:w-[12.5rem]"
+          />
+        </span>
+      </Link>
+    );
+  }
 
   return (
     <Link
@@ -47,35 +65,17 @@ export function Logo({
       aria-label="SCYN — Skincare You Need, home"
     >
       <span
+        aria-hidden="true"
         className={cn(
-          "inline-flex items-center justify-center rounded-sm bg-scyn-magenta shadow-elev1",
-          isComplete
-            ? "p-4"
-            : compact
-              ? "px-2.5 py-1.5"
-              : "px-3 py-1.5 tablet:px-3.5",
+          "select-none bg-scyn-magenta",
+          "[mask-image:url('/media/brand/scyn-wordmark.png')] [-webkit-mask-image:url('/media/brand/scyn-wordmark.png')]",
+          "[mask-position:center] [mask-repeat:no-repeat] [mask-size:contain]",
+          "[-webkit-mask-position:center] [-webkit-mask-repeat:no-repeat] [-webkit-mask-size:contain]",
+          compact
+            ? "aspect-[336/93] h-[1.375rem]"
+            : "aspect-[336/93] h-[1.875rem] tablet:h-[2.125rem] desktop:h-[2.375rem]",
         )}
-      >
-        <Image
-          src={isComplete ? COMPLETE.src : WORDMARK.src}
-          alt=""
-          width={isComplete ? COMPLETE.width : WORDMARK.width}
-          height={isComplete ? COMPLETE.height : WORDMARK.height}
-          priority={priority}
-          sizes={isComplete ? "200px" : compact ? "80px" : "100px"}
-          className={cn(
-            "block select-none",
-            isComplete
-              ? "h-auto w-[11.5rem] tablet:w-[12.5rem]"
-              : cn(
-                  "w-auto",
-                  compact
-                    ? "h-[1.125rem]"
-                    : "h-[1.25rem] tablet:h-[1.5rem]",
-                ),
-          )}
-        />
-      </span>
+      />
     </Link>
   );
 }

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/common/ButtonGroup";
 import { Breadcrumb } from "@/components/common/Breadcrumb";
+import { MediaImage } from "@/components/common/MediaImage";
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { SHOP_BREADCRUMB, SHOP_HERO } from "@/content/shop";
@@ -64,12 +65,19 @@ export function ShopLandingHero({ className }: { className?: string }) {
             className={cn(
               "relative aspect-[4/5] overflow-hidden rounded-card border border-border-subtle tablet:aspect-[3/2] laptop:aspect-[4/5]",
               "bg-pearl",
-              "bg-[linear-gradient(160deg,var(--color-pearl)_0%,var(--color-canvas)_40%,var(--color-pink-mist)_100%)]",
             )}
             role="img"
-            aria-label="Shop landing editorial banner — photography pending"
+            aria-label="Shop landing editorial banner — curated collection atmosphere"
             data-image-spec="shop-hero-banner"
-          />
+          >
+            <MediaImage
+              alt="Curated collection atmosphere — authentic Korean skincare editorial"
+              fill
+              sizes="(max-width: 1023px) 90vw, 50vw, 45vw"
+              src="/media/products/collections.shopall. main pic.png"
+              className="object-cover"
+            />
+          </div>
         </div>
 
         <nav

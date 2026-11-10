@@ -130,6 +130,11 @@ export function DesktopNav({ className }: DesktopNavProps) {
                     onMouseEnter={close}
                   >
                     {item.label}
+                    <ChevronDown
+                      className="h-3.5 w-3.5 opacity-60"
+                      strokeWidth={1.5}
+                      aria-hidden="true"
+                    />
                   </Link>
                 )}
               </li>

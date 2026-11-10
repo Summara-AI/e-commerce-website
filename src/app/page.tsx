@@ -27,13 +27,6 @@ const HomeEditorialBanner = dynamic(
     ),
   { loading: () => <SectionFallback minHeight="24rem" /> },
 );
-const HomeTestimonials = dynamic(
-  () =>
-    import("@/components/sections/home/HomeTestimonials").then(
-      (m) => m.HomeTestimonials,
-    ),
-  { loading: () => <SectionFallback minHeight="20rem" /> },
-);
 const HomeNewsletter = dynamic(
   () =>
     import("@/components/sections/home/HomeNewsletter").then(
@@ -71,7 +64,6 @@ export default function HomePage() {
       <HomeHero />
       <HomeBestSellers />
       <HomeEditorialBanner />
-      <HomeTestimonials />
       <HomeNewsletter />
       <HomeTrustBadges />
     </>

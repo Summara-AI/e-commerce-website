@@ -85,17 +85,6 @@ export const PRIMARY_NAV: PrimaryNavItem[] = [
           ],
         },
       ],
-      promo: {
-        id: "starter-kit",
-        eyebrow: "Editorial pick",
-        title: "The Starter Ritual Edit",
-        description: "A polished four-step K-beauty ritual curated for first-time glow seekers.",
-        ctaLabel: "Discover the ritual",
-        href: "/products/k-beauty-starter-kit",
-        image: {
-          alt: "Editorial skincare flat-lay for starter ritual panel",
-        },
-      },
     },
   },
   {
@@ -116,9 +105,6 @@ export const PRIMARY_NAV: PrimaryNavItem[] = [
           title: "Routines",
           links: [
             { id: "builder", label: "Routine Builder", href: "/pages/routine-builder" },
-            { id: "start", label: "How to Start K-Beauty", href: "/pages/guides" },
-            { id: "am", label: "K-Glow AM Trio", href: "/products/k-glow-am-trio" },
-            { id: "kit", label: "K-Beauty Starter Kit", href: "/products/k-beauty-starter-kit" },
           ],
         },
       ],
@@ -136,9 +122,6 @@ export const PRIMARY_NAV: PrimaryNavItem[] = [
           title: "Brand",
           links: [
             { id: "story", label: "Our Story", href: "/pages/our-story" },
-            { id: "auth", label: "Authenticity", href: "/pages/authenticity" },
-            { id: "real-fake", label: "Real vs Fake", href: "/pages/real-vs-fake" },
-            { id: "guides", label: "Guides", href: "/pages/guides" },
             { id: "routine", label: "Routine Builder", href: "/pages/routine-builder" },
           ],
         },
@@ -150,7 +133,6 @@ export const PRIMARY_NAV: PrimaryNavItem[] = [
             { id: "shipping", label: "Shipping", href: "/pages/shipping" },
             { id: "returns", label: "Returns", href: "/pages/returns" },
             { id: "contact", label: "Contact", href: "/pages/contact" },
-            { id: "track", label: "Track Order", href: "/pages/track-order" },
           ],
         },
       ],
@@ -163,7 +145,6 @@ export type NavChild = NavLink;
 export type NavItem = PrimaryNavItem;
 
 export const UTILITY_LINKS = [
-  { label: "Track Order", href: "/pages/track-order" },
   { label: "Contact", href: "/pages/contact" },
 ] as const;
 
@@ -172,7 +153,6 @@ export const MOBILE_SUPPORT_LINKS: NavLink[] = [
   { id: "shipping", label: "Shipping", href: "/pages/shipping" },
   { id: "returns", label: "Returns", href: "/pages/returns" },
   { id: "contact", label: "Contact", href: "/pages/contact" },
-  { id: "track", label: "Track Order", href: "/pages/track-order" },
 ];
 
 export const MOBILE_POLICY_LINKS: NavLink[] = [

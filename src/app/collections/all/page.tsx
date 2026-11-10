@@ -1,6 +1,5 @@
 import {
   ShopFeaturedCategories,
-  ShopFeaturedCollections,
   ShopLandingHero,
   ShopProductDiscovery,
 } from "@/components/sections/shop";
@@ -26,7 +25,6 @@ export default function ShopLandingPage() {
       />
       <ShopLandingHero />
       <ShopFeaturedCategories />
-      <ShopFeaturedCollections />
       <ShopProductDiscovery />
     </>
   );

@@ -93,10 +93,11 @@ export function HomeHero({ className }: { className?: string }) {
 
               <div className="lux-media-zoom absolute inset-[4%_6%_12%_10%] overflow-hidden rounded-card border border-border-subtle bg-blush shadow-float">
                 <MediaImage
-                  alt=""
+                  alt="Premium Korean skincare editorial — soft daylight ritual"
                   fill
                   priority
                   sizes="(max-width: 1023px) 90vw, 46vw"
+                  src="/media/products/Homepage-top-between-pic-big one.png"
                   spec="hero-lux-primary"
                   className="scale-[1.02]"
                 />
@@ -109,7 +110,13 @@ export function HomeHero({ className }: { className?: string }) {
                 transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut" }}
               >
                 <div className="relative aspect-[4/5]">
-                  <MediaImage alt="" fill sizes="200px" spec="hero-lux-packshot" />
+                  <MediaImage
+                    alt="Korean skincare packshot — editorial product frame"
+                    fill
+                    sizes="200px"
+                    src="/media/products/homepage main pic start bottom left side beneath the big centr.png"
+                    spec="hero-lux-packshot"
+                  />
                 </div>
               </motion.div>
 
@@ -119,7 +126,13 @@ export function HomeHero({ className }: { className?: string }) {
                 transition={{ duration: 6.4, repeat: Infinity, ease: "easeInOut", delay: 0.35 }}
               >
                 <div className="relative aspect-square">
-                  <MediaImage alt="" fill sizes="160px" spec="hero-lux-texture" />
+                  <MediaImage
+                    alt="Korean skincare texture — editorial skin texture frame"
+                    fill
+                    sizes="160px"
+                    src="/media/products/homepage top corner- top right main side right of major pic.png"
+                    spec="hero-lux-texture"
+                  />
                 </div>
               </motion.div>
 

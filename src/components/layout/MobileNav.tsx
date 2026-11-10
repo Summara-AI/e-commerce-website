@@ -57,7 +57,7 @@ export function MobileNav({
   return (
     <div
       className={cn(
-        "fixed inset-0 z-drawer laptop:hidden",
+        "fixed inset-0 z-drawer",
         open ? "pointer-events-auto" : "pointer-events-none",
       )}
       aria-hidden={!open}
@@ -197,6 +197,11 @@ export function MobileNav({
                       )}
                     >
                       {item.label}
+                      <ChevronDown
+                        className="h-4 w-4 opacity-60"
+                        strokeWidth={1.5}
+                        aria-hidden="true"
+                      />
                     </Link>
                   )}
                 </li>

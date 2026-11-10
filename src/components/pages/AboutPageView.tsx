@@ -146,7 +146,10 @@ export function AboutPageView() {
               description={authenticityPromise.body}
               className="mx-auto"
             />
-            <Button asChild className="mt-8">
+            <Button
+              asChild
+              className="mt-8 w-full min-w-0 whitespace-normal text-balance tablet:w-auto tablet:whitespace-nowrap"
+            >
               <Link href={authenticityPromise.ctaHref}>{authenticityPromise.ctaLabel}</Link>
             </Button>
           </div>

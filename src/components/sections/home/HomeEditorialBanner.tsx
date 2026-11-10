@@ -181,6 +181,7 @@ export function HomeEditorialBanner({ className }: { className?: string }) {
                   alt={copy.media.alt}
                   fill
                   sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 55vw"
+                  src="/media/products/homepage authencity promise pic.png"
                   spec={copy.media.id}
                   className="object-cover"
                 />

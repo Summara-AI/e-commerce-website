@@ -27,6 +27,9 @@ export function MegaMenu({
 }: MegaMenuProps) {
   const columnCount = panel.columns.length + (panel.promo ? 1 : 0);
   const isShopPanel = navItemId === "shop";
+  const shopGridClass = panel.promo
+    ? "items-start laptop:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(320px,1.25fr)]"
+    : "laptop:max-w-4xl laptop:mx-auto laptop:grid-cols-2";
 
   return (
     <div
@@ -49,12 +52,14 @@ export function MegaMenu({
           className={cn(
             "grid gap-10 desktop:gap-12",
             isShopPanel
-              ? "items-start laptop:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(320px,1.25fr)]"
+              ? shopGridClass
               : columnCount >= 4
                 ? "laptop:grid-cols-4"
                 : columnCount === 3
                   ? "laptop:grid-cols-3"
-                  : "laptop:grid-cols-2",
+                  : columnCount === 2
+                    ? "laptop:grid-cols-2"
+                    : "laptop:grid-cols-1",
           )}
         >
           {panel.columns.map((column) => (
