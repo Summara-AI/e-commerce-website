@@ -125,9 +125,9 @@ export function HomeFeaturedCollections({ className }: { className?: string }) {
                   : { opacity: 0, y: 24, scale: 0.97 }
               }
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: "some", margin: "0px 0px 100px 0px" }}
               transition={{
-                duration: 0.68,
+                duration: 0.28,
                 delay: reduceMotion ? 0 : Math.min(index, 4) * 0.07,
                 ease,
               }}

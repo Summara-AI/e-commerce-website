@@ -51,7 +51,7 @@ export function ProductStickyBar({
 
   const addToCart = async () => {
     if (soldOut) {
-      toast.info("We’ll notify you", "Back-in-stock alerts connect with Shopify next.");
+      toast.info("Currently sold out", "This product is out of stock. Please check back soon.");
       return;
     }
     setAdding(true);

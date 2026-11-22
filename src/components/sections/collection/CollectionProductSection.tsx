@@ -14,6 +14,8 @@ import { cn } from "@/lib/utils";
 type CollectionProductSectionProps = {
   data: CollectionPageData;
   className?: string;
+  /** Shop-all already has a hero heading — hide the duplicate H1 there. */
+  showHeading?: boolean;
 };
 
 /**
@@ -22,6 +24,7 @@ type CollectionProductSectionProps = {
 export function CollectionProductSection({
   data,
   className,
+  showHeading = true,
 }: CollectionProductSectionProps) {
   const { status, products, bundles } = data;
   const canBrowse =
@@ -30,16 +33,18 @@ export function CollectionProductSection({
   return (
     <Section
       spacing="default"
-      aria-labelledby="collection-products-heading"
+      aria-labelledby={showHeading ? "collection-products-heading" : undefined}
       className={cn("bg-page", className)}
     >
       <Container width="content">
-        <h1
-          id="collection-products-heading"
-          className="mb-8 font-display text-h1 font-light italic tracking-[-0.02em] text-foreground tablet:mb-10"
-        >
-          {data.collection.title}
-        </h1>
+        {showHeading ? (
+          <h1
+            id="collection-products-heading"
+            className="mb-8 font-display text-h1 font-light italic tracking-[-0.02em] text-foreground tablet:mb-10"
+          >
+            {data.collection.title}
+          </h1>
+        ) : null}
 
         {status === "coming-soon" ? (
           <EmptyComingSoon collectionTitle={data.collection.title} />

@@ -28,7 +28,9 @@ export function MegaMenu({
   const columnCount = panel.columns.length + (panel.promo ? 1 : 0);
   const isShopPanel = navItemId === "shop";
   const shopGridClass = panel.promo
-    ? "items-start laptop:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(320px,1.25fr)]"
+    ? panel.columns.length >= 3
+      ? "items-start laptop:grid-cols-[repeat(3,minmax(0,1fr))_minmax(280px,1.1fr)]"
+      : "items-start laptop:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(320px,1.25fr)]"
     : "laptop:max-w-4xl laptop:mx-auto laptop:grid-cols-2";
 
   return (

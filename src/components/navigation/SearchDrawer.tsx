@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Loader2, Search, X } from "lucide-react";
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
+import { MediaImage } from "@/components/common/MediaImage";
 import { useBodyLock } from "@/hooks/use-body-lock";
 import { useFocusTrap } from "@/hooks/use-focus-trap";
 import {
@@ -39,11 +40,28 @@ function ResultRow({
       )}
     >
       <span
-        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-sm bg-page-subtle text-caption text-foreground-muted"
+        className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-sm bg-page-subtle text-caption text-foreground-muted"
         aria-hidden="true"
       >
         {/* 1:1 thumb — NAV_IMAGE_SPECS.search-product-thumb */}
-        {item.type === "collection" ? "Col" : item.type === "bundle" ? "Kit" : item.type === "page" ? "Pg" : "Pr"}
+        {item.imageSrc ? (
+          <MediaImage
+            src={item.imageSrc}
+            alt=""
+            fill
+            sizes="48px"
+            spec="search-product-thumb"
+            className="object-cover"
+          />
+        ) : item.type === "collection" ? (
+          "Col"
+        ) : item.type === "bundle" ? (
+          "Kit"
+        ) : item.type === "page" ? (
+          "Pg"
+        ) : (
+          "Pr"
+        )}
       </span>
       <span className="min-w-0 flex-1">
         <span className="block truncate text-sm font-medium text-foreground">{item.title}</span>

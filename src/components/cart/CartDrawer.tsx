@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/drawer";
 import { CartEmpty } from "@/components/cart/CartEmpty";
 import { CartLineItem, CartLineSkeleton } from "@/components/cart/CartLineItem";
-import { CartSummary } from "@/components/cart/CartSummary";
+import { CartSummaryActions, CartSummaryDetails } from "@/components/cart/CartSummary";
 import { CartUpsell } from "@/components/cart/CartUpsell";
 import { useCart } from "@/components/cart/cart-context";
 import { CART_COPY } from "@/content/cart";
@@ -99,16 +99,19 @@ export function CartDrawer() {
               <div className="border-t border-border-subtle pb-8 pt-7">
                 <CartUpsell onNavigate={closeCart} />
               </div>
+              <div className="border-t border-border-subtle pt-7">
+                <CartSummaryDetails onContinue={closeCart} />
+              </div>
             </div>
 
             <DrawerFooter
               className={cn(
                 "sticky bottom-0 z-[1] mt-auto border-t border-border-subtle",
-                "bg-canvas/95 px-6 py-6 backdrop-blur-[6px] tablet:px-7 tablet:py-7",
-                "pb-[max(1.5rem,env(safe-area-inset-bottom))]",
+                "bg-canvas/95 px-6 py-5 backdrop-blur-[6px] tablet:px-7 tablet:py-6",
+                "pb-[max(1rem,env(safe-area-inset-bottom))]",
               )}
             >
-              <CartSummary onContinue={closeCart} />
+              <CartSummaryActions onContinue={closeCart} />
             </DrawerFooter>
           </>
         )}

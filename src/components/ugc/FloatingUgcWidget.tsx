@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   useCallback,
   useEffect,
@@ -95,6 +96,10 @@ export function FloatingUgcWidget({
   /** Mobile: first tap expands caption; second opens modal */
   const [mobilePrimed, setMobilePrimed] = useState(false);
   const [badgeShimmer, setBadgeShimmer] = useState(false);
+  /** Only appear after the visitor has scrolled — never on first paint. */
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileViewport, setMobileViewport] = useState(false);
+  const pathname = usePathname();
 
   const cardRef = useRef<HTMLDivElement | null>(null);
   const interacted = useRef(false);
@@ -102,12 +107,30 @@ export function FloatingUgcWidget({
   const hidden = chromeBlocking;
   const pauseFloat = cartOpen || chromeBlocking || modalOpen;
 
+  /** Reveal only after scrolling; never cover product photography on mobile. */
+  const hideOnProductMobile = mobileViewport && pathname?.startsWith("/products/");
+  const allowShow = entered && !hidden && scrolled && !hideOnProductMobile;
+
   const openModal = useCallback(() => {
     interacted.current = true;
     setNudgeOpen(false);
     setMobilePrimed(false);
     setShouldLoadVideo(true);
     setModalOpen(true);
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 240);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    const mq = window.matchMedia("(max-width: 767px)");
+    const onViewport = () => setMobileViewport(mq.matches);
+    onViewport();
+    mq.addEventListener("change", onViewport);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      mq.removeEventListener("change", onViewport);
+    };
   }, []);
 
   useEffect(() => {
@@ -237,8 +260,10 @@ export function FloatingUgcWidget({
 
   if (!hydrated || dismissed) return null;
 
-  const showCard = entered && !minimized;
-  const showBubble = entered && minimized;
+  // Default to the small round bubble; expand into the card only when the
+  // visitor hovers (desktop) or primes it with a tap (mobile).
+  const showCard = allowShow && !minimized && (hovered || mobilePrimed);
+  const showBubble = allowShow && !showCard;
 
   return (
     <>
@@ -247,12 +272,16 @@ export function FloatingUgcWidget({
           <motion.button
             key="bubble"
             type="button"
-            aria-label="Restore customer story"
+            aria-label={minimized ? "Restore customer story" : "Watch customer story"}
             initial={reduceMotion ? false : { opacity: 0, scale: 0.9, y: 12 }}
             animate={{ opacity: hidden ? 0 : 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 8 }}
             transition={{ duration: 0.4, ease: easeOut }}
-            onClick={restore}
+            onMouseEnter={() => setHovered(true)}
+            onClick={() => {
+              if (minimized) restore();
+              else openModal();
+            }}
             className={cn(
               "fixed z-float flex h-[60px] w-[60px] items-center justify-center rounded-full",
               "border-2 border-power-pink bg-canvas/90 text-power-pink backdrop-blur-md",

@@ -91,10 +91,10 @@ export function HomeBestSellers({ className }: { className?: string }) {
                   : { opacity: 0, y: 28, scale: 0.96 }
               }
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, amount: 0.35 }}
+              viewport={{ once: true, amount: "some", margin: "0px 0px 100px 0px" }}
               transition={{
-                duration: 0.7,
-                delay: reduceMotion ? 0 : Math.min(index, 5) * 0.06,
+                duration: 0.28,
+                delay: reduceMotion ? 0 : Math.min(index, 5) * 0.03,
                 ease,
               }}
             >

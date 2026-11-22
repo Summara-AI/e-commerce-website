@@ -56,7 +56,7 @@ export function Footer({ className }: { className?: string }) {
       <Container width="max" className="py-20 tablet:py-24 desktop:py-28">
         <div className="grid gap-16 laptop:grid-cols-[1.2fr_2fr] laptop:gap-24">
           <div className="max-w-sm space-y-8">
-            <Logo variant="complete" />
+            <Logo />
             <p className="text-base font-light leading-[1.75] text-foreground-secondary">
               100% authentic Korean skincare for Pakistan — verified products,
               thoughtfully curated routines, and calm guidance you can trust.
@@ -73,6 +73,14 @@ export function Footer({ className }: { className?: string }) {
                 className="block transition-colors hover:text-power-pink"
               >
                 {FOOTER_CONTACT.phone}
+              </a>
+              <a
+                href={FOOTER_CONTACT.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block transition-colors hover:text-power-pink"
+              >
+                WhatsApp us
               </a>
               <p className="pt-1">{FOOTER_CONTACT.address}</p>
               <p className="text-caption text-foreground-muted">{FOOTER_CONTACT.hours}</p>
@@ -120,13 +128,25 @@ export function Footer({ className }: { className?: string }) {
             ))}
           </ul>
 
-          <div className="flex flex-wrap items-center gap-2.5" aria-label="Trust signals">
-            <span className="rounded-badge border border-border-subtle bg-canvas px-2.5 py-1 text-caption font-medium uppercase tracking-[0.08em] text-foreground-muted">
-              100% Authentic
-            </span>
-            <span className="rounded-badge border border-border-subtle bg-canvas px-2.5 py-1 text-caption font-medium uppercase tracking-[0.08em] text-foreground-muted">
-              Secure checkout
-            </span>
+          <div className="flex flex-col gap-3">
+            <div className="flex flex-wrap items-center gap-2.5" aria-label="Trust signals">
+              <span className="rounded-badge border border-border-subtle bg-canvas px-2.5 py-1 text-caption font-medium uppercase tracking-[0.08em] text-foreground-muted">
+                100% Authentic
+              </span>
+              <span className="rounded-badge border border-border-subtle bg-canvas px-2.5 py-1 text-caption font-medium uppercase tracking-[0.08em] text-foreground-muted">
+                Secure checkout
+              </span>
+            </div>
+            <div className="flex flex-wrap items-center gap-2" aria-label="Accepted payment methods">
+              {["COD", "JazzCash", "Easypaisa", "Visa", "Mastercard"].map((method) => (
+                <span
+                  key={method}
+                  className="rounded-sm border border-border-subtle bg-canvas px-2 py-1 text-[0.65rem] font-medium tracking-[0.04em] text-foreground-secondary"
+                >
+                  {method}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </Container>

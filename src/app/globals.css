@@ -53,6 +53,29 @@ body[data-nav-open="true"] {
   overflow: hidden;
 }
 
+/*
+ * The sticky header already occupies layout space. The first section on each
+ * page used to add 96–160px of empty padding above the breadcrumb; pull it up.
+ */
+main > section:first-child,
+main > div:first-child > section:first-child {
+  padding-top: 2rem !important;
+}
+
+@media (min-width: 768px) {
+  main > section:first-child,
+  main > div:first-child > section:first-child {
+    padding-top: 2.5rem !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  main > section:first-child,
+  main > div:first-child > section:first-child {
+    padding-top: 3rem !important;
+  }
+}
+
 img,
 svg {
   display: block;

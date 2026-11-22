@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Heart, Search, User, ShoppingBag } from "lucide-react";
+import { ChevronDown, Heart, Search, User, ShoppingBag, X } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
 import { Logo } from "@/components/header/Logo";
 import { useBodyLock } from "@/hooks/use-body-lock";
@@ -43,6 +43,11 @@ export function MobileNav({
 
   useEffect(() => {
     if (!open) setExpanded(null);
+    // Set inert as an attribute (React 18 types expect boolean and warns on true).
+    const el = panelRef.current;
+    if (!el) return;
+    if (open) el.removeAttribute("inert");
+    else el.setAttribute("inert", "");
   }, [open]);
 
   useEffect(() => {
@@ -87,25 +92,36 @@ export function MobileNav({
           open ? "translate-x-0" : "-translate-x-full",
           "motion-reduce:transition-none",
         )}
-        {...(!open ? { inert: true } : {})}
       >
         <div className="flex items-center justify-between gap-3 border-b border-border-subtle px-4 py-3">
           <p id={titleId} className="visually-hidden">
             Menu
           </p>
           <Logo compact />
-          <button
-            type="button"
-            onClick={() => {
-              onClose();
-              onOpenSearch();
-            }}
-            className="inline-flex h-11 min-w-11 items-center gap-2 rounded-sm px-3 text-sm font-medium text-power-pink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-border-focus"
-            aria-label="Open search"
-          >
-            <Search className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
-            Search
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={onClose}
+              className={cn(
+                "inline-flex h-11 w-11 items-center justify-center rounded-sm text-foreground transition-colors hover:bg-surface-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-border-focus",
+              )}
+              aria-label="Close menu"
+            >
+              <X className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                onClose();
+                onOpenSearch();
+              }}
+              className="inline-flex h-11 min-w-11 items-center gap-2 rounded-sm px-3 text-sm font-medium text-power-pink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-border-focus"
+              aria-label="Open search"
+            >
+              <Search className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
+              Search
+            </button>
+          </div>
         </div>
 
         <nav className="flex-1 overflow-y-auto px-4 pb-6" aria-label="Mobile primary">
@@ -192,7 +208,7 @@ export function MobileNav({
                       onClick={onClose}
                       aria-current={active ? "page" : undefined}
                       className={cn(
-                        "flex min-h-[52px] items-center text-[0.9375rem] font-medium tracking-[0.02em]",
+                        "flex min-h-[52px] items-center justify-between text-[0.9375rem] font-medium tracking-[0.02em]",
                         active ? "text-power-pink" : "text-foreground",
                       )}
                     >

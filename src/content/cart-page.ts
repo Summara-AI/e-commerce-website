@@ -94,7 +94,7 @@ export const CART_PAGE_COPY = {
   savings: "You’re saving",
   remove: "Remove",
   saveForLater: "Save for later",
-  saveForLaterHint: "Wishlist connects next",
+  saveForLaterHint: "Save to your wishlist",
   inStock: "In stock",
   soldOut: "Sold out",
   recommendEyebrow: "Complete the edit",

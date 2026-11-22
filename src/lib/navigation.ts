@@ -84,7 +84,31 @@ export const PRIMARY_NAV: PrimaryNavItem[] = [
             { id: "eye", label: "Eye Care", href: "/collections/eye-care" },
           ],
         },
+        {
+          id: "concern",
+          title: "By Concern",
+          links: [
+            { id: "all-concerns", label: "Skin Concerns", href: "/pages/skin-concerns" },
+            { id: "sensitive", label: "Sensitive Skin", href: "/collections/sensitive-skin" },
+            { id: "dryness", label: "Dryness & Dehydration", href: "/collections/dryness-dehydration" },
+            { id: "anti-aging", label: "Anti-Aging", href: "/collections/anti-aging" },
+            { id: "pore", label: "Pore Minimizer", href: "/collections/pore-minimizer" },
+            { id: "sun", label: "Sun Protection", href: "/collections/sun-protection" },
+          ],
+        },
       ],
+      promo: {
+        id: "shop-best-sellers",
+        eyebrow: "Most loved",
+        title: "Best Sellers",
+        description: "The products our customers come back to — a calm place to begin.",
+        ctaLabel: "Shop best sellers",
+        href: "/collections/best-sellers",
+        image: {
+          src: "/media/products/Homepage-top-between-pic-big one.png",
+          alt: "SCYN best-selling Korean skincare",
+        },
+      },
     },
   },
   {
@@ -175,7 +199,7 @@ export type Announcement = {
 export const DEFAULT_ANNOUNCEMENTS: Announcement[] = [
   {
     id: "auth",
-    message: "100% authentic Korean skincare — sourced with care for Pakistan",
+    message: "100% authentic Korean skincare — sourced with care.",
     href: "/pages/authenticity",
     linkLabel: "Our promise",
   },

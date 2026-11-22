@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { useId, useState } from "react";
-import { Heart, Minus, Plus, ShoppingBag } from "lucide-react";
+import { Heart, MessageCircle, Minus, Plus, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ButtonGroup } from "@/components/common/ButtonGroup";
 import { PDP_PURCHASE } from "@/content/pdp";
+import { DeliveryAssurance } from "@/components/commerce/DeliveryAssurance";
+import { SITE_SETTINGS } from "@/data/settings";
 import type { ProductOption, ProductPageData, ProductVariant } from "@/lib/products";
 import { useCart } from "@/components/cart/cart-context";
 import { toast } from "@/lib/toast";
@@ -32,33 +34,8 @@ function VariantSelector({
   onChange: (variantId: string) => void;
 }) {
   if (!options.length) {
-    return (
-      <div className="space-y-2" data-shopify-block="variant-selector">
-        <p className="text-caption font-medium uppercase tracking-[0.1em] text-foreground-muted">
-          {PDP_PURCHASE.variantLabel}
-        </p>
-        <p className="text-sm text-foreground-secondary">
-          One size / standard offering
-          <span className="mt-1 block text-caption text-foreground-muted">
-            Additional variants connect when Shopify options are configured.
-          </span>
-        </p>
-        {/* Hidden select keeps form shape Shopify-ready */}
-        <select
-          className="visually-hidden"
-          aria-hidden="true"
-          tabIndex={-1}
-          value={selectedId}
-          onChange={(e) => onChange(e.target.value)}
-        >
-          {variants.map((v) => (
-            <option key={v.id} value={v.id}>
-              {v.title}
-            </option>
-          ))}
-        </select>
-      </div>
-    );
+    // Single-offer products: hide the variant setup block until Shopify options land.
+    return null;
   }
 
   return (
@@ -119,7 +96,7 @@ export function ProductPurchase({
 
   const addToCart = async () => {
     if (soldOut) {
-      toast.info("We’ll notify you", "Back-in-stock alerts connect with Shopify next.");
+      toast.info("Currently sold out", "This product is out of stock. Please check back soon.");
       return;
     }
     setAdding(true);
@@ -141,10 +118,6 @@ export function ProductPurchase({
     } finally {
       setAdding(false);
     }
-  };
-
-  const buyNow = () => {
-    toast.info("Buy now", PDP_PURCHASE.buyNowHint);
   };
 
   const toggleWishlist = () => {
@@ -249,16 +222,6 @@ export function ProductPurchase({
         <Button
           type="button"
           size="lg"
-          variant="secondary"
-          className="tablet:flex-1"
-          disabled={soldOut}
-          onClick={buyNow}
-        >
-          {PDP_PURCHASE.buyNow}
-        </Button>
-        <Button
-          type="button"
-          size="lg"
           variant="outline"
           aria-pressed={wishlisted}
           aria-label={wishlisted ? PDP_PURCHASE.wishlistSaved : PDP_PURCHASE.wishlistAdd}
@@ -273,6 +236,18 @@ export function ProductPurchase({
           {wishlisted ? PDP_PURCHASE.wishlistSaved : PDP_PURCHASE.wishlistAdd}
         </Button>
       </ButtonGroup>
+
+      <a
+        href={`${SITE_SETTINGS.whatsappHref}?text=${encodeURIComponent(`Hi, I’d like to know more about ${product.title}`)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-button border border-border-subtle bg-canvas px-5 text-sm font-medium text-foreground transition-colors hover:border-soft-pink/60 hover:bg-blush focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-border-focus"
+      >
+        <MessageCircle className="h-4 w-4 text-power-pink" strokeWidth={1.5} aria-hidden="true" />
+        Ask about this product
+      </a>
+
+      <DeliveryAssurance />
 
       <ul className="space-y-3 text-sm text-foreground-secondary">
         <li>

@@ -9,7 +9,11 @@ import {
 } from "react";
 
 type UseHorizontalRailOptions = {
-  /** Convert vertical wheel into horizontal scroll when the rail can move. */
+  /**
+   * Convert vertical wheel into horizontal scroll. Off by default: a vertical
+   * wheel must scroll the page, never trap the visitor in the carousel.
+   * Trackpad horizontal swipe, drag, arrows and Shift+scroll still work.
+   */
   mapVerticalWheel?: boolean;
   /** Smooth scroll duration for arrow / keyboard navigation (ms). */
   scrollDuration?: number;
@@ -95,7 +99,7 @@ function scrollItemIntoView(
  * Native CSS scroll-snap + mouse drag + trackpad + keyboard + arrow API.
  */
 export function useHorizontalRail({
-  mapVerticalWheel = true,
+  mapVerticalWheel = false,
   scrollDuration = 450,
   itemSelector = "[data-rail-item]",
 }: UseHorizontalRailOptions = {}): HorizontalRailApi {

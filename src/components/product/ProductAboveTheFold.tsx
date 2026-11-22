@@ -52,9 +52,13 @@ export function ProductAboveTheFold({ product, className }: ProductAboveTheFoldP
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setStickyVisible(!entry?.isIntersecting);
+        if (!entry) return;
+        // Only pin the bar once the main purchase block has scrolled ABOVE the
+        // viewport — never while the primary Add to bag button is still visible.
+        const scrolledPast = !entry.isIntersecting && entry.boundingClientRect.bottom < 0;
+        setStickyVisible(scrolledPast);
       },
-      { rootMargin: "-80px 0px 0px 0px", threshold: 0 },
+      { rootMargin: "0px", threshold: 0 },
     );
 
     observer.observe(node);

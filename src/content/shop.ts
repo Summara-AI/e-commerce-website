@@ -1,7 +1,7 @@
 /**
  * Shop landing (`/collections/all`) — curated discovery hub.
+ * The full product grid with filters and sort lives in `CollectionProductSection`.
  * Shopify: map to collection template section settings / metafields later.
- * Product grid, filters, and sorting ship in a later phase.
  */
 
 export const SHOP_HERO = {
@@ -46,7 +46,7 @@ export const SHOP_DISCOVERY = {
   eyebrow: "Discover",
   title: "Begin where curiosity takes you",
   description:
-    "A calm entry into browsing. Full collection grids, filters, and sorting arrive next — for now, follow a curated path.",
+    "A calm entry into browsing. Follow a curated path, or explore the full catalogue with filters and sorting below.",
   pathways: [
     {
       id: "types",

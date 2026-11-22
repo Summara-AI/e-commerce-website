@@ -89,7 +89,7 @@ export function Header({
               open={navOpen}
               onToggle={() => setNavOpen((v) => !v)}
               controlsId="mobile-nav"
-              className=""
+              className="laptop:hidden"
             />
             <Logo inverse={isTransparent} priority />
           </div>

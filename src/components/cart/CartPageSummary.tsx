@@ -89,7 +89,7 @@ export function CartPageSummary({
 
         {compareAtSubtotal ? (
           <div className="flex justify-between gap-4 text-foreground-muted">
-            <dt className="min-w-0">Listed compares</dt>
+            <dt className="min-w-0">Was</dt>
             <dd className="shrink-0 line-through">{compareAtSubtotal.formatted}</dd>
           </div>
         ) : null}

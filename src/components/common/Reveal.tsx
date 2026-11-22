@@ -51,7 +51,8 @@ export function Reveal({
           observer.disconnect();
         }
       },
-      { threshold: 0.08, rootMargin: "0px 0px -8% 0px" },
+      // Start ~100px before the element enters the viewport so cards are never blank in view.
+      { threshold: 0, rootMargin: "0px 0px 100px 0px" },
     );
 
     observer.observe(node);

@@ -3,6 +3,8 @@
  * Swap SEARCH_INDEX for Storefront API predictive search later.
  */
 
+import { ALL_PRODUCTS } from "@/lib/collections";
+
 export type SearchResultType = "product" | "bundle" | "collection" | "page";
 
 export type SearchResult = {
@@ -14,6 +16,10 @@ export type SearchResult = {
   priceLabel?: string;
   /** IMAGE SPEC — Search thumb 1:1, 96–128px display, serve 256 WebP */
   imageAlt?: string;
+  /** Synonyms / ingredients / concerns — searchable but not shown to shoppers. */
+  keywords?: string;
+  /** Product thumb for predictive search results. */
+  imageSrc?: string;
 };
 
 export const POPULAR_SEARCHES = [
@@ -35,6 +41,7 @@ export const SEARCH_INDEX: SearchResult[] = [
     href: "/products/escargot-original-facial-repair-cream",
     priceLabel: "Rs.4,000",
     imageAlt: "Escargot Original Facial Repair Cream packshot",
+    keywords: "snail cream snail mucin escargot hydration repair moisturizer",
   },
   {
     id: "haruharu-spf",
@@ -262,10 +269,41 @@ export function searchCatalog(query: string, limit = 8): SearchResult[] {
   const q = query.trim().toLowerCase();
   if (!q) return [];
 
-  return SEARCH_INDEX.filter((item) => {
-    const hay = `${item.title} ${item.subtitle ?? ""}`.toLowerCase();
+  const imageForHref = (href: string) =>
+    ALL_PRODUCTS.find((p) => p.href === href)?.imageSrc;
+
+  const curated = SEARCH_INDEX.filter((item) => {
+    const hay = `${item.title} ${item.subtitle ?? ""} ${item.keywords ?? ""}`.toLowerCase();
     return hay.includes(q);
-  }).slice(0, limit);
+  }).map((item) => ({
+    ...item,
+    imageSrc: item.type === "product" || item.type === "bundle" ? imageForHref(item.href) : undefined,
+  }));
+
+  // Cover the entire catalogue — descriptions, types, badges and synonyms.
+  const extra = ALL_PRODUCTS.filter((p) => {
+    const hay = [p.title, p.description, p.productType, p.handle, ...(p.badges ?? [])]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
+    const snailHit =
+      p.handle.includes("escargot") &&
+      ("snail".includes(q) || q.includes("snail"));
+    return hay.includes(q) || snailHit;
+  })
+    .filter((p) => !curated.some((r) => r.href === p.href))
+    .map((p) => ({
+      id: `catalog-${p.handle}`,
+      type: "product" as const,
+      title: p.title,
+      href: p.href,
+      subtitle: p.productType ? `${p.productType} · Product` : "Product",
+      priceLabel: p.price.formatted,
+      imageAlt: p.imageAlt,
+      imageSrc: p.imageSrc,
+    }));
+
+  return [...curated, ...extra].slice(0, limit);
 }
 
 export function groupSearchResults(results: SearchResult[]) {

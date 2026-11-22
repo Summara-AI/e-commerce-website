@@ -48,7 +48,6 @@ export function ProductInfo({ product, variant, className }: ProductInfoProps) {
           <Badge variant={statusBadge.variant}>{statusBadge.label}</Badge>
         ) : null}
         {product.kind === "bundle" ? <Badge variant="default">Kit</Badge> : null}
-        {!soldOut ? <Badge variant="authentic">100% Authentic</Badge> : null}
       </div>
 
       <div className="mt-6 flex flex-wrap items-baseline gap-3">
@@ -75,13 +74,6 @@ export function ProductInfo({ product, variant, className }: ProductInfoProps) {
       <p className="mt-5 max-w-xl text-base font-light leading-[1.7] text-foreground-secondary">
         {product.description}
       </p>
-
-      {product.ratingPlaceholder ? (
-        <p className="mt-4 text-caption text-foreground-muted" aria-label="Reviews coming soon">
-          <span aria-hidden="true">☆☆☆☆☆</span>
-          <span className="ml-1.5">Reviews soon</span>
-        </p>
-      ) : null}
     </div>
   );
 }

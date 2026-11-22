@@ -1,9 +1,12 @@
 import {
+  CollectionProductSection,
+} from "@/components/sections/collection";
+import {
   ShopFeaturedCategories,
   ShopLandingHero,
-  ShopProductDiscovery,
 } from "@/components/sections/shop";
 import { JsonLd, breadcrumbJsonLd } from "@/components/seo";
+import { getAllProductsPageService } from "@/services/collections";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
@@ -14,10 +17,11 @@ export const metadata = createPageMetadata({
 });
 
 /**
- * Shop landing — curated catalogue discovery.
- * Product grid, filters, and sorting are intentionally deferred.
+ * Shop all — full catalogue grid with filters and sort, matching category pages.
  */
 export default function ShopLandingPage() {
+  const allProducts = getAllProductsPageService();
+
   return (
     <>
       <JsonLd
@@ -25,7 +29,7 @@ export default function ShopLandingPage() {
       />
       <ShopLandingHero />
       <ShopFeaturedCategories />
-      <ShopProductDiscovery />
+      <CollectionProductSection data={allProducts} showHeading={false} />
     </>
   );
 }

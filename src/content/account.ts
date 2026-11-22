@@ -171,7 +171,7 @@ export const ACCOUNT_COPY = {
   newsletterManage: "Manage Preferences",
   orderUpdates: "Order updates",
   rewardsTitle: "Reward status",
-  rewardsHint: "Loyalty programme coming soon",
+  rewardsHint: "Your account, orders and saved items in one place",
   rewardsPlaceholder: "—",
   quickActionsTitle: "Quick actions",
   accountInfoTitle: "Account information",

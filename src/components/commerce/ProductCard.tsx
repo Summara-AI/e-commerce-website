@@ -75,14 +75,13 @@ export const ProductCard = memo(function ProductCard({
           ? ({ variant: "celadon" as const, label: "Best Seller" })
           : null;
 
+  // At most one badge per card. Low stock is only truthful with real inventory,
+  // and authenticity is stated once site-wide (footer / PDP trust) — not per card.
   const statusBadges = soldOut
     ? [{ variant: "outline" as const, label: "Sold out" }]
-    : [
-        ...(marketingBadge ? [marketingBadge] : []),
-        ...(lowStock
-          ? [{ variant: "sale" as const, label: "Low Stock" as const }]
-          : []),
-      ];
+    : marketingBadge
+      ? [marketingBadge]
+      : [];
 
   const toggleWishlist = () => {
     if (account) {
@@ -98,8 +97,8 @@ export const ProductCard = memo(function ProductCard({
   const addToCart = async () => {
     if (soldOut) {
       toast.info(
-        "We’ll notify you",
-        "Back-in-stock alerts connect with Shopify next.",
+        "Currently sold out",
+        "This product is out of stock. Please check back soon.",
       );
       return;
     }
@@ -211,11 +210,6 @@ export const ProductCard = memo(function ProductCard({
               {badge.label}
             </Badge>
           ))}
-          {!soldOut ? (
-            <Badge variant="authentic" className="px-2 py-0.5 text-[0.65rem]">
-              Authentic
-            </Badge>
-          ) : null}
         </div>
 
         <button

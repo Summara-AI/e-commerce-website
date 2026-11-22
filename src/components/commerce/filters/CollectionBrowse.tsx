@@ -59,7 +59,22 @@ export function CollectionBrowse({ products, bundles = [], className }: Collecti
     return bundles.length ? [...enriched, ...bundlesAsFilterable(bundles)] : enriched;
   }, [products, bundles]);
 
-  const facets = useMemo(() => buildFacets(catalog), [catalog]);
+  const facets = useMemo(() => {
+    const built = buildFacets(catalog);
+    // A filter with a single option can't narrow anything — hide it.
+    const prune = <T extends { id: string; label: string; count: number }>(list: T[]) =>
+      list.length > 1 ? list : [];
+    return {
+      ...built,
+      categories: prune(built.categories),
+      concerns: prune(built.concerns),
+      ingredients: prune(built.ingredients),
+      productTypes: prune(built.productTypes),
+      priceRanges: prune(built.priceRanges),
+      availability: prune(built.availability),
+      kind: prune(built.kind),
+    };
+  }, [catalog]);
 
   const filtered = useMemo(
     () => sortProducts(filterProducts(catalog, state), state.sort),

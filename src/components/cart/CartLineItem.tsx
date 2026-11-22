@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Heart, Minus, Plus, Trash2 } from "lucide-react";
+import { Minus, Plus, Trash2 } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { CartLine } from "@/components/cart/cart-context";
 import { CART_COPY } from "@/content/cart";
@@ -55,9 +55,11 @@ export function CartLineItem({
                 {line.title}
               </Link>
             </h3>
-            <p className="mt-2 text-caption font-medium uppercase tracking-[0.1em] text-foreground-muted">
-              {line.variantTitle}
-            </p>
+            {line.variantTitle && line.variantTitle.toLowerCase() !== "default" ? (
+              <p className="mt-2 text-caption font-medium uppercase tracking-[0.1em] text-foreground-muted">
+                {line.variantTitle}
+              </p>
+            ) : null}
           </div>
           <div className="shrink-0 text-right">
             <p className="text-sm font-medium tracking-[0.01em] text-foreground">
@@ -120,17 +122,6 @@ export function CartLineItem({
               <Plus className="h-3.5 w-3.5" strokeWidth={1.5} />
             </button>
           </div>
-
-          <button
-            type="button"
-            disabled
-            title="Save for later — wishlist connects next"
-            aria-label={`${CART_COPY.saveForLater} ${line.title} (coming soon)`}
-            className="inline-flex h-11 items-center gap-1.5 rounded-badge px-3 text-caption font-medium text-foreground-muted disabled:opacity-45"
-          >
-            <Heart className="h-3.5 w-3.5" strokeWidth={1.5} aria-hidden="true" />
-            {CART_COPY.saveForLater}
-          </button>
 
           <button
             type="button"

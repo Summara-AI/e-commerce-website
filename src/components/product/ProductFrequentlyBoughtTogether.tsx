@@ -125,7 +125,7 @@ export function ProductFrequentlyBoughtTogether({ fbt, className }: ProductFbtPr
             ) : null}
             {fbt.savings ? (
               <p className="mt-2 text-sm font-medium text-power-pink">
-                Save {fbt.savings.formatted} vs listed compares
+                Save {fbt.savings.formatted} vs the listed price
               </p>
             ) : null}
             <Button

@@ -121,7 +121,7 @@ export function DesktopNav({ className }: DesktopNavProps) {
                     href={item.href}
                     aria-current={active ? "page" : undefined}
                     className={cn(
-                      "relative inline-flex min-h-11 items-center rounded-sm px-3 text-sm font-medium tracking-[0.02em]",
+                      "relative inline-flex min-h-11 items-center gap-1 rounded-sm px-3 text-sm font-medium tracking-[0.02em]",
                       "text-foreground transition-colors duration-200 ease-soft desktop:px-4",
                       "hover:text-power-pink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-border-focus",
                       active &&

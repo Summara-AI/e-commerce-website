@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { MediaImage } from "@/components/common/MediaImage";
 import type { MegaPromo } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
@@ -30,7 +31,16 @@ export function MegaMenuPromo({ promo, onNavigate, premium = false }: MegaMenuPr
         )}
         aria-hidden={Boolean(promo.image?.src) ? undefined : true}
       >
-        {/* Asset pending — see NAV_IMAGE_SPECS.mega-promo-* */}
+        {promo.image?.src ? (
+          <MediaImage
+            src={promo.image.src}
+            alt={promo.image.alt}
+            fill
+            sizes="(max-width: 1024px) 100vw, 360px"
+            spec="mega-promo"
+            className="object-cover"
+          />
+        ) : null}
         <div className="absolute inset-0 flex items-end bg-gradient-to-t from-ink/20 to-transparent p-4">
           <span className="text-overline font-medium uppercase tracking-[0.14em] text-foreground-muted">
             {promo.eyebrow}

@@ -10,6 +10,7 @@ import { isShopifyLive } from "@/lib/commerce/mode";
 import { CommerceError } from "@/lib/api/errors";
 import {
   getAllCollectionHandles,
+  getAllProductsPage,
   getCollectionPage,
   type CollectionPageData,
 } from "@/lib/collections";
@@ -44,6 +45,12 @@ export function getCollectionHandlesService(): string[] {
 export function getCollectionPageService(handle: string): CollectionPageData | null {
   if (isShopifyLive()) assertLiveNotWired("collection page");
   return getCollectionPage(handle);
+}
+
+/** Shop-all page — full catalogue in the collection browse UI. */
+export function getAllProductsPageService(): CollectionPageData {
+  if (isShopifyLive()) assertLiveNotWired("shop all page");
+  return getAllProductsPage();
 }
 
 /** Collection cards for shop landing / rails. */

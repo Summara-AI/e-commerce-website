@@ -12,12 +12,45 @@ export type { SearchResponse, SearchResultModel, SearchDiscoveryModel } from "@/
 
 function imageForHref(href: string): string | undefined {
   const handle = href.match(/^\/products\/([^/?#]+)/)?.[1];
-  return handle ? CLIENT_PRODUCTS[handle]?.image : undefined;
+  if (!handle) return undefined;
+  const catalogImage = ALL_PRODUCTS.find((p) => p.handle === handle)?.imageSrc;
+  return catalogImage ?? CLIENT_PRODUCTS[handle]?.image;
 }
 
 export function searchStore(query: string, limit = 40): SearchResponse {
   const q = query.trim();
-  const results = searchCatalog(q, limit).map((r) => ({
+  const qLower = q.toLowerCase();
+
+  // Curated index (pages, collections, bundles, synonym-enriched products).
+  const curated = searchCatalog(q, limit);
+
+  // Full catalogue — match description, type, badges, handle and keywords so
+  // terms like "snail" find the Escargot cream even without a title match.
+  const fromCatalog = qLower
+    ? ALL_PRODUCTS.filter((p) => {
+        const hay = [p.title, p.description, p.productType, p.handle, ...(p.badges ?? [])]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase();
+        const keywordHit =
+          p.handle.includes("escargot") &&
+          ("snail".includes(qLower) || qLower.includes("snail"));
+        return hay.includes(qLower) || keywordHit;
+      })
+        .filter((p) => !curated.some((r) => r.href === p.href))
+        .map((p) => ({
+          id: `catalog-${p.handle}`,
+          type: "product" as const,
+          title: p.title,
+          href: p.href,
+          subtitle: p.productType ? `${p.productType} · Product` : "Product",
+          priceLabel: p.price.formatted,
+          imageAlt: p.imageAlt,
+          keywords: p.description,
+        }))
+    : [];
+
+  const results = [...curated, ...fromCatalog].slice(0, limit).map((r) => ({
     id: r.id,
     type: r.type === "bundle" ? ("product" as const) : r.type,
     title: r.title,

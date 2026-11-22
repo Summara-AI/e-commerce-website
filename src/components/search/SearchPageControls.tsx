@@ -67,25 +67,7 @@ export function SearchPageControls({ query, className }: SearchFiltersReadyProps
         </Button>
       </form>
 
-      {/* Future-ready filter rail — Shopify collection filters / Storefront facets */}
-      <div
-        className="flex flex-wrap items-center gap-2 border-y border-border-subtle py-3"
-        data-shopify-block="search-filters"
-        aria-label="Search filters"
-      >
-        <p className="text-caption font-medium text-foreground-muted">
-          Filters — coming with Shopify faceted search
-        </p>
-        <span className="rounded-sm border border-dashed border-border-subtle px-3 py-1 text-caption text-foreground-muted">
-          Availability
-        </span>
-        <span className="rounded-sm border border-dashed border-border-subtle px-3 py-1 text-caption text-foreground-muted">
-          Product type
-        </span>
-        <span className="rounded-sm border border-dashed border-border-subtle px-3 py-1 text-caption text-foreground-muted">
-          Price
-        </span>
-      </div>
+
     </div>
   );
 }

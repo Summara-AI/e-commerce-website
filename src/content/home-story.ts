@@ -87,7 +87,7 @@ export const HOME_STORY_PREVIEW = {
 export const HOME_TESTIMONIALS_COPY = {
   eyebrow: "Voices",
   title: "Confidence, quietly shared",
-  description: "Early community voices — live reviews connect with Shopify next.",
+  description: "Thoughtful notes from our community — calm, honest skincare conversations.",
 } as const;
 
 export const HOME_COMMUNITY_COPY = {

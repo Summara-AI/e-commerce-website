@@ -143,9 +143,11 @@ export function ProductGallery({ media, productTitle, className }: ProductGaller
           </>
         ) : null}
 
-        <p className="absolute left-3 top-3 rounded-badge bg-canvas/90 px-2.5 py-1 text-caption font-medium text-foreground-muted shadow-elev1 backdrop-blur-sm">
-          {selected + 1} / {slides.length}
-        </p>
+        {slides.length > 1 ? (
+          <p className="absolute left-3 top-3 rounded-badge bg-canvas/90 px-2.5 py-1 text-caption font-medium text-foreground-muted shadow-elev1 backdrop-blur-sm">
+            {selected + 1} / {slides.length}
+          </p>
+        ) : null}
       </div>
 
       {slides.length > 1 ? (

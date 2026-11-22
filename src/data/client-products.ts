@@ -1071,11 +1071,9 @@ export const CLIENT_PRODUCTS: Record<string, ClientProductContent> = {
     keyIngredients:
       "Zinc oxide, Ceramide NP, houttuynia cordata extract, niacinamide, daisy flower extract, Black Rice Bran oil extract, hyaluronic acid, moringa seed oil.",
     details: [
-      "Non-nano Zinc Oxide Pure Mineral Product Which is Suitable For The Whole Family and Extra Gentle for those with Sensitive Skin.",
-      "Airless Packaging to Keep Unused Product Shielded from Contact with Air, so the Product has a Reduced Risk of Oxidation.",
-      "Rice Bran Oil Infused with Black Rice that gives Antioxidant Effect and Skin Moisturization. Heartleaf Extract for Nourishment and Skin Soothing, Niacinamide to Improve Skin Tone.",
-      "Reef Safe Formula that Does Not Contain Oxybenzone and Octinoxate which are known to cause harm to the sea.",
-      "Haruharu Standard: Haruharu Aims to Make Product which is Suitable for All Skin Type, even for those with Extra Sensitive Skin. We make products with Vegan Friendly Ingredients, Hypoallergenic Formula, Cruelty Free, Free from 7 types of Paraben and 11 harmful Ingredients.",
+      "Apply as the last step of your morning routine, spreading evenly over face and neck 15 minutes before sun exposure. Reapply every 2–3 hours outdoors, and after sweating or swimming.",
+      "Gentle enough for the whole family, including sensitive skin. An airless pump keeps unused formula shielded from air and helps reduce oxidation.",
+      "Reef-safe — made without oxybenzone or octinoxate. The formula is vegan-friendly, hypoallergenic and cruelty-free.",
     ],
     howToUse: [
       "Apply as the last step of your morning skincare routine.",
@@ -1083,7 +1081,7 @@ export const CLIENT_PRODUCTS: Record<string, ClientProductContent> = {
       "Reapply every 2-3 hours when outdoors, and after sweating or swimming.",
     ],
     shortDescription:
-      "Non-nano Zinc Oxide Pure Mineral Product Which is Suitable For The Whole Family and Extra Gentle for those with Sensitive Skin.",
+      "A calm, everyday mineral SPF50 with non-nano zinc oxide — gentle enough for sensitive skin and the whole family.",
     image:
       "/media/products/Haruharu Wonder Black Rice Pure Mineral Relief Daily Sunscreen SPF50.png",
     skinTypes: ["All skin types", "Sensitive skin"],
@@ -1100,7 +1098,7 @@ export const CLIENT_PRODUCTS: Record<string, ClientProductContent> = {
       {
         title: "Pure mineral protection",
         description:
-          "Non-nano Zinc Oxide Pure Mineral Product Which is Suitable For The Whole Family and Extra Gentle for those with Sensitive Skin.",
+          "Non-nano zinc oxide is the sole active filter — gentle mineral coverage for daily wear.",
       },
       {
         title: "Airless packaging",

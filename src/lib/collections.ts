@@ -362,6 +362,34 @@ export function getCollectionPage(handle: string): CollectionPageData | null {
   };
 }
 
+/**
+ * Shop-all page payload — every product with the same browse UI as category pages.
+ * `/collections/all` is a static route, so it cannot use `getCollectionPage("all")`.
+ */
+export function getAllProductsPage(): CollectionPageData {
+  const meta: CatalogCollection = {
+    id: "all",
+    handle: "all",
+    title: "All products",
+    href: "/collections/all",
+    description: "Every authentic Korean skincare product in the SCYN edit.",
+    imageAlt: "SCYN Korean skincare collection",
+  };
+
+  return {
+    handle: "all",
+    collection: meta,
+    status: ALL_PRODUCTS.length ? "active" : "empty",
+    products: ALL_PRODUCTS,
+    productCount: ALL_PRODUCTS.length,
+    editorial: {
+      lead: "Every product in the SCYN edit, in one calm place. Filter by category, skin concern, or product type — or sort to find what you need.",
+    },
+    switcherHandles: PRODUCT_CATEGORIES.map((c) => c.handle),
+    breadcrumbLabel: "Shop",
+  };
+}
+
 export function getAllCollectionHandles(): string[] {
   return [...MERCH_COLLECTIONS, ...FEATURED_COLLECTIONS, ...PRODUCT_CATEGORIES]
     .map((c) => c.handle)

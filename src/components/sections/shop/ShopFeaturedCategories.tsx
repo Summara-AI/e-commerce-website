@@ -78,10 +78,10 @@ export function ShopFeaturedCategories({ className }: { className?: string }) {
                 reduceMotion ? false : { opacity: 0, y: 20, scale: 0.98 }
               }
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, amount: 0.35 }}
+              viewport={{ once: true, amount: "some", margin: "0px 0px 100px 0px" }}
               transition={{
-                duration: 0.6,
-                delay: reduceMotion ? 0 : Math.min(index, 4) * 0.06,
+                duration: 0.28,
+                delay: reduceMotion ? 0 : Math.min(index, 4) * 0.03,
                 ease,
               }}
             >
