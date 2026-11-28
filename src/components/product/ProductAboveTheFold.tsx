@@ -69,8 +69,9 @@ export function ProductAboveTheFold({ product, className }: ProductAboveTheFoldP
     <>
       <Section
         spacing="default"
+        topSpacing="compact"
         aria-labelledby="pdp-title"
-        className={cn("bg-page pb-28 tablet:pb-32", className)}
+        className={cn("bg-page", className)}
         data-product-handle={product.handle}
       >
         <Container width="content">
@@ -84,7 +85,9 @@ export function ProductAboveTheFold({ product, className }: ProductAboveTheFoldP
           />
 
           <div className="grid gap-12 laptop:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] laptop:gap-16 desktop:gap-20">
-            <ProductGallery media={product.media} productTitle={product.title} />
+            <div className="laptop:sticky laptop:top-[calc(var(--announcement-height)+var(--header-height-sticky)+1.5rem)] laptop:self-start">
+              <ProductGallery media={product.media} productTitle={product.title} />
+            </div>
 
             <div className="laptop:sticky laptop:top-28 laptop:self-start">
               <ProductInfo product={product} variant={variant} />

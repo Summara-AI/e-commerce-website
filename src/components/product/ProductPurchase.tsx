@@ -251,10 +251,6 @@ export function ProductPurchase({
 
       <ul className="space-y-3 text-sm text-foreground-secondary">
         <li>
-          <span className="font-medium text-foreground">Stock · </span>
-          {soldOut ? PDP_PURCHASE.soldOut : PDP_PURCHASE.inStock}
-        </li>
-        <li>
           <span className="font-medium text-foreground">Shipping · </span>
           {PDP_PURCHASE.shippingSummary}{" "}
           <Link

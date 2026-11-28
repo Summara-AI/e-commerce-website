@@ -53,8 +53,8 @@ export function ProductGallery({ media, productTitle, className }: ProductGaller
   if (!slides.length) {
     return (
       <div className={cn("flex flex-col gap-4", className)} data-shopify-section="product-gallery">
-        <div className="relative overflow-hidden rounded-card border border-border-subtle bg-pearl shadow-elev2">
-          <div className="relative aspect-[4/5] w-full overflow-hidden bg-blush">
+        <div className="relative overflow-hidden rounded-card border border-border-subtle bg-canvas">
+          <div className="relative aspect-[4/5] w-full overflow-hidden">
             <MediaImage
               src={undefined}
               alt={productTitle}
@@ -70,7 +70,7 @@ export function ProductGallery({ media, productTitle, className }: ProductGaller
 
   return (
     <div className={cn("flex flex-col gap-4", className)} data-shopify-section="product-gallery">
-      <div className="relative overflow-hidden rounded-card border border-border-subtle bg-pearl shadow-elev2">
+      <div className="relative overflow-hidden rounded-card border border-border-subtle bg-canvas">
         <div className="overflow-hidden" ref={emblaRef}>
           <ul className="flex">
             {slides.map((item, index) => {
@@ -79,7 +79,7 @@ export function ProductGallery({ media, productTitle, className }: ProductGaller
               return (
               <li key={item.id} className="min-w-0 shrink-0 grow-0 basis-full">
                 <div
-                  className="lux-media-zoom relative aspect-[4/5] w-full overflow-hidden bg-blush"
+                  className="lux-media-zoom relative aspect-[4/5] w-full overflow-hidden"
                   data-image-spec={`pdp-media-${item.role}`}
                   data-media-index={index}
                 >
@@ -97,7 +97,7 @@ export function ProductGallery({ media, productTitle, className }: ProductGaller
                     )}
                   />
                   ) : (
-                    <div className="h-full w-full bg-blush" aria-hidden="true" />
+                    <div className="h-full w-full bg-canvas" aria-hidden="true" />
                   )}
                   {index === 0 ? (
                     <span className="visually-hidden">{productTitle} primary image</span>

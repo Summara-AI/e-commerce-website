@@ -66,7 +66,8 @@ export function CollectionBrowse({ products, bundles = [], className }: Collecti
       list.length > 1 ? list : [];
     return {
       ...built,
-      categories: prune(built.categories),
+      // Category and product type mirror each other — keep one (Product type).
+      categories: built.productTypes.length > 1 ? [] : prune(built.categories),
       concerns: prune(built.concerns),
       ingredients: prune(built.ingredients),
       productTypes: prune(built.productTypes),
@@ -172,12 +173,6 @@ export function CollectionBrowse({ products, bundles = [], className }: Collecti
           />
         ) : (
           <>
-            {pageData.total > 0 && pageData.totalPages > 1 ? (
-              <p className="mt-5 text-caption text-foreground-muted">
-                Showing {pageData.from}–{pageData.to} of {pageData.total}
-              </p>
-            ) : null}
-
             <div className="mt-8 space-y-10">
               {bundleCards.length ? (
                 <ul

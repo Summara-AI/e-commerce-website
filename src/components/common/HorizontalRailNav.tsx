@@ -13,7 +13,7 @@ type HorizontalRailNavProps = {
 };
 
 /**
- * Floating carousel arrows — vertically centered on the rail, above scroll content.
+ * Carousel arrows — static row outside the cards on desktop; swipe on mobile.
  */
 export function HorizontalRailNav({
   onPrev,
@@ -26,9 +26,8 @@ export function HorizontalRailNav({
   return (
     <div
       className={cn(
-        "pointer-events-none absolute inset-y-0 left-0 right-0 z-30",
-        "flex items-center justify-between px-2 tablet:px-3 laptop:px-4",
-        "top-0 bottom-10 tablet:bottom-12",
+        "hidden items-center justify-end gap-2 desktop:flex",
+        "pointer-events-auto px-5 tablet:px-8 desktop:px-12",
         className,
       )}
     >

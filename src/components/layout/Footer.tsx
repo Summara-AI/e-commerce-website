@@ -53,7 +53,7 @@ export function Footer({ className }: { className?: string }) {
       )}
       data-site-footer
     >
-      <Container width="max" className="py-20 tablet:py-24 desktop:py-28">
+      <Container width="max" className="pb-8 pt-16 tablet:pt-20 desktop:pt-24">
         <div className="grid gap-16 laptop:grid-cols-[1.2fr_2fr] laptop:gap-24">
           <div className="max-w-sm space-y-8">
             <Logo />
@@ -61,7 +61,7 @@ export function Footer({ className }: { className?: string }) {
               100% authentic Korean skincare for Pakistan — verified products,
               thoughtfully curated routines, and calm guidance you can trust.
             </p>
-            <div className="space-y-2 text-sm font-light text-foreground-secondary">
+            <div className="space-y-2 text-sm text-foreground">
               <a
                 href={mailtoHref(FOOTER_CONTACT.email)}
                 className="block transition-colors hover:text-power-pink"
@@ -83,7 +83,7 @@ export function Footer({ className }: { className?: string }) {
                 WhatsApp us
               </a>
               <p className="pt-1">{FOOTER_CONTACT.address}</p>
-              <p className="text-caption text-foreground-muted">{FOOTER_CONTACT.hours}</p>
+              <p className="text-sm text-foreground">{FOOTER_CONTACT.hours}</p>
             </div>
             <ul className="flex flex-wrap gap-x-6 gap-y-2">
               {FOOTER_SOCIAL.map((item) => (
@@ -110,7 +110,7 @@ export function Footer({ className }: { className?: string }) {
 
         <Divider className="my-14" />
 
-        <div className="flex flex-col gap-6 tablet:flex-row tablet:items-center tablet:justify-between">
+        <div className="flex flex-col items-center gap-6 text-center tablet:flex-row tablet:items-center tablet:justify-between tablet:text-left">
           <p className="text-caption text-foreground-muted">
             © {year} SCYN. All rights reserved.
           </p>
@@ -128,8 +128,8 @@ export function Footer({ className }: { className?: string }) {
             ))}
           </ul>
 
-          <div className="flex flex-col gap-3">
-            <div className="flex flex-wrap items-center gap-2.5" aria-label="Trust signals">
+          <div className="flex flex-wrap items-center justify-center gap-2 tablet:justify-end">
+            <div className="flex flex-wrap items-center justify-center gap-2.5" aria-label="Trust signals">
               <span className="rounded-badge border border-border-subtle bg-canvas px-2.5 py-1 text-caption font-medium uppercase tracking-[0.08em] text-foreground-muted">
                 100% Authentic
               </span>

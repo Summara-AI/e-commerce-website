@@ -16,6 +16,7 @@ export function ShopLandingHero({ className }: { className?: string }) {
   return (
     <Section
       spacing="default"
+      topSpacing="compact"
       aria-labelledby="shop-hero-heading"
       className={cn("relative overflow-hidden bg-page", className)}
     >

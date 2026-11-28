@@ -259,7 +259,7 @@ export const ProductCard = memo(function ProductCard({
 
         <h3
           className={cn(
-            "font-display font-light italic leading-snug tracking-[-0.01em] text-foreground",
+            "line-clamp-2 min-h-[3rem] font-display font-light italic leading-snug tracking-[-0.01em] text-foreground",
             showBrand || product.productType ? "mt-2" : "mt-0",
             density === "compact" ? "text-base" : "text-lg tablet:text-xl",
           )}
@@ -322,11 +322,9 @@ export const ProductCard = memo(function ProductCard({
           </p>
         ) : null}
 
-        {density === "default" ? (
-          <p className="mt-3 line-clamp-2 font-sans text-sm font-light leading-relaxed text-foreground-secondary">
-            {product.description}
-          </p>
-        ) : null}
+        <p className="mt-3 line-clamp-2 min-h-[2.75rem] font-sans text-sm font-light leading-relaxed text-foreground-secondary">
+          {product.description}
+        </p>
 
         <div className="mt-auto flex flex-col gap-3 pt-5">
           <Button
@@ -353,18 +351,6 @@ export const ProductCard = memo(function ProductCard({
                 {addLabel}
               </>
             )}
-          </Button>
-          <Button
-            asChild
-            variant="text"
-            size="sm"
-            className={cn(
-              "w-full justify-center font-medium min-h-10",
-              lux &&
-                "transition-transform duration-320 ease-out group-hover:translate-x-0.5 motion-reduce:group-hover:translate-x-0",
-            )}
-          >
-            <Link href={product.href}>View Product</Link>
           </Button>
         </div>
       </div>

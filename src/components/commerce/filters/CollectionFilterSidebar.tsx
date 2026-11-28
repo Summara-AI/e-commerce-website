@@ -44,7 +44,9 @@ export function CollectionFilterSidebar({
     >
       <div className="sticky top-28 space-y-4">
         <div className="flex items-center justify-between gap-3">
-          <h2 className="font-display text-lg font-light text-foreground">Filters</h2>
+          <h2 className="text-overline font-medium uppercase tracking-[0.14em] text-foreground">
+            Filters
+          </h2>
           {active > 0 ? (
             <Button type="button" variant="text" size="sm" onClick={onReset}>
               Reset

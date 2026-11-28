@@ -21,7 +21,7 @@ export function HomeHero({ className }: { className?: string }) {
     <section
       aria-labelledby="home-hero-heading"
       className={cn(
-        "relative isolate overflow-hidden lux-atmosphere",
+        "relative isolate flex min-h-[calc(100svh-var(--announcement-height)-var(--header-height-sticky))] max-h-[760px] flex-col justify-center overflow-hidden lux-atmosphere pb-16 tablet:pb-20 desktop:pb-24",
         "bg-[linear-gradient(140deg,var(--color-canvas)_0%,var(--color-blush)_45%,var(--color-pearl)_100%)]",
         className,
       )}
@@ -31,8 +31,8 @@ export function HomeHero({ className }: { className?: string }) {
         <div className="absolute bottom-0 right-[40%] h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(239,232,224,0.7)_0%,transparent_70%)] blur-3xl" />
       </div>
 
-      <Container width="max" className="relative py-16 tablet:py-24 laptop:py-28 desktop:py-32">
-        <div className="grid items-center gap-14 laptop:grid-cols-2 laptop:gap-12 desktop:gap-20">
+      <Container width="max" className="relative flex w-full flex-1 items-center py-10 tablet:py-12 desktop:py-14">
+        <div className="grid w-full items-center gap-10 tablet:gap-12 laptop:grid-cols-2 laptop:gap-12 desktop:gap-20">
           <div className="relative z-[1] max-w-xl">
             <motion.p
               className="font-sans text-overline font-medium uppercase tracking-[0.2em] text-power-pink"
@@ -44,7 +44,7 @@ export function HomeHero({ className }: { className?: string }) {
             </motion.p>
             <motion.h1
               id="home-hero-heading"
-              className="mt-5 font-display text-hero font-light italic tracking-[-0.03em] text-foreground tablet:mt-6 desktop:text-display"
+              className="mt-4 font-display text-hero font-light italic tracking-[-0.03em] text-foreground tablet:mt-5 desktop:text-display"
               initial={reduceMotion ? false : { opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: reduceMotion ? 0 : 0.08, ease }}
@@ -52,7 +52,7 @@ export function HomeHero({ className }: { className?: string }) {
               {copy.headline}
             </motion.h1>
             <motion.p
-              className="mt-6 max-w-md text-base font-light leading-[1.8] text-foreground-secondary tablet:text-lg"
+              className="mt-4 max-w-md text-base font-light leading-[1.7] text-foreground-secondary tablet:mt-5 tablet:text-lg"
               initial={reduceMotion ? false : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: reduceMotion ? 0 : 0.16, ease }}
@@ -64,7 +64,7 @@ export function HomeHero({ className }: { className?: string }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: reduceMotion ? 0 : 0.24, ease }}
             >
-              <div className="mt-10 tablet:mt-12">
+              <div className="mt-8 tablet:mt-10">
               <Button asChild size="lg">
                 <Link href={copy.primaryCta.href}>{copy.primaryCta.label}</Link>
               </Button>
@@ -73,7 +73,7 @@ export function HomeHero({ className }: { className?: string }) {
           </div>
 
           <motion.div
-            className="relative mx-auto w-full max-w-lg laptop:max-w-none"
+            className="relative mx-auto w-full max-w-[22rem] px-1 tablet:max-w-lg tablet:px-0 laptop:max-w-none"
             initial={reduceMotion ? false : { opacity: 0, scale: 0.98, y: 28 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, delay: reduceMotion ? 0 : 0.12, ease }}
@@ -81,17 +81,17 @@ export function HomeHero({ className }: { className?: string }) {
           >
             <div className="relative aspect-[4/5] w-full tablet:aspect-[5/6] laptop:aspect-[4/5]">
               <motion.div
-                className="absolute -right-4 top-[8%] h-28 w-28 rounded-full bg-pink-mist/80 blur-[2px] tablet:h-36 tablet:w-36"
+                className="absolute right-0 top-[8%] h-24 w-24 rounded-full bg-pink-mist/80 blur-[2px] tablet:-right-4 tablet:h-36 tablet:w-36"
                 animate={reduceMotion ? undefined : { y: [0, 10, 0] }}
                 transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
               />
               <motion.div
-                className="absolute -left-6 bottom-[18%] h-20 w-20 rounded-full border border-soft-pink/40 bg-canvas/40"
+                className="absolute left-0 bottom-[18%] h-20 w-20 rounded-full border border-soft-pink/40 bg-canvas/40 tablet:-left-6"
                 animate={reduceMotion ? undefined : { y: [0, -8, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
               />
 
-              <div className="lux-media-zoom absolute inset-[4%_6%_12%_10%] overflow-hidden rounded-card border border-border-subtle bg-blush shadow-float">
+              <div className="lux-media-zoom absolute inset-[4%_4%_14%_4%] overflow-hidden rounded-card border border-border-subtle bg-blush shadow-float tablet:inset-[4%_6%_12%_10%]">
                 <MediaImage
                   alt="Premium Korean skincare editorial — soft daylight ritual"
                   fill
@@ -105,7 +105,7 @@ export function HomeHero({ className }: { className?: string }) {
               </div>
 
               <motion.div
-                className="absolute bottom-[4%] left-[0%] z-[2] w-[42%] overflow-hidden rounded-card border border-border-subtle bg-canvas shadow-elev3"
+                className="absolute bottom-[4%] left-[2%] z-[2] w-[42%] overflow-hidden rounded-card border border-border-subtle bg-canvas shadow-elev3 tablet:left-[0%]"
                 animate={reduceMotion ? undefined : { y: [0, -7, 0] }}
                 transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut" }}
               >
@@ -121,7 +121,7 @@ export function HomeHero({ className }: { className?: string }) {
               </motion.div>
 
               <motion.div
-                className="absolute right-[0%] top-[6%] z-[2] w-[36%] overflow-hidden rounded-card border border-border-subtle bg-canvas/95 shadow-elev2 lux-glass"
+                className="absolute right-[2%] top-[6%] z-[2] w-[36%] overflow-hidden rounded-card border border-border-subtle bg-canvas/95 shadow-elev2 lux-glass tablet:right-[0%]"
                 animate={reduceMotion ? undefined : { y: [0, 9, 0] }}
                 transition={{ duration: 6.4, repeat: Infinity, ease: "easeInOut", delay: 0.35 }}
               >

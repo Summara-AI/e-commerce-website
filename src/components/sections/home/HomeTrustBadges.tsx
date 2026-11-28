@@ -32,7 +32,7 @@ export function HomeTrustBadges({ className }: { className?: string }) {
         <h2 id="home-trust-heading" className="visually-hidden">
           Why shop with SCYN
         </h2>
-        <ul className="grid grid-cols-1 gap-4 tablet:grid-cols-2 tablet:gap-5 laptop:grid-cols-5">
+        <ul className="grid grid-cols-2 gap-3 tablet:grid-cols-2 tablet:gap-5 laptop:grid-cols-5">
           {HOME_TRUST_BADGES.map((badge, index) => {
             const Icon = ICONS[badge.id as keyof typeof ICONS] ?? ShieldCheck;
             return (
@@ -47,7 +47,7 @@ export function HomeTrustBadges({ className }: { className?: string }) {
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 className={cn(
-                  "group rounded-card border border-border-subtle bg-canvas/90 px-5 py-6 text-center",
+                  "group rounded-card border border-border-subtle bg-canvas/90 px-4 py-5 text-center last:col-span-2 laptop:last:col-span-1 tablet:px-5 tablet:py-6",
                   "shadow-[0_8px_24px_-20px_rgba(17,17,17,0.35)] transition-[transform,box-shadow,background-color] duration-320",
                   "hover:-translate-y-1 hover:bg-canvas hover:shadow-[0_18px_32px_-22px_rgba(17,17,17,0.45)]",
                   "motion-reduce:transform-none motion-reduce:hover:translate-y-0",

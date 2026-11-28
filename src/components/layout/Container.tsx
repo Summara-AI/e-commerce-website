@@ -32,7 +32,7 @@ export function Container({
         "mx-auto w-full",
         widthClass[width],
         gutters &&
-          "px-4 tablet:px-6 laptop:px-8 desktop:px-12",
+          "px-5 tablet:px-8 laptop:px-10 desktop:px-12 wide:px-16",
         className,
       )}
     >

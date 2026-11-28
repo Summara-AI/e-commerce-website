@@ -19,7 +19,7 @@ export function ProductTrust({ className }: ProductTrustProps) {
   return (
     <ul
       className={cn(
-        "grid gap-4 border-t border-border-subtle pt-6 tablet:grid-cols-3 tablet:gap-6",
+        "flex flex-col gap-4 border-t border-border-subtle pt-6 tablet:gap-5",
         className,
       )}
       aria-label="Shopping confidence"

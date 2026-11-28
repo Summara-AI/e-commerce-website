@@ -41,7 +41,7 @@ body {
   font-family: var(--font-sans);
   font-size: var(--text-body-size);
   overflow-x: clip;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.65;
   letter-spacing: 0.01em;
   text-rendering: optimizeLegibility;
@@ -54,26 +54,11 @@ body[data-nav-open="true"] {
 }
 
 /*
- * The sticky header already occupies layout space. The first section on each
- * page used to add 96–160px of empty padding above the breadcrumb; pull it up.
+ * Adjacent sections share one gap: the preceding section's bottom padding
+ * (64/80/96px) supplies the whole visible space, so we drop the next top pad.
  */
-main > section:first-child,
-main > div:first-child > section:first-child {
-  padding-top: 2rem !important;
-}
-
-@media (min-width: 768px) {
-  main > section:first-child,
-  main > div:first-child > section:first-child {
-    padding-top: 2.5rem !important;
-  }
-}
-
-@media (min-width: 1280px) {
-  main > section:first-child,
-  main > div:first-child > section:first-child {
-    padding-top: 3rem !important;
-  }
+main section ~ section {
+  padding-top: 0 !important;
 }
 
 img,

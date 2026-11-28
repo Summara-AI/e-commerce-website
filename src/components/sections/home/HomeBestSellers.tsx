@@ -36,14 +36,15 @@ export function HomeBestSellers({ className }: { className?: string }) {
       )}
     >
       <Container width="content">
-        <div className="flex flex-col gap-8 tablet:flex-row tablet:items-end tablet:justify-between">
+        <div className="flex items-end justify-between gap-4">
           <SectionHeading
             id="home-best-sellers-heading"
             eyebrow={copy.eyebrow}
             title={copy.title}
             description={copy.description}
+            className="min-w-0 flex-1"
           />
-          <Button asChild variant="text" className="self-start tablet:self-auto">
+          <Button asChild variant="text" className="shrink-0 self-end">
             <Link href={copy.viewAll.href}>{copy.viewAll.label}</Link>
           </Button>
         </div>
@@ -69,10 +70,10 @@ export function HomeBestSellers({ className }: { className?: string }) {
             "scrollbar-hide touch-pan-x [-webkit-overflow-scrolling:touch]",
             "cursor-grab select-none active:cursor-grabbing",
             "gap-[18px] tablet:gap-6 desktop:gap-8",
-            "scroll-pl-4 tablet:scroll-pl-6 laptop:scroll-pl-[max(2rem,calc((100vw-1200px)/2+2rem))] desktop:scroll-pl-[max(3rem,calc((100vw-1200px)/2+3rem))]",
-            "pl-4 pr-4 pb-8 tablet:pl-6 tablet:pr-6 tablet:pb-10",
-            "laptop:pl-[max(2rem,calc((100vw-1200px)/2+2rem))] laptop:pr-8",
-            "desktop:pl-[max(3rem,calc((100vw-1200px)/2+3rem))] desktop:pr-12",
+            "scroll-pl-4 tablet:scroll-pl-6 laptop:scroll-pl-[max(2rem,calc((100vw-1440px)/2+2rem))] desktop:scroll-pl-[max(3rem,calc((100vw-1440px)/2+3rem))]",
+            "pl-4 pr-[12vw] pb-8 tablet:pl-6 tablet:pr-[8vw] tablet:pb-10",
+            "laptop:pl-[max(2rem,calc((100vw-1440px)/2+2rem))] laptop:pr-[6vw]",
+            "desktop:pl-[max(3rem,calc((100vw-1440px)/2+3rem))] desktop:pr-[5vw]",
             "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-border-focus",
             "[&[data-dragging=true]]:cursor-grabbing [&[data-dragging=true]_a]:pointer-events-none [&[data-dragging=true]_button]:pointer-events-none",
           )}

@@ -26,7 +26,8 @@ export function CollectionHero({ data, className }: CollectionHeroProps) {
 
   return (
     <Section
-      spacing="lux"
+      spacing="default"
+      topSpacing="compact"
       aria-labelledby="collection-hero-heading"
       className={cn("relative overflow-hidden lux-atmosphere bg-page", className)}
       data-collection-handle={collection.handle}

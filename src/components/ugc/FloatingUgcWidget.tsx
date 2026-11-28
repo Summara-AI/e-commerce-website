@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import {
   useCallback,
   useEffect,
@@ -96,10 +95,6 @@ export function FloatingUgcWidget({
   /** Mobile: first tap expands caption; second opens modal */
   const [mobilePrimed, setMobilePrimed] = useState(false);
   const [badgeShimmer, setBadgeShimmer] = useState(false);
-  /** Only appear after the visitor has scrolled — never on first paint. */
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileViewport, setMobileViewport] = useState(false);
-  const pathname = usePathname();
 
   const cardRef = useRef<HTMLDivElement | null>(null);
   const interacted = useRef(false);
@@ -107,9 +102,7 @@ export function FloatingUgcWidget({
   const hidden = chromeBlocking;
   const pauseFloat = cartOpen || chromeBlocking || modalOpen;
 
-  /** Reveal only after scrolling; never cover product photography on mobile. */
-  const hideOnProductMobile = mobileViewport && pathname?.startsWith("/products/");
-  const allowShow = entered && !hidden && scrolled && !hideOnProductMobile;
+  const allowShow = entered && !hidden;
 
   const openModal = useCallback(() => {
     interacted.current = true;
@@ -117,20 +110,6 @@ export function FloatingUgcWidget({
     setMobilePrimed(false);
     setShouldLoadVideo(true);
     setModalOpen(true);
-  }, []);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 240);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    const mq = window.matchMedia("(max-width: 767px)");
-    const onViewport = () => setMobileViewport(mq.matches);
-    onViewport();
-    mq.addEventListener("change", onViewport);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      mq.removeEventListener("change", onViewport);
-    };
   }, []);
 
   useEffect(() => {
@@ -283,22 +262,20 @@ export function FloatingUgcWidget({
               else openModal();
             }}
             className={cn(
-              "fixed z-float flex h-[60px] w-[60px] items-center justify-center rounded-full",
+              "fixed z-float flex h-10 w-10 items-center justify-center rounded-full",
+              "tablet:h-[60px] tablet:w-[60px]",
               "border-2 border-power-pink bg-canvas/90 text-power-pink backdrop-blur-md",
-              "shadow-[0_16px_36px_-16px_rgba(228,19,111,0.45)]",
-              "right-4 bottom-4 tablet:right-5 tablet:bottom-5 laptop:right-6 laptop:bottom-6",
+              "shadow-[0_6px_16px_-8px_rgba(228,19,111,0.35)] tablet:shadow-[0_16px_36px_-16px_rgba(228,19,111,0.45)]",
+              "right-[max(1rem,env(safe-area-inset-right))] bottom-[max(1.5rem,env(safe-area-inset-bottom))]",
+              "tablet:right-5 tablet:bottom-5 laptop:right-6 laptop:bottom-6",
+              // Clear the sticky add-to-bag bar on product pages.
+              "[html[data-sticky-purchase=true]_&]:bottom-[max(5.5rem,calc(env(safe-area-inset-bottom)+5.5rem))] tablet:[html[data-sticky-purchase=true]_&]:bottom-5",
               cookieLift && "bottom-[min(42vh,18rem)] tablet:bottom-5",
               hidden && "pointer-events-none",
               className,
             )}
-            style={{
-              right: "max(1rem, env(safe-area-inset-right))",
-              bottom: cookieLift
-                ? undefined
-                : "max(1rem, env(safe-area-inset-bottom))",
-            }}
           >
-            <Play className="h-5 w-5 fill-current" strokeWidth={1.5} />
+            <Play className="h-4 w-4 fill-current tablet:h-5 tablet:w-5" strokeWidth={1.5} />
           </motion.button>
         ) : null}
       </AnimatePresence>

@@ -59,7 +59,7 @@ export function HomeNewsletter({ className, onSubscribe }: HomeNewsletterProps) 
         />
       </div>
 
-      <Container width="narrow">
+      <Container width="content">
         <motion.div
           className="relative mx-auto max-w-[34rem] overflow-hidden rounded-card border border-border-subtle bg-canvas/70 px-6 py-14 text-center shadow-elev2 backdrop-blur-[2px] tablet:px-12 tablet:py-16"
           initial={reduceMotion ? false : { opacity: 0, y: 24 }}
